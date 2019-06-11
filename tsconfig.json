@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./build",
+    "module": "umd",
+    "target": "es5",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "lib": ["es5", "es2015", "dom", "scripthost"],
+    "typeRoots": ["node_modules/@types", "src/@types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**/*"]
+}

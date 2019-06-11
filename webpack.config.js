@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/index.tsx',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'index.js',
@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.tsx$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: /(node_modules|build)/,
                 use: {
