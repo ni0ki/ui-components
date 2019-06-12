@@ -1,14 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 
-const SimpleButton = ({title = 'Nothing will happen!'}) =>
+const Button = ({title = 'Nothing will happen!'}) =>
     (
         <button style={{
             color: 'white',
-            backgroundColor: 'gray',
+            backgroundColor: 'purple',
             padding: '5px',
             borderRadius: '5px',
             cursor: 'pointer'
         }}>{title}</button>
     );
 
-export default SimpleButton;
+export default Button
