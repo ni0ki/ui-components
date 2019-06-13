@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> should render with default props 1`] = `
+<button
+  style={
+    Object {
+      "backgroundColor": "purple",
+      "borderRadius": "5px",
+      "color": "white",
+      "cursor": "pointer",
+      "padding": "5px",
+    }
+  }
+>
+  Nothing will happen!
+</button>
+`;
+
+exports[`<Button> should render with provided title 1`] = `
+<button
+  style={
+    Object {
+      "backgroundColor": "purple",
+      "borderRadius": "5px",
+      "color": "white",
+      "cursor": "pointer",
+      "padding": "5px",
+    }
+  }
+>
+  whatever
+</button>
+`;

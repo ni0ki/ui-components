@@ -2,7 +2,7 @@ import * as React from 'react';
 import { FunctionComponent } from 'react';
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 const Button: FunctionComponent<Props> = ({
