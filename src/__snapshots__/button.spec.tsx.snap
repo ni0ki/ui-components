@@ -1,33 +1,128 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> should render with default props 1`] = `
-<button
-  style={
-    Object {
-      "backgroundColor": "purple",
-      "borderRadius": "5px",
-      "color": "white",
-      "cursor": "pointer",
-      "padding": "5px",
+exports[`<BasicButton> should render with default style 1`] = `
+.c0 {
+  color: white;
+  background-color: purple;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+<styled.button>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+  color: white;
+  background-color: ",
+            [Function],
+            ";
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+",
+          ],
+        },
+        "displayName": "styled.button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
     }
-  }
+    forwardedRef={null}
+  >
+    <button
+      className="c0"
+    />
+  </StyledComponent>
+</styled.button>
+`;
+
+exports[`<BasicButton> should render with primary style 1`] = `
+.c0 {
+  color: white;
+  background-color: pink;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+<styled.button
+  primary={true}
+>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+  color: white;
+  background-color: ",
+            [Function],
+            ";
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+",
+          ],
+        },
+        "displayName": "styled.button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+    primary={true}
+  >
+    <button
+      className="c0"
+    />
+  </StyledComponent>
+</styled.button>
+`;
+
+exports[`<Button> should render with default props 1`] = `
+<styled.button
+  primary={false}
 >
   Nothing will happen!
-</button>
+</styled.button>
+`;
+
+exports[`<Button> should render with primary settings 1`] = `
+<styled.button
+  primary={true}
+>
+  Nothing will happen!
+</styled.button>
 `;
 
 exports[`<Button> should render with provided title 1`] = `
-<button
-  style={
-    Object {
-      "backgroundColor": "purple",
-      "borderRadius": "5px",
-      "color": "white",
-      "cursor": "pointer",
-      "padding": "5px",
-    }
-  }
+<styled.button
+  primary={false}
 >
   whatever
-</button>
+</styled.button>
 `;

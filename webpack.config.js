@@ -1,11 +1,11 @@
-import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.tsx',
   devtool: 'source-map',
   resolve: {
-    extensions: ['.tsx', '.ts']
+    extensions: ['.js', '.json', '.tsx', '.ts']
   },
   output: {
     path: path.resolve(__dirname, 'build'),
