@@ -6,13 +6,15 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended'
   ],
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'json'],
   settings: {
     react: {
       version: 'detect'
     }
   },
-  rules: {},
+  rules: {
+    'prettier/prettier': 'error'
+  },
   overrides: [
     {
       files: ['*.spec.tsx'],
