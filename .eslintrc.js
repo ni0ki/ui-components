@@ -23,7 +23,7 @@ module.exports = {
       }
     },
     {
-      files: ['webpack.*.js'],
+      files: ['webpack.*.js', 'config/*js'],
       rules: {
         '@typescript-eslint/no-var-requires': 'off'
       }

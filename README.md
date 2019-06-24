@@ -52,8 +52,7 @@ export default App;
 
 ## Usage guide
 
-In order to see all the available components that you this library offers.
-// TODO (github pages)
+All the available components offered by this library are described [here](https://dashlane.github.io/ui-components/). Feel free to navigate through them and to live test the behaviour of each.
 
 ## Built With
 

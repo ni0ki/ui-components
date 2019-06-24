@@ -13,7 +13,8 @@
     "test-watch": "yarn test --watch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "check-lint": "eslint --ext tsx,ts,js,json ."
+    "check-lint": "eslint --ext tsx,ts,js,json .",
+    "exec-docz-update": "node config/updateDoczBuild.js"
   },
   "dependencies": {
     "styled-components": "^4.3.1"
@@ -61,7 +62,10 @@
     }
   },
   "lint-staged": {
-    "*": "yarn pretty-quick",
+    "*": [
+      "yarn pretty-quick",
+      "yarn exec-docz-update"
+    ],
     "*.{tsx,ts,js,json}": "eslint"
   }
 }
