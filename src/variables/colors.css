@@ -1,0 +1,32 @@
+:root {
+  --color-primary-100: '#cce5ea';
+  --color-primary-300: '#8cc4d0';
+  --color-primary-500: '#007c97';
+  --color-primary-600: '#005d71';
+  --color-primary-700: '#003945';
+  --color-primary-800: '#002e38';
+  --color-primary-900: '#062931';
+  --color-secondary-300: '#ffc1a3';
+  --color-secondary-500: '#ff5412';
+  --color-secondary-700: '#b34015';
+  --color-success-300: '#c1eac1';
+  --color-success-500: '#20b422';
+  --color-success-700: '#157917';
+  --color-danger-300: '#ffa49f';
+  --color-danger-500: '#ff002d';
+  --color-danger-700: '#8b0018';
+  --color-warning-300: '#fffcda';
+  --color-warning-500: '#ffe900';
+  --color-warning-700: '#595200';
+  --color-info-300: '#e5f8ff';
+  --color-info-500: '#00b8ff';
+  --color-info-700: '#007dad';
+  --color-info-900: '#00e042';
+  --color-gray-100: '#000000';
+  --color-gray-200: '#fafafa';
+  --color-gray-300: '#e7e7e7';
+  --color-gray-400: '#d6d6d6';
+  --color-gray-500: '#9b9b9b';
+  --color-gray-700: '#474747';
+  --color-gray-900: '#191919';
+}
