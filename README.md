@@ -4,18 +4,16 @@ This library contains Dashlane's reusable ui components built with React 🎉
 
 ## Getting Started
 
-These instructions will get you the latest version of the `ui-components` lib installed in your project, so you start integrating ans using the components.
-
-### Compatibility
-
-Your project needs to use React 16 or later.
-
 ### Prerequisites
 
 You need to install on your machine :
 
 - a recent version of [Node.js](https://nodejs.org/)
 - [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) as a dependency manager
+
+### Compatibility
+
+Your project needs to use React 16 or later
 
 ### Installing
 
@@ -27,7 +25,7 @@ yarn add @dashlane/ui-components@latest
 
 ### Usage
 
-Here's an example of basic usage:
+Here is a basic usage example:
 
 ```typescript jsx
 import * as React from 'react';
@@ -42,7 +40,7 @@ const App: React.FC = () => {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
       </header>
-      <Button title={'Click me'} primary={true} />
+      <Button title={'Click me'} primary />
     </div>
   );
 };
@@ -52,7 +50,7 @@ export default App;
 
 ## Usage guide
 
-All the available components offered by this library are described [here](https://dashlane.github.io/ui-components/). Feel free to navigate through them and to live test the behaviour of each.
+All the available components of the library are described [here](https://dashlane.github.io/ui-components/). Feel free to navigate through out the documentation to test their behaviour.
 
 ## Built With
 

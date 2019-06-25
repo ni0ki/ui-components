@@ -4,9 +4,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You need to install on your machine :
+You need to install:
 
-- a recent version of [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/)
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) as version control system
 - [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) as a dependency manager
 
@@ -32,11 +32,11 @@ In order to get your local development env running, you need to follow the steps
    yarn start
    ```
 
-The last command will watch files located `src` and will recompile whenever they change. The resulted generated files will be located in `build` folder.
+The last command will watch files located `src` and will recompile whenever they change. Generated files are located in the `build` folder.
 
 ### Contributing
 
-Before contributing on this repo, please keep in mind that:
+Before contributing on this project, please keep in mind that:
 
 - We aim to have dumb components in this lib : they are <strong>presentational components</strong> and they shouldn't do any data treatment or management.
 - We use <strong>styled-components</strong> for a better developers experience.
@@ -60,15 +60,15 @@ All you need to do is :
 
 ### Code linting and formatting
 
-We use `prettier` to format and `eslint` with typescript settings to lint our code.
+We use `prettier` to format the code and `eslint` with typescript settings as linter.
 
 ### Good to know :
 
-- It's convenient to configure your ide in order automatically format your files. Please follow this [Editor Integration documentation](https://prettier.io/docs/en/editors.html).
+- It's convenient to configure your IDE in order automatically format your files. Please follow this [Editor Integration documentation](https://prettier.io/docs/en/editors.html).
 
 - Otherwise, we have a yarn task that formats your <strong>git staged files</strong> for you. You can simply run `yarn pretty-quick`
 
-- We also have an automatic task that runs a <strong>prettier</strong> and <strong>eslint</strong> check on git staged files everytime you attempt to create a new <strong>commit</strong> in order to be sure that things are OK
+- We also have an automatic task that runs a <strong>prettier</strong> and <strong>eslint</strong> check on git staged files everytime you attempt to create a new <strong>commit</strong> in order to be sure that everything is OK
 
 - we also execute the task <strong>`yarn exec-docz-update`</strong> on pre-commit that will check if we have added or updated any `Docz` documentation, regenrate documentation build and add them to git : in this way, we assure that https://dashlane.github.io/ui-components is always up to date
 
@@ -78,7 +78,11 @@ We use `prettier` to format and `eslint` with typescript settings to lint our co
 
 ### Running tests
 
-We use [Jest](https://jestjs.io/) as testing framework and assertion library. We use [Enzyme](https://airbnb.io/enzyme/) as a testing utility for react components and [snapshot tests](https://jestjs.io/docs/en/snapshot-testing) to make sure that our UI does not change unexpectedly.
+We use:
+
+- [Jest](https://jestjs.io/) as testing framework and assertion library.
+- [Enzyme](https://airbnb.io/enzyme/) as a testing utility for react components
+- [snapshot tests](https://jestjs.io/docs/en/snapshot-testing) to make sure our UI does not change unexpectedly.
 
 - To run tests, please execute
 
