@@ -2,7 +2,7 @@ import * as React from 'react';
 import { shallow, mount } from 'enzyme';
 import 'jest-styled-components';
 import Button from '.';
-import { BasicButton } from '.';
+import { PrimaryButton } from '.';
 
 describe('<Button>', () => {
   it('should render with default props', () => {
@@ -21,21 +21,21 @@ describe('<Button>', () => {
   });
 
   it('should render with primary settings', () => {
-    const button = shallow(<Button primary={true} />);
+    const button = shallow(<Button  />);
     expect(button).toMatchSnapshot();
   });
 });
 
-describe('<BasicButton>', () => {
+describe('<PrimaryButton>', () => {
   it('should render with default style', () => {
-    const button = mount(<BasicButton />);
+    const button = mount(<PrimaryButton />);
 
     expect(button).toHaveStyleRule('background-color', 'purple');
     expect(button).toMatchSnapshot();
   });
 
   it('should render with primary style', () => {
-    const button = mount(<BasicButton primary={true} />);
+    const button = mount(<PrimaryButton  />);
 
     expect(button).toHaveStyleRule('background-color', 'pink');
     expect(button).toMatchSnapshot();
