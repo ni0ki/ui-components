@@ -7,7 +7,6 @@ export interface Props {
   primary?: boolean;
 }
 
-
 export const BaseButton = styled.button`
   padding: 5px 16px 7px;
   border-radius: 2px;
@@ -17,7 +16,6 @@ export const BaseButton = styled.button`
   line-height: 20px;
   color: ${props => props.theme.fg};
   background-color: ${props => props.theme.bg};
-
 `;
 
 const PrimaryTheme = {
@@ -33,12 +31,11 @@ const InvertedTheme = ({ fg, bg }) => ({
 const Button: FunctionComponent<Props> = ({
   title = 'Nothing will happen!'
 }: Props): JSX.Element => (
-<ThemeProvider theme={PrimaryTheme}>
-<ThemeProvider theme={InvertedTheme}>
-
-   <BaseButton >{title}</BaseButton>
-</ThemeProvider>
-</ThemeProvider>
+  <ThemeProvider theme={PrimaryTheme}>
+    <ThemeProvider theme={InvertedTheme}>
+      <BaseButton>{title}</BaseButton>
+    </ThemeProvider>
+  </ThemeProvider>
 );
 
 export default Button;

@@ -21,7 +21,7 @@ describe('<Button>', () => {
   });
 
   it('should render with primary settings', () => {
-    const button = shallow(<Button  />);
+    const button = shallow(<Button />);
     expect(button).toMatchSnapshot();
   });
 });
@@ -35,7 +35,7 @@ describe('<PrimaryButton>', () => {
   });
 
   it('should render with primary style', () => {
-    const button = mount(<PrimaryButton  />);
+    const button = mount(<PrimaryButton />);
 
     expect(button).toHaveStyleRule('background-color', 'pink');
     expect(button).toMatchSnapshot();
