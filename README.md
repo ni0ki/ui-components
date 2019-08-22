@@ -62,7 +62,7 @@ All the available components offered by this library are described [here](https:
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on contributing on this project and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on contributing on this project and the process for submitting pull requests.
 
 ## Versioning
 

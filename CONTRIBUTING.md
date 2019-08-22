@@ -26,13 +26,33 @@ In order to get your local development env running, you need to follow the steps
    yarn
    ```
 
-3. Build
+3. Build in watch mode
 
    ```
    yarn start
    ```
 
 The last command will watch files located `src` and will recompile whenever they change. The resulted generated files will be located in `build` folder.
+
+### Developing
+
+Once you have started the watched build on ui-component lib, you can start using this dev version in your project instead of the npm released version.
+
+All you need to do is:
+
+1. Link the ui-component lib to register it as a link-able project in yarn
+
+   ```
+   yarn link
+   ```
+   
+2. Tell your project to use the local ui-component build
+
+   ```
+   yarn link @dashlane/ui-components
+   ```
+   
+3. Start devServer on your project
 
 ### Contributing
 
@@ -43,7 +63,6 @@ Before contributing on this repo, please keep in mind that:
 - Every new component <strong>should be tested</strong>, if you are modifying an existing one you should update related tests.
 - Every new component <strong>should be documented</strong>, please follow the section below <strong>Documented components</strong>
 - Please follow the sample <strong>Button</strong> component as a reference/guide to create future ones.
-- Please read the [following documentation](https://confluence.dashlane.com/display/WP/Pull+requests+guidelines) before creating your first pull request on the project.
 - Please follow [the conventional commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) guidelines for you commits messages <strong>Example of commit messages: `docs: correct spelling of CHANGELOG`& `feat(navbar): add background color prop`</strong>
 
 ### Documented components
