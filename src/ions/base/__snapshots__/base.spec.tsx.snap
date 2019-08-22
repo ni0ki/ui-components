@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<BaseButton> should render 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  color: ",
+          [Function],
+          ";
+  background-color: ",
+          [Function],
+          ";
+  opacity: ",
+          [Function],
+          "
+  cursor: ",
+          [Function],
+          "
+  border: 2px solid ",
+          [Function],
+          "
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 5px 16px 7px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+",
+        ],
+      },
+      "displayName": "styled.button",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "button",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+/>
+`;
+
+exports[`<BaseButton> should render with default style 1`] = `
+.c0 {
+  color: #fafafa;
+  background-color: #007c97;
+  opacity: 1;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 5px 16px 7px;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+}
+
+<styled.button>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+  color: ",
+            [Function],
+            ";
+  background-color: ",
+            [Function],
+            ";
+  opacity: ",
+            [Function],
+            "
+  cursor: ",
+            [Function],
+            "
+  border: 2px solid ",
+            [Function],
+            "
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 5px 16px 7px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+",
+          ],
+        },
+        "displayName": "styled.button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+  >
+    <button
+      className="c0"
+    />
+  </StyledComponent>
+</styled.button>
+`;
+
+exports[`<BaseButton> should render with primary style 1`] = `
+.c0 {
+  color: red;
+  background-color: #007c97;
+  opacity: 1;
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 5px 16px 7px;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+}
+
+<styled.button
+  theme={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <StyledComponent
+    forwardedComponent={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "lastClassName": "c0",
+          "rules": Array [
+            "
+  color: ",
+            [Function],
+            ";
+  background-color: ",
+            [Function],
+            ";
+  opacity: ",
+            [Function],
+            "
+  cursor: ",
+            [Function],
+            "
+  border: 2px solid ",
+            [Function],
+            "
+  font-size: 16px;
+  line-height: 20px;
+  padding: 16px 5px 16px 7px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+",
+          ],
+        },
+        "displayName": "styled.button",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "button",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      }
+    }
+    forwardedRef={null}
+    theme={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    <button
+      className="c0"
+    />
+  </StyledComponent>
+</styled.button>
+`;
