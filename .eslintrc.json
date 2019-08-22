@@ -3,12 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "json",
-    "import"
-  ],
+  "plugins": ["@typescript-eslint", "react", "json", "import"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -41,30 +36,26 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.spec.tsx"
-      ],
+      "files": ["*.spec.tsx"],
       "rules": {
         "@typescript-eslint/explicit-function-return-type": "off"
       }
     },
     {
-      "files": [
-        "webpack.*.js",
-        "config/*js"
-      ],
+      "files": ["webpack.*.js", "config/*js", "doczrc.js"],
       "rules": {
-        "@typescript-eslint/no-var-requires": "off",
-        "no-undef": "off"
+        "@typescript-eslint/no-var-requires": "off"
       }
     },
     {
-      "files": [
-        "**/*.tsx"
-      ],
+      "files": ["**/*.tsx"],
       "rules": {
         "react/prop-types": "off"
       }
     }
-  ]
+  ],
+  "env": {
+    "node": true,
+    "jest": true
+  }
 }

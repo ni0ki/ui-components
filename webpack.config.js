@@ -1,5 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TsConfigPathsPlugin = require('awesome-typescript-loader')
+  .TsConfigPathsPlugin;
 
 module.exports = {
   entry: './src/index.tsx',
@@ -28,5 +30,5 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom'
   },
-  plugins: [new CleanWebpackPlugin()]
+  plugins: [new CleanWebpackPlugin(), new TsConfigPathsPlugin()]
 };

@@ -8,7 +8,13 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "strict": true,
-    "declaration": true
+    "declaration": true,
+    "baseUrl": "src",
+    "paths": {
+      "@globals/*": ["globals/*"],
+      "@atoms/*": ["atoms/*"],
+      "@ions/*": ["ions/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build"]

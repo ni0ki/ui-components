@@ -1,3 +1,6 @@
+const TsConfigPathsPlugin = require('awesome-typescript-loader')
+  .TsConfigPathsPlugin;
+
 export default {
   title: 'UI Components',
   description: 'This is Dashlane UI components lib documentation',
@@ -5,5 +8,9 @@ export default {
   typescript: true,
   dest: 'docs',
   hashRouter: true,
-  base: '/ui-components/'
+  base: '/ui-components/',
+  modifyBundlerConfig: config => {
+    config.resolve.plugins = [new TsConfigPathsPlugin()];
+    return config;
+  }
 };
