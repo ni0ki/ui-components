@@ -1,0 +1,134 @@
+---
+name: Button
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Button from './Button';
+
+# Button
+
+A Button that allows users to take actions, and make choices, with a single tap. It can be a either:
+
+- `Contained (filled) button`
+- `Text button`
+
+## Properties
+
+<Props of={Button} />
+
+## Usage
+
+### Default variant for the button is `contained`
+
+<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+  <div>
+    <Button type="danger">Danger Button</Button>
+  </div>
+
+<div>
+  <Button type='dark'>Dark Button</Button>
+</div>
+
+<div>
+  <Button type='light'>Light Button</Button>
+</div>
+
+<div>
+  <Button type='secondary'>Secondary Button</Button>
+</div>
+
+  <div>
+    <Button type="success">Success Button</Button>
+  </div>
+</Playground>
+
+### You can have a text button by specifying `variant` property to `text`
+
+<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
+  <div>
+    <Button type="danger" variant="text">Danger Button</Button>
+  </div>
+
+<div>
+  <Button type='dark' variant='text'>
+    Dark Button
+  </Button>
+</div>
+
+<div>
+  <Button type='light' variant='text'>
+    Light Button
+  </Button>
+</div>
+
+<div>
+  <Button type='secondary' variant='text'>
+    Secondary Button
+  </Button>
+</div>
+
+  <div>
+    <Button type="success" variant="text">Success Button</Button>
+  </div>
+</Playground>
+
+### In disabled mode, buttons will behave as following
+
+<Playground className="test" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexFlow: 'wrap' }}>
+<div style={{ display: 'flex', margin: '8px' }}>
+  <div style={{margin: '8px'}}>
+    <Button type="danger" disabled>Danger Button</Button>
+  </div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='dark' disabled>
+    Dark Button
+  </Button>
+</div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='light' disabled>
+    Light Button
+  </Button>
+</div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='secondary' disabled>
+    Secondary Button
+  </Button>
+</div>
+
+  <div style={{margin: '8px'}}>
+    <Button type="success" disabled>Success Button</Button>
+  </div>
+</div>
+
+<div style={{ display: 'flex', margin: '8px' }}>
+  <div style={{margin: '8px'}}>
+    <Button type="danger" variant="text" disabled>Danger Button</Button>
+  </div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='dark' variant='text' disabled>
+    Dark Button
+  </Button>
+</div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='light' variant='text' disabled>
+    Light Button
+  </Button>
+</div>
+
+<div style={{ margin: '8px' }}>
+  <Button type='secondary' variant='text' disabled>
+    Secondary Button
+  </Button>
+</div>
+
+  <div style={{margin: '8px'}}>
+    <Button type="success" variant="text" disabled>Success Button</Button>
+  </div>
+  </div>
+</Playground>

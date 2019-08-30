@@ -1,0 +1,42 @@
+---
+name: WrappedSvgIcon
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import WrappedSvgIcon from './WrappedSvgIcon';
+
+# WrappedSvgIcon
+
+Same as SvgIcon but with a button wrapped around the svg icon
+
+## Properties
+
+<Props of={WrappedSvgIcon} />
+
+## Usage
+
+### Basic usage
+
+<Playground style={{ display: 'flex', justifyContent: 'center' }}>
+  <WrappedSvgIcon name='share' />
+</Playground>
+
+### We can customize this component by specifying a different size
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }}
+>
+  <WrappedSvgIcon name='bulb' size={2.5} />
+  <WrappedSvgIcon name='trash' size={4} />
+</Playground>
+
+### The WrappedSvgIcon can be disabled in case of we don't want to allow actions on it
+
+<Playground style={{ display: 'flex', justifyContent: 'center' }}>
+  <WrappedSvgIcon name='vault' size={3} disabled />
+</Playground>

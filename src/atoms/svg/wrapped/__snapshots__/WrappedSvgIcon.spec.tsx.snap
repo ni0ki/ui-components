@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WrappedSvgIcon> global render should render 1`] = `
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 2em;
+  height: 2em;
+  stroke-width: 0;
+  cursor: pointer;
+  outline: none;
+  border-radius: 4px;
+  fill: #474747;
+  opacity: 1;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.c3:hover {
+  fill: #474747;
+}
+
+.c3:active {
+  fill: #474747;
+}
+
+.c2 {
+  line-height: 1.75;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.c1 {
+  color: #474747;
+  background-color: transparent;
+  opacity: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border-radius: 4px;
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: 0;
+}
+
+.c1:hover,
+.c1:active {
+  border: 1px solid #f6f6f6;
+}
+
+.c1:active {
+  background-color: #e7e7e7;
+  border-color: #e7e7e7;
+  color: #474747;
+}
+
+.c1:disabled span {
+  pointer-events: none;
+}
+
+.c0 {
+  min-width: 0;
+  padding: 6px;
+  height: 100%;
+}
+
+<WrappedSvgIcon
+  name="pen"
+>
+  <Styled(WrappedButton)
+    variant="text"
+  >
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bxivhb",
+            "isStatic": true,
+            "lastClassName": "c0",
+            "rules": Array [
+              "
+  min-width: 0;
+  padding: 6px;
+  height: 100%;
+",
+            ],
+          },
+          "displayName": "Styled(WrappedButton)",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bxivhb",
+          "target": [Function],
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+      variant="text"
+    >
+      <WrappedButton
+        className="c0"
+        variant="text"
+      >
+        <BaseButton
+          className="c0"
+          theme={
+            Object {
+              "activeBackground": "#e7e7e7",
+              "background": "transparent",
+              "color": "#474747",
+              "hoverBorder": "#f6f6f6",
+            }
+          }
+        >
+          <styled.button
+            className="c0"
+            theme={
+              Object {
+                "activeBackground": "#e7e7e7",
+                "background": "transparent",
+                "color": "#474747",
+                "hoverBorder": "#f6f6f6",
+              }
+            }
+          >
+            <StyledComponent
+              className="c0"
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-htpNat",
+                    "isStatic": false,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "
+  color: ",
+                      [Function],
+                      ";
+  background-color: ",
+                      [Function],
+                      ";
+  opacity: ",
+                      [Function],
+                      "
+  cursor: ",
+                      [Function],
+                      "
+  border: 1px solid ",
+                      "transparent",
+                      ";
+  transition: all 0.2s ease-in;
+  border-radius: 4px;  
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  &:hover, &:active {
+    border: 1px solid ",
+                      [Function],
+                      "
+  }
+  &:active {
+    background-color: ",
+                      [Function],
+                      ";
+    border-color: ",
+                      [Function],
+                      "
+    color: ",
+                      [Function],
+                      ";
+  }
+  &:disabled span {
+    pointer-events: none;
+  }
+",
+                    ],
+                  },
+                  "displayName": "styled.button",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-htpNat",
+                  "target": "button",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+              theme={
+                Object {
+                  "activeBackground": "#e7e7e7",
+                  "background": "transparent",
+                  "color": "#474747",
+                  "hoverBorder": "#f6f6f6",
+                }
+              }
+            >
+              <button
+                className="c0 c1"
+              >
+                <styled.span>
+                  <StyledComponent
+                    forwardedComponent={
+                      Object {
+                        "$$typeof": Symbol(react.forward_ref),
+                        "attrs": Array [],
+                        "componentStyle": ComponentStyle {
+                          "componentId": "sc-bwzfXH",
+                          "isStatic": true,
+                          "lastClassName": "c2",
+                          "rules": Array [
+                            "
+  line-height: 1.75;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+",
+                          ],
+                        },
+                        "displayName": "styled.span",
+                        "foldedComponentIds": Array [],
+                        "render": [Function],
+                        "styledComponentId": "sc-bwzfXH",
+                        "target": "span",
+                        "toString": [Function],
+                        "warnTooManyClasses": [Function],
+                        "withComponent": [Function],
+                      }
+                    }
+                    forwardedRef={null}
+                  >
+                    <span
+                      className="c2"
+                    >
+                      <SvgIcon
+                        name="pen"
+                      >
+                        <styled.svg>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "sc-bdVaJa",
+                                  "isStatic": false,
+                                  "lastClassName": "c3",
+                                  "rules": Array [
+                                    "
+  display: flex;
+  width: ",
+                                    [Function],
+                                    ";
+  height: ",
+                                    [Function],
+                                    ";
+  stroke-width: 0;
+  cursor: ",
+                                    [Function],
+                                    "
+  outline: none;
+  border-radius: 4px;
+  fill: ",
+                                    [Function],
+                                    ";
+  opacity: ",
+                                    [Function],
+                                    "
+  transition: all 0.2s ease-in;
+  &:hover {
+    fill: ",
+                                    [Function],
+                                    ";
+  }
+  &:active {
+    fill: ",
+                                    [Function],
+                                    ";
+  }
+",
+                                  ],
+                                },
+                                "displayName": "styled.svg",
+                                "foldedComponentIds": Array [],
+                                "render": [Function],
+                                "styledComponentId": "sc-bdVaJa",
+                                "target": "svg",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <svg
+                              className="c3"
+                            >
+                              <use
+                                xlinkHref="undefined#icon-pen"
+                              />
+                            </svg>
+                          </StyledComponent>
+                        </styled.svg>
+                      </SvgIcon>
+                    </span>
+                  </StyledComponent>
+                </styled.span>
+              </button>
+            </StyledComponent>
+          </styled.button>
+        </BaseButton>
+      </WrappedButton>
+    </StyledComponent>
+  </Styled(WrappedButton)>
+</WrappedSvgIcon>
+`;

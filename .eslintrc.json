@@ -48,6 +48,12 @@
       }
     },
     {
+      "files": ["updateDoczBuild.js"],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
       "files": ["**/*.tsx"],
       "rules": {
         "react/prop-types": "off"
@@ -56,6 +62,7 @@
   ],
   "env": {
     "node": true,
-    "jest": true
+    "jest": true,
+    "browser": true
   }
 }

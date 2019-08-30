@@ -7,7 +7,12 @@ const { exec } = require('child_process');
 const containsMdxFile = output => /\.mdx/.test(output);
 
 exec('git status', (err, stdout) => {
-  return containsMdxFile(stdout)
-    ? exec('yarn docz:build && git add docs/')
-    : null;
+  if (!containsMdxFile(stdout)) {
+    console.log('No documentation update needed');
+    return null;
+  }
+  console.log('Building the documentation...');
+  exec('yarn docz:build');
+  console.log('Committing the new changes');
+  exec('git add docs/ && git commit -S -m "docs: update docz documentation"');
 });

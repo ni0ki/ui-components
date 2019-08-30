@@ -4,10 +4,11 @@ const TsConfigPathsPlugin = require('awesome-typescript-loader')
   .TsConfigPathsPlugin;
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/index.ts',
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.json', '.tsx', '.ts']
+    extensions: ['.js', '.json', '.tsx', '.ts'],
+    plugins: [new TsConfigPathsPlugin()]
   },
   output: {
     path: path.resolve(__dirname, 'build'),
@@ -17,12 +18,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx$/,
+        test: /\.ts(x?)$/,
         include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|build)/,
         use: {
           loader: 'awesome-typescript-loader'
         }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'url-loader'
       }
     ]
   },
@@ -30,5 +35,5 @@ module.exports = {
     react: 'react',
     'react-dom': 'react-dom'
   },
-  plugins: [new CleanWebpackPlugin(), new TsConfigPathsPlugin()]
+  plugins: [new CleanWebpackPlugin()]
 };

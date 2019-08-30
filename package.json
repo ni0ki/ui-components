@@ -9,8 +9,8 @@
   "scripts": {
     "start": "webpack --watch --mode=development",
     "build": "webpack --mode=production",
-    "test": "jest",
-    "test-watch": "yarn test --watch",
+    "test": "jest --coverage",
+    "test:watch": "yarn test --watch",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "check-lint": "eslint --ext tsx,ts,js,json .",
@@ -50,11 +50,13 @@
     "react-dom": "^16.9.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3",
+    "url-loader": "^2.1.0",
     "webpack": "4.39.1",
     "webpack-cli": "^3.3.6"
   },
   "resolutions": {
-    "docz/**/webpack": "4.28.4"
+    "docz/**/webpack": "4.28.4",
+    "react-docgen-typescript": ">=1.13.0"
   },
   "husky": {
     "hooks": {

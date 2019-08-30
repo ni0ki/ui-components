@@ -45,13 +45,13 @@ All you need to do is:
    ```
    yarn link
    ```
-   
+
 2. Tell your project to use the local ui-component build
 
    ```
    yarn link @dashlane/ui-components
    ```
-   
+
 3. Start devServer on your project
 
 ### Contributing
@@ -108,7 +108,7 @@ We use [Jest](https://jestjs.io/) as testing framework and assertion library. We
 - To run tests in watch mode, please execute
 
   ```
-  yarn test-watch
+  yarn test:watch
   ```
 
 ## Build

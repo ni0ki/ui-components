@@ -12,8 +12,11 @@
     "baseUrl": "src",
     "paths": {
       "@globals/*": ["globals/*"],
+      "@atoms": ["atoms/index"],
       "@atoms/*": ["atoms/*"],
-      "@ions/*": ["ions/*"]
+      "@ions": ["ions/index"],
+      "@ions/*": ["ions/*"],
+      "@icons/*": ["icons/*"]
     }
   },
   "include": ["src/**/*"],

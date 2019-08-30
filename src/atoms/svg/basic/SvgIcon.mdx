@@ -1,0 +1,47 @@
+---
+name: SvgIcon
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import SvgIcon from './SvgIcon';
+
+# SvgIcon
+
+Basic svg icon component
+
+## Properties
+
+<Props of={SvgIcon} />
+
+## Usage
+
+### Basic usage
+
+<Playground style={{ display: 'flex', justifyContent: 'center' }}>
+  <SvgIcon name='bell' />
+</Playground>
+
+### We can customize the svgIcon by specifying a color and/or a size
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }}
+>
+  <SvgIcon
+    name='copy-password'
+    hoverColor='hotpink'
+    activeColor='mediumvioletred'
+    size={3}
+  />
+  <SvgIcon name='pen' color='cadetblue' size={4} />
+</Playground>
+
+### The SvgIcon can be disabled in case of we don't want to allow actions on it
+
+<Playground style={{ display: 'flex', justifyContent: 'center' }}>
+  <SvgIcon name='download' size={3} color='darkblue' disabled />
+</Playground>

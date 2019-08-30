@@ -1,30 +1,54 @@
-export const $primary100 = '#cce5ea';
-export const $primary300 = '#8cc4d0';
-export const $primary500 = '#007c97';
-export const $primary600 = '#005d71';
-export const $primary700 = '#003945';
-export const $primary800 = '#002e38';
-export const $primary900 = '#062931';
-export const $secondary300 = '#ffc1a3';
-export const $secondary500 = '#ff5412';
-export const $secondary700 = '#b34015';
-export const $success300 = '#c1eac1';
-export const $success500 = '#20b422';
-export const $success700 = '#157917';
-export const $danger300 = '#ffa49f';
-export const $danger500 = '#ff002d';
-export const $danger700 = '#8b0018';
-export const $warning300 = '#fffcda';
-export const $warning500 = '#ffe900';
-export const $warning700 = '#595200';
-export const $info300 = '#e5f8ff';
-export const $info500 = '#00b8ff';
-export const $info700 = '#007dad';
-export const $info900 = '#00e042';
-export const $gray100 = '#000000';
-export const $gray200 = '#fafafa';
-export const $gray300 = '#e7e7e7';
-export const $gray400 = '#d6d6d6';
-export const $gray500 = '#9b9b9b';
-export const $gray700 = '#474747';
-export const $gray900 = '#191919';
+import { BasicColor, ColorExclude } from '@globals/Color.d';
+
+export const $primary: ColorExclude<200 | 400> = {
+  100: '#cce5ea',
+  300: '#8cc4d0',
+  500: '#007c97',
+  600: '#005d71',
+  700: '#003945',
+  800: '#002e38',
+  900: '#062931'
+};
+
+export const $secondary: BasicColor = {
+  300: '#ffc1a3',
+  500: '#ff5412',
+  700: '#b34015'
+};
+
+export const $success: BasicColor = {
+  300: '#c1eac1',
+  500: '#20b422',
+  700: '#157917'
+};
+
+export const $danger: BasicColor = {
+  300: '#ffe3dd',
+  500: '#ff002d',
+  700: '#8b0018'
+};
+
+export const $warning: BasicColor = {
+  300: '#fffac1',
+  500: '#ffe900',
+  700: '#595200'
+};
+
+export const $info: BasicColor = {
+  300: '#00b8ff',
+  500: '#007dad',
+  700: '#00e042'
+};
+
+export const $light: ColorExclude<800> = {
+  100: '#ffffff',
+  200: '#fafafa',
+  300: '#f6f6f6',
+  400: '#e7e7e7',
+  500: '#d6d6d6',
+  600: '#9b9b9b',
+  700: '#474747',
+  900: '#191919'
+};
+
+export const $transparent = 'transparent';

@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> Global render should render 1`] = `
+<Button
+  type="danger"
+>
+  <WrappedButton>
+    <BaseButton
+      theme={
+        Object {
+          "activeBackground": "#8b0018",
+          "background": "#ff002d",
+          "color": "#ffffff",
+          "hoverBorder": "#8b0018",
+        }
+      }
+    >
+      <styled.button
+        theme={
+          Object {
+            "activeBackground": "#8b0018",
+            "background": "#ff002d",
+            "color": "#ffffff",
+            "hoverBorder": "#8b0018",
+          }
+        }
+      >
+        <StyledComponent
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-htpNat",
+                "isStatic": false,
+                "lastClassName": "epmijA",
+                "rules": Array [
+                  "
+  color: ",
+                  [Function],
+                  ";
+  background-color: ",
+                  [Function],
+                  ";
+  opacity: ",
+                  [Function],
+                  "
+  cursor: ",
+                  [Function],
+                  "
+  border: 1px solid ",
+                  "transparent",
+                  ";
+  transition: all 0.2s ease-in;
+  border-radius: 4px;  
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  &:hover, &:active {
+    border: 1px solid ",
+                  [Function],
+                  "
+  }
+  &:active {
+    background-color: ",
+                  [Function],
+                  ";
+    border-color: ",
+                  [Function],
+                  "
+    color: ",
+                  [Function],
+                  ";
+  }
+  &:disabled span {
+    pointer-events: none;
+  }
+",
+                ],
+              },
+              "displayName": "styled.button",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-htpNat",
+              "target": "button",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
+          theme={
+            Object {
+              "activeBackground": "#8b0018",
+              "background": "#ff002d",
+              "color": "#ffffff",
+              "hoverBorder": "#8b0018",
+            }
+          }
+        >
+          <button
+            className="sc-htpNat epmijA"
+          >
+            <styled.span>
+              <StyledComponent
+                forwardedComponent={
+                  Object {
+                    "$$typeof": Symbol(react.forward_ref),
+                    "attrs": Array [],
+                    "componentStyle": ComponentStyle {
+                      "componentId": "sc-bwzfXH",
+                      "isStatic": true,
+                      "lastClassName": "EliYd",
+                      "rules": Array [
+                        "
+  line-height: 1.75;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+",
+                      ],
+                    },
+                    "displayName": "styled.span",
+                    "foldedComponentIds": Array [],
+                    "render": [Function],
+                    "styledComponentId": "sc-bwzfXH",
+                    "target": "span",
+                    "toString": [Function],
+                    "warnTooManyClasses": [Function],
+                    "withComponent": [Function],
+                  }
+                }
+                forwardedRef={null}
+              >
+                <span
+                  className="sc-bwzfXH EliYd"
+                >
+                  Default
+                </span>
+              </StyledComponent>
+            </styled.span>
+          </button>
+        </StyledComponent>
+      </styled.button>
+    </BaseButton>
+  </WrappedButton>
+</Button>
+`;

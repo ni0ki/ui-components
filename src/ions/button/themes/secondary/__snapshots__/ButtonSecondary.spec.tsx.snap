@@ -1,0 +1,411 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonSecondary> global render should render 1`] = `
+.c1 {
+  line-height: 1.75;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.c0 {
+  color: #ffffff;
+  background-color: #ff5412;
+  opacity: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border-radius: 4px;
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: 0;
+}
+
+.c0:hover,
+.c0:active {
+  border: 1px solid #b34015;
+}
+
+.c0:active {
+  background-color: #b34015;
+  border-color: #b34015;
+  color: #ffffff;
+}
+
+.c0:disabled span {
+  pointer-events: none;
+}
+
+<WrappedButton>
+  <BaseButton
+    theme={
+      Object {
+        "activeBackground": "#b34015",
+        "background": "#ff5412",
+        "color": "#ffffff",
+        "hoverBorder": "#b34015",
+      }
+    }
+  >
+    <styled.button
+      theme={
+        Object {
+          "activeBackground": "#b34015",
+          "background": "#ff5412",
+          "color": "#ffffff",
+          "hoverBorder": "#b34015",
+        }
+      }
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-htpNat",
+              "isStatic": false,
+              "lastClassName": "efhAqX",
+              "rules": Array [
+                "
+  color: ",
+                [Function],
+                ";
+  background-color: ",
+                [Function],
+                ";
+  opacity: ",
+                [Function],
+                "
+  cursor: ",
+                [Function],
+                "
+  border: 1px solid ",
+                "transparent",
+                ";
+  transition: all 0.2s ease-in;
+  border-radius: 4px;  
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  &:hover, &:active {
+    border: 1px solid ",
+                [Function],
+                "
+  }
+  &:active {
+    background-color: ",
+                [Function],
+                ";
+    border-color: ",
+                [Function],
+                "
+    color: ",
+                [Function],
+                ";
+  }
+  &:disabled span {
+    pointer-events: none;
+  }
+",
+              ],
+            },
+            "displayName": "styled.button",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-htpNat",
+            "target": "button",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        theme={
+          Object {
+            "activeBackground": "#b34015",
+            "background": "#ff5412",
+            "color": "#ffffff",
+            "hoverBorder": "#b34015",
+          }
+        }
+      >
+        <button
+          className="c0"
+        >
+          <styled.span>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bwzfXH",
+                    "isStatic": true,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "
+  line-height: 1.75;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+",
+                    ],
+                  },
+                  "displayName": "styled.span",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bwzfXH",
+                  "target": "span",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <span
+                className="c1"
+              >
+                Default
+              </span>
+            </StyledComponent>
+          </styled.span>
+        </button>
+      </StyledComponent>
+    </styled.button>
+  </BaseButton>
+</WrappedButton>
+`;
+
+exports[`<ButtonSecondary> global render should render 2`] = `
+.c1 {
+  line-height: 1.75;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.c0 {
+  color: #ff5412;
+  background-color: transparent;
+  opacity: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  border-radius: 4px;
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  outline: 0;
+}
+
+.c0:hover,
+.c0:active {
+  border: 1px solid #ff5412;
+}
+
+.c0:active {
+  background-color: #b34015;
+  border-color: #b34015;
+  color: #ffffff;
+}
+
+.c0:disabled span {
+  pointer-events: none;
+}
+
+<WrappedButton
+  variant="text"
+>
+  <BaseButton
+    theme={
+      Object {
+        "activeBackground": "#b34015",
+        "background": "transparent",
+        "color": "#ff5412",
+        "hoverBorder": "#ff5412",
+      }
+    }
+  >
+    <styled.button
+      theme={
+        Object {
+          "activeBackground": "#b34015",
+          "background": "transparent",
+          "color": "#ff5412",
+          "hoverBorder": "#ff5412",
+        }
+      }
+    >
+      <StyledComponent
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-htpNat",
+              "isStatic": false,
+              "lastClassName": "c0",
+              "rules": Array [
+                "
+  color: ",
+                [Function],
+                ";
+  background-color: ",
+                [Function],
+                ";
+  opacity: ",
+                [Function],
+                "
+  cursor: ",
+                [Function],
+                "
+  border: 1px solid ",
+                "transparent",
+                ";
+  transition: all 0.2s ease-in;
+  border-radius: 4px;  
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  &:hover, &:active {
+    border: 1px solid ",
+                [Function],
+                "
+  }
+  &:active {
+    background-color: ",
+                [Function],
+                ";
+    border-color: ",
+                [Function],
+                "
+    color: ",
+                [Function],
+                ";
+  }
+  &:disabled span {
+    pointer-events: none;
+  }
+",
+              ],
+            },
+            "displayName": "styled.button",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-htpNat",
+            "target": "button",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={null}
+        theme={
+          Object {
+            "activeBackground": "#b34015",
+            "background": "transparent",
+            "color": "#ff5412",
+            "hoverBorder": "#ff5412",
+          }
+        }
+      >
+        <button
+          className="c0"
+        >
+          <styled.span>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bwzfXH",
+                    "isStatic": true,
+                    "lastClassName": "c1",
+                    "rules": Array [
+                      "
+  line-height: 1.75;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+",
+                    ],
+                  },
+                  "displayName": "styled.span",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bwzfXH",
+                  "target": "span",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <span
+                className="c1"
+              >
+                Default
+              </span>
+            </StyledComponent>
+          </styled.span>
+        </button>
+      </StyledComponent>
+    </styled.button>
+  </BaseButton>
+</WrappedButton>
+`;

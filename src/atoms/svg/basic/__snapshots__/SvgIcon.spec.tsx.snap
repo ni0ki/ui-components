@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SvgIcon> global render should render 1`] = `
+<SvgIcon
+  name="bell"
+>
+  <styled.svg>
+    <StyledComponent
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "lKKQY",
+            "rules": Array [
+              "
+  display: flex;
+  width: ",
+              [Function],
+              ";
+  height: ",
+              [Function],
+              ";
+  stroke-width: 0;
+  cursor: ",
+              [Function],
+              "
+  outline: none;
+  border-radius: 4px;
+  fill: ",
+              [Function],
+              ";
+  opacity: ",
+              [Function],
+              "
+  transition: all 0.2s ease-in;
+  &:hover {
+    fill: ",
+              [Function],
+              ";
+  }
+  &:active {
+    fill: ",
+              [Function],
+              ";
+  }
+",
+            ],
+          },
+          "displayName": "styled.svg",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "svg",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <svg
+        className="sc-bdVaJa lKKQY"
+      >
+        <use
+          xlinkHref="undefined#icon-bell"
+        />
+      </svg>
+    </StyledComponent>
+  </styled.svg>
+</SvgIcon>
+`;
