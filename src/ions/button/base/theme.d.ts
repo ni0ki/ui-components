@@ -2,9 +2,16 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    color?: string;
+    color: string;
     background: string;
-    hoverBorder: string;
-    activeBackground: string;
+    hover: {
+      border?: string;
+      background: string;
+    };
+    active: {
+      border?: string;
+      color?: string;
+      background: string;
+    };
   }
 }

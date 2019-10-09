@@ -5,6 +5,7 @@
     "target": "es6",
     "jsx": "react",
     "moduleResolution": "node",
+    "strictNullChecks": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "strict": true,
@@ -16,9 +17,10 @@
       "@atoms/*": ["atoms/*"],
       "@ions": ["ions/index"],
       "@ions/*": ["ions/*"],
-      "@icons/*": ["icons/*"]
+      "@icons/*": ["icons/*"],
+      "@utility/*": ["utility/*"]
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "build"]
+  "exclude": ["node_modules"]
 }

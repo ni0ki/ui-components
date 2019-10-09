@@ -1,1 +1,1 @@
-export { Button, SvgIcon, WrappedSvgIcon } from '@atoms';
+export { Button, SvgIcon, WrappedSvgIcon, Tooltip } from './atoms';

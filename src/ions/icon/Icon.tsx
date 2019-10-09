@@ -24,8 +24,8 @@ const Icon = styled.svg<Props>`
   outline: none;
   border-radius: 4px;
   fill: ${getColor('color')};
-  opacity: ${({ disabled }): number => (disabled ? 0.2 : 1)}
-  transition: all 0.2s ease-in;
+  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)}
+  transition: all 0.1s ease-in;
   &:hover {
     fill: ${getColor('hoverColor')};
   }

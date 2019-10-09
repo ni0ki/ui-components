@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { DefaultTheme } from 'styled-components';
 import { BaseButton } from '@ions';
-import { $transparent } from '@globals/colors';
-import { BaseButtonProps, ButtonVariant } from '@atoms/button/types';
+import { $borderFade, $transparent } from '@globals/colors';
+import { BaseButtonProps, ButtonVariant } from '@atoms/button/Button';
 
 export interface ThemeColors {
   background: {
@@ -21,16 +21,27 @@ export const WithTheme = ({ background, text }: ThemeColors) => {
 
   const transparentTheme: DefaultTheme = {
     background: $transparent,
-    color: textSecondary || bgPrimary,
-    hoverBorder: bgPrimary,
-    activeBackground: bgSecondary
+    color: textSecondary || textPrimary,
+    hover: {
+      border: bgPrimary,
+      background: $transparent
+    },
+    active: {
+      color: textPrimary,
+      background: bgPrimary
+    }
   };
 
   const flatTheme: DefaultTheme = {
     background: bgPrimary,
     color: textPrimary,
-    hoverBorder: bgSecondary,
-    activeBackground: bgSecondary
+    hover: {
+      background: bgSecondary
+    },
+    active: {
+      border: $borderFade,
+      background: bgSecondary
+    }
   };
 
   const WrappedButton = ({

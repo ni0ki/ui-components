@@ -14,5 +14,5 @@ exec('git status', (err, stdout) => {
   console.log('Building the documentation...');
   exec('yarn docz:build');
   console.log('Committing the new changes');
-  exec('git add docs/ && git commit -S -m "docs: update docz documentation"');
+  exec('sh commit-doc.sh');
 });

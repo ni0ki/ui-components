@@ -10,7 +10,8 @@ const dangerColors: ThemeColors = {
     secondary: $danger[700]
   },
   text: {
-    primary: $light[100]
+    primary: $light[100],
+    secondary: $danger[500]
   }
 };
 

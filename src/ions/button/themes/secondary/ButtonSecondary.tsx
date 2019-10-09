@@ -10,7 +10,8 @@ const secondaryColors: ThemeColors = {
     secondary: $secondary[700]
   },
   text: {
-    primary: $light[100]
+    primary: $light[100],
+    secondary: $secondary[500]
   }
 };
 

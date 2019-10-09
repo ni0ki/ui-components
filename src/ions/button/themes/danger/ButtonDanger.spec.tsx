@@ -3,12 +3,13 @@ import { mount } from 'enzyme';
 import 'jest-styled-components';
 import { ButtonDanger } from '@ions';
 import { $danger, $light } from '@globals/colors';
+import { ButtonVariant } from '@atoms/button/Button';
 
 describe('<ButtonDanger>', () => {
   describe('global render', () => {
     it('should render', () => {
       const ContainedButtonDanger = mount(<ButtonDanger />);
-      const TextButtonDanger = mount(<ButtonDanger variant='text' />);
+      const TextButtonDanger = mount(<ButtonDanger variant={ButtonVariant.text} />);
 
       expect(ContainedButtonDanger).toMatchSnapshot();
       expect(TextButtonDanger).toMatchSnapshot();
@@ -26,7 +27,7 @@ describe('<ButtonDanger>', () => {
       });
 
       it('should have the correct style for text buttons ', () => {
-        const TextButtonDanger = mount(<ButtonDanger variant='text' />);
+        const TextButtonDanger = mount(<ButtonDanger variant={ButtonVariant.text} />);
 
         expect(TextButtonDanger).toHaveStyleRule('color', $danger[500]);
         expect(TextButtonDanger).toHaveStyleRule(

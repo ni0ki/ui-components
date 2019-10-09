@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { ButtonLight } from '@ions';
-import { ButtonVariant } from '@atoms/button/types';
 import { SvgIcon } from '@atoms';
+import { ButtonVariant } from '@atoms/button/Button';
 
 interface Props {
   name: string;
@@ -19,9 +19,9 @@ const IconWrapper = styled(ButtonLight)`
 const WrappedSvgIcon: React.FunctionComponent<Props> = ({
   name,
   size,
-  disabled
+  ...props
 }: Props): JSX.Element => (
-  <IconWrapper variant={ButtonVariant.text} disabled={disabled}>
+  <IconWrapper variant={ButtonVariant.text} {...props}>
     <SvgIcon name={name} size={size} />
   </IconWrapper>
 );

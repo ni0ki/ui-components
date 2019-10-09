@@ -1,0 +1,47 @@
+---
+name: Tooltip
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Tooltip from './Tooltip';
+
+# Tooltip
+
+A tooltip to give an extra information about something when the user moves the mouse pointer over an element.
+
+## Properties
+
+<Props of={Tooltip} />
+
+## Usage
+
+### Basic usage
+
+<Playground
+  style={{ display: 'flex', justifyContent: 'center', marginTop: '-550px' }}
+>
+  <Tooltip title='Copy login Copy login' placement='right'>
+    <button>Tooltip me to the right</button>
+  </Tooltip>
+  <Tooltip title='Oups!' type='error'>
+    <button>Tooltip me to the default (top)</button>
+  </Tooltip>
+  <Tooltip title='Copy login Copy login' placement='left'>
+    <button>Tooltip me to the left</button>
+  </Tooltip>
+  <Tooltip
+    title="Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy!"
+    placement='bottom'
+    type='success'
+  >
+    <button>Tooltip me to the bottom with success</button>
+  </Tooltip>
+  <Tooltip
+    title="Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy!"
+    placement='right'
+    type='success'
+  >
+    <button>Tooltip me to the right with a long text</button>
+  </Tooltip>
+</Playground>

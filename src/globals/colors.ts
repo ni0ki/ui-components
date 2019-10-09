@@ -52,3 +52,4 @@ export const $light: ColorExclude<800> = {
 };
 
 export const $transparent = 'transparent';
+export const $borderFade = 'rgba(0, 0, 0, 0.2)';

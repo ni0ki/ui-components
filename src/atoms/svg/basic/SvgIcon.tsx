@@ -1,5 +1,5 @@
 import * as React from 'react';
-import iconsDef from '@icons/icons-defs.svg';
+import '@icons/icons-defs.svg';
 import { Icon } from '@ions';
 import { Props as IconProps } from '@ions/icon/Icon';
 
@@ -12,7 +12,7 @@ const SvgIcon: React.FunctionComponent<Props> = ({
   ...props
 }: Props): JSX.Element => (
   <Icon {...props}>
-    <use xlinkHref={`${iconsDef}#icon-${name}`} />
+    <use xlinkHref={`#icons-defs_icon-${name}`} />
   </Icon>
 );
 

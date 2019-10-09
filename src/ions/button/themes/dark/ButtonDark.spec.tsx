@@ -3,12 +3,13 @@ import { mount } from 'enzyme';
 import 'jest-styled-components';
 import { ButtonDark } from '@ions';
 import { $light } from '@globals/colors';
+import { ButtonVariant } from '@atoms/button/Button';
 
 describe('<ButtonDark>', () => {
   describe('global render', () => {
     it('should render', () => {
       const ContainedButtonDark = mount(<ButtonDark />);
-      const TextButtonDark = mount(<ButtonDark variant='text' />);
+      const TextButtonDark = mount(<ButtonDark variant={ButtonVariant.text} />);
 
       expect(ContainedButtonDark).toMatchSnapshot();
       expect(TextButtonDark).toMatchSnapshot();
@@ -26,7 +27,7 @@ describe('<ButtonDark>', () => {
       });
 
       it('should have the correct style for text buttons ', () => {
-        const TextButtonDark = mount(<ButtonDark variant='text' />);
+        const TextButtonDark = mount(<ButtonDark variant={ButtonVariant.text} />);
 
         expect(TextButtonDark).toHaveStyleRule('color', $light[700]);
         expect(TextButtonDark).toHaveStyleRule(

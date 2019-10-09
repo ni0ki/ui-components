@@ -1,2 +1,4 @@
-export { default as Button } from '@atoms/button/Button';
-export * from '@atoms/svg';
+export { default as Button } from './button/Button';
+export { default as Tooltip } from './tooltip/Tooltip';
+export * from './svg';
+

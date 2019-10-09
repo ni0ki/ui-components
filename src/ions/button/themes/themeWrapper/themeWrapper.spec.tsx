@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import 'jest-styled-components';
 import { WithTheme } from '@ions';
 import { $light } from '@globals/colors';
-import { BaseButtonProps } from '@atoms/button/types';
+import { BaseButtonProps, ButtonVariant } from '@atoms/button/Button';
 
 describe('WithTheme Wrapper', () => {
   let WrappedButton: (props: BaseButtonProps) => JSX.Element;
@@ -30,7 +30,7 @@ describe('WithTheme Wrapper', () => {
     });
 
     it('should render a text button when variant is provided with text value', () => {
-      const ButtonWrapper = mount(<WrappedButton variant='text' />);
+      const ButtonWrapper = mount(<WrappedButton variant={ButtonVariant.text} />);
 
       expect(ButtonWrapper).toHaveStyleRule('background-color', 'transparent');
       expect(ButtonWrapper).toHaveStyleRule('color', $light[500]);

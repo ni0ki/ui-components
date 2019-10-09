@@ -2,13 +2,18 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import BaseButton from './BaseButton';
-import { $light, $primary } from '@globals/colors';
+import { $primary } from '@globals/colors';
 
 const defaultTheme = {
   color: $primary[300],
   background: $primary[500],
-  hoverBorder: $primary[600],
-  activeBackground: $primary[700]
+  hover: {
+    border: $primary[600],
+    background: $primary[500]
+  },
+  active: {
+    background: $primary[700]
+  }
 };
 
 describe('<BaseButton>', () => {
@@ -29,13 +34,6 @@ describe('<BaseButton>', () => {
         'background-color',
         defaultTheme.background
       );
-    });
-
-    it('should render default color if none is provided', () => {
-      const { color, ...theme } = defaultTheme;
-      const Button = mount(<BaseButton theme={theme} />);
-
-      expect(Button).toHaveStyleRule('color', $light[100]);
     });
 
     it('should have the correct style when disabled', () => {
