@@ -5,6 +5,7 @@
     "target": "es6",
     "jsx": "react",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "strict": true,
