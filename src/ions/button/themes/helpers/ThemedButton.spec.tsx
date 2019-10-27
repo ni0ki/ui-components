@@ -1,39 +1,40 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
-import { WithTheme } from '@ions';
-import { $light } from '@globals/colors';
-import { BaseButtonProps, ButtonVariant } from '@atoms/button/Button';
+import { ThemedButton } from './ThemedButton';
+import { $light } from '@colors';
 
-describe('WithTheme Wrapper', () => {
-  let WrappedButton: (props: BaseButtonProps) => JSX.Element;
-  const theme = {
+describe.only('WithTheme Wrapper', () => {
+  const buttonColors = {
     background: {
       primary: $light[500],
-      secondary: $light[700]
+      secondary: $light[700],
+      tertiary: $light[900]
     },
     text: {
       primary: $light[100]
+    },
+    border: {
+      primary: $light[100],
+      secondary: $light[200]
     }
   };
 
-  beforeEach(() => {
-    WrappedButton = WithTheme(theme);
-  });
-
   describe('behaviour depending on variant prop', () => {
     it('should render a contained button when no variant is provided', () => {
-      const ButtonWrapper = mount(<WrappedButton />);
+      const ButtonWrapper = mount(<ThemedButton colors={buttonColors} />);
 
       expect(ButtonWrapper).toHaveStyleRule('background-color', $light[500]);
       expect(ButtonWrapper).toHaveStyleRule('color', $light[100]);
     });
 
     it('should render a text button when variant is provided with text value', () => {
-      const ButtonWrapper = mount(<WrappedButton variant={ButtonVariant.text} />);
+      const ButtonWrapper = mount(
+        <ThemedButton variant='text' colors={buttonColors} />
+      );
 
       expect(ButtonWrapper).toHaveStyleRule('background-color', 'transparent');
-      expect(ButtonWrapper).toHaveStyleRule('color', $light[500]);
+      expect(ButtonWrapper).toHaveStyleRule('color', $light[100]);
     });
   });
 });

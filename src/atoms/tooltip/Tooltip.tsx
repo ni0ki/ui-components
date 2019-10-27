@@ -1,46 +1,55 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { fontFamily } from '@ions/text/Text';
-import { $light } from '@globals/colors';
+import { fontFamily } from '@ions/text/StyledText';
+import { $light } from '@colors';
+import { Placement } from './types';
 import {
-  computeTotalTooltipHeight,
-  computeTotalTooltipWidth,
-  getNextPossiblePosition,
+  checkIsStyleComputed,
+  computeTooltipHeight,
+  computeTooltipWidth,
+  getAlternativeStyle,
+  getBoundingRect,
+  getCSSComputedStyle,
   getTooltipBgColorByType,
   handleTooltipArrowPosition,
-  handleTooltipPosition
+  handleTooltipPosition,
+  isElementOutOfContainer,
+  removeOutOfScreenPlacement
 } from './helpers';
-import { assertUnreachable } from '@utility/helpers';
 
-export type TooltipType = 'info' | 'success' | 'error';
-
-interface Props extends Partial<WrapperProps> {
+export interface Props {
   title: string;
+  /**
+   * The position of the tooltip
+   * @default top
+   */
+  placement?: 'right' | 'left' | 'top' | 'bottom';
+  /**
+   * A type that defines the tooltip color
+   * @default info
+   */
+  type?: 'info' | 'success' | 'error';
+  /**
+   * Extra options
+   * @default {tooltipMaxWidth: 300 (in px), container: window}
+   */
+  options?: {
+    /**
+     * A max width for the tooltip
+     */
+    tooltipMaxWidth?: number;
+    /**
+     * An element as a container (if not the default window)
+     */
+    container?: HTMLElement | null;
+  };
 }
 
 interface State {
   placement: Placement;
 }
 
-export interface WrapperProps {
-  placement: Placement;
-  type: TooltipType;
-  options: {
-    tooltipMaxWidth?: string;
-    container?: Element;
-  };
-}
-
-export const enum Placement {
-  RIGHT = 'right',
-  LEFT = 'left',
-  TOP = 'top',
-  BOTTOM = 'bottom'
-}
-
-export type PossiblePlacements = {
-  [key in Placement]: { outOfScreen: boolean };
-};
+export type WrapperProps = Omit<Required<Props>, 'title'>;
 
 const TooltipWrapper = styled.span<WrapperProps>`
   > :first-child:hover {
@@ -66,13 +75,13 @@ const TooltipWrapper = styled.span<WrapperProps>`
       options.tooltipMaxWidth ? `${options.tooltipMaxWidth}px` : '300px'};
     width: max-content;
     @supports (-ms-ime-align: auto) {
-      width: 100%;
+      min-width: 50px;
     }
     word-wrap: break-word;
     transform: translate(-50%, 0);
     text-align: center;
     z-index: 1001;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
     ${handleTooltipPosition}
   }
 
@@ -94,7 +103,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
     position: absolute;
     content: '';
     z-index: 1002;
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
     ${handleTooltipArrowPosition}
   }
 
@@ -104,134 +113,113 @@ const TooltipWrapper = styled.span<WrapperProps>`
   }
 `;
 
-class Tooltip extends React.Component<Props, State> {
-  private ref: React.ReactNode;
-  private tooltipPossiblePlacements: PossiblePlacements;
+class Tooltip extends React.PureComponent<Props, State> {
+  private ref: EventTarget | null;
+  private coordinates: { top: number | null; left: number | null };
+  private readonly tooltipPossiblePlacements: Placement[] = [];
+  private readonly defaultPlacement: Placement;
 
   public constructor(props: Props) {
     super(props);
+    this.defaultPlacement = 'top';
+    this.ref = null;
     this.state = {
-      placement: props.placement || Placement.TOP
+      placement: props.placement || this.defaultPlacement
     };
-    this.tooltipPossiblePlacements = {
-      top: { outOfScreen: false },
-      right: { outOfScreen: false },
-      left: { outOfScreen: false },
-      bottom: { outOfScreen: false }
+    this.tooltipPossiblePlacements = ['top', 'left', 'right', 'bottom'];
+    this.coordinates = {
+      top: null,
+      left: null
     };
   }
 
-  public componentDidUpdate(prevProps: Props): void {
-    console.log('**did update', prevProps.title, this.props.title);
+  public componentDidUpdate(prevProps: Props, prevState: State): void {
+    // if state is the same (the update came from prop change) do calculate else if state changed (update caused by new positioning) do not calculate again
+    if (prevState.placement !== this.state.placement || !this.ref) {
+      return;
+    }
+    this.positionTooltip();
   }
 
-  private checkPosition(placement: Placement | undefined): Placement {
+  private onHover = (event: MouseEvent) => {
+    const target = event.currentTarget;
+    const { top: previousTop, left: previousLeft } = this.coordinates;
+    const { top, left } = getBoundingRect(target);
+
+    if (top === previousTop && left === previousLeft) {
+      return;
+    }
+
+    this.coordinates = { ...this.coordinates, ...{ top, left } };
+    this.ref = target;
+    this.positionTooltip();
+  };
+
+  private getTooltipPlacement(
+    placement: Placement,
+    possibilities: Placement[]
+  ): Placement {
     if (!placement) {
       throw new Error(
         'Tooltip cannot be displayed in the container Element/Window due to its incompatible size. Please consider reducing it or better position tooltiped element in the screen.'
       );
     }
 
-    const placementInfo = this.tooltipPossiblePlacements[placement];
-
-    if (!placementInfo) {
-      throw new Error('Unexpected placement for tooltip');
+    if (!this.isOutScreen(placement)) {
+      return placement;
     }
 
-    if (!placementInfo.outOfScreen) {
-      const outOfScreen = this.checkIfOutScreen(placement);
-      if (!outOfScreen) {
-        return placement;
-      }
-
-      this.tooltipPossiblePlacements[placement].outOfScreen = outOfScreen;
-    }
-
-    return this.checkPosition(
-      getNextPossiblePosition(this.tooltipPossiblePlacements)
+    const newPossibilities = removeOutOfScreenPlacement(
+      possibilities,
+      placement
     );
+    const [firstPossiblePlacement] = newPossibilities;
+
+    return this.getTooltipPlacement(firstPossiblePlacement, newPossibilities);
   }
 
-  private checkIfOutScreen(placement: Placement): boolean {
-    const tooltip = window.getComputedStyle(this.ref as Element, ':before');
-    // does not work for Edge => I need to check if the height and width don't contain number or have percentage in them (which is the case for edge)
-    // then the solution would be to get theses styles, create a non visible dom element with them get the getBoundingClientRect of it and then remove it
-    const totalWidth = computeTotalTooltipWidth(tooltip);
-    const totalHeight = computeTotalTooltipHeight(tooltip, placement);
+  private isOutScreen(placement: Placement): boolean {
+    const tooltipStyle = getCSSComputedStyle(this.ref);
+    const isStyleComputed = checkIsStyleComputed(tooltipStyle);
+    const { width = null, height = null } = isStyleComputed
+      ? {}
+      : getAlternativeStyle(tooltipStyle, this.ref); // Extra calculations For Edge
 
-    const rect = (this.ref as Element).getBoundingClientRect();
-    return this.isOffscreen(rect, totalWidth, totalHeight, placement);
+    const totalWidth = computeTooltipWidth(tooltipStyle, placement, width);
+    const totalHeight = computeTooltipHeight(tooltipStyle, placement, height);
+    const rect = getBoundingRect(this.ref);
+    const { options } = this.props;
+    const container =
+      !options || !options.container ? window : options.container;
+
+    return isElementOutOfContainer({
+      rect,
+      measurements: { totalWidth, totalHeight },
+      container,
+      placement
+    });
   }
 
-  private setToVisible(event: MouseEvent) {
-    this.ref = event.currentTarget;
+  private positionTooltip() {
     try {
-      const placement = this.checkPosition(
-        this.props.placement || Placement.TOP
+      const placement = this.getTooltipPlacement(
+        this.props.placement || this.defaultPlacement,
+        this.tooltipPossiblePlacements
       );
-      this.setState({ placement });
+      this.setState({ placement: placement });
     } catch (e) {
       console.error(e);
     }
   }
 
-  private isOffscreen(
-    rect: DOMRect | ClientRect,
-    extraWidth: number,
-    extraHeight: number,
-    placement: Placement
-  ): boolean {
-    let maxHeight: number;
-    let minHeight: number;
-    let maxWidth: number;
-    let minWidth: number;
-    if (!this.props.options || !this.props.options.container) {
-      maxHeight = window.innerHeight;
-      minHeight = 0;
-      maxWidth = window.innerWidth;
-      minWidth = 0;
-    } else {
-      const a = this.props.options.container.getBoundingClientRect();
-      maxHeight = a.top + a.height;
-      minHeight = a.top;
-      minWidth = a.left;
-      maxWidth = a.left + a.width;
+  private cloneChildren = (title: string) => (child: React.ReactNode) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        'data-tooltip': title,
+        onMouseEnter: this.onHover
+      });
     }
-
-    switch (placement) {
-      case Placement.TOP:
-        return (
-          rect.top - extraHeight < minHeight ||
-          rect.left + rect.width / 2 + extraWidth / 2 > maxWidth ||
-          rect.left + rect.width / 2 - extraWidth / 2 < minWidth
-        );
-      case Placement.BOTTOM:
-        return (
-          rect.top + rect.height + extraHeight > maxHeight ||
-          rect.left + rect.width / 2 + extraWidth / 2 > maxWidth ||
-          rect.left + rect.width / 2 - extraWidth / 2 < minWidth
-        );
-      case Placement.RIGHT:
-        return (
-          rect.left + rect.width + extraWidth > maxWidth ||
-          rect.top + rect.height / 2 - extraHeight / 2 < minHeight ||
-          rect.top + rect.height / 2 + extraHeight / 2 > maxHeight
-        );
-      case Placement.LEFT:
-        return (
-          rect.left - extraWidth < minWidth ||
-          rect.top + rect.height / 2 - extraHeight / 2 < minHeight ||
-          rect.top + rect.height / 2 + extraHeight / 2 > maxHeight
-        );
-
-      default:
-        assertUnreachable(placement);
-        return true;
-    }
-  }
-  public componentDidMount(): void {
-    console.log('**did mount');
-  }
+  };
 
   public render() {
     const {
@@ -240,14 +228,10 @@ class Tooltip extends React.Component<Props, State> {
       children,
       options = {}
     } = this.props;
-    const childrenWithProps = React.Children.map(children, child => {
-      if (React.isValidElement(child)) {
-        return React.cloneElement(child, {
-          'data-tooltip': title,
-          onMouseEnter: this.setToVisible.bind(this)
-        });
-      }
-    });
+    const childrenWithProps = React.Children.map(
+      children,
+      this.cloneChildren(title)
+    );
 
     return (
       <TooltipWrapper

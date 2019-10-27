@@ -2,7 +2,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import Icon from './Icon';
-import { $light } from '@globals/colors';
+import { $light } from '@colors';
 
 describe('<Icon>', () => {
   describe('global render', () => {
@@ -18,8 +18,8 @@ describe('<Icon>', () => {
 
         expect(IconWrapper).toHaveStyleRule('fill', $light[700]);
         expect(IconWrapper).toHaveStyleRule('cursor', 'pointer');
-        expect(IconWrapper).toHaveStyleRule('width', '2em');
-        expect(IconWrapper).toHaveStyleRule('height', '2em');
+        expect(IconWrapper).toHaveStyleRule('width', '1.5em');
+        expect(IconWrapper).toHaveStyleRule('height', '1.5em');
       });
 
       it('should set the provided style', () => {
@@ -33,7 +33,7 @@ describe('<Icon>', () => {
       it('should handle disabled mode', () => {
         const IconWrapper = mount(<Icon disabled />);
 
-        expect(IconWrapper).toHaveStyleRule('opacity', '0.2');
+        expect(IconWrapper).toHaveStyleRule('opacity', '0.5');
         expect(IconWrapper).toHaveStyleRule('cursor', 'not-allowed');
       });
     });

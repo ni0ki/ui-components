@@ -5,6 +5,7 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import Button from './Button';
+import Loader from '../svg/icons/Loader';
 
 # Button
 
@@ -149,4 +150,14 @@ Bug on repo link: https://github.com/doczjs/docz/issues/895
   <Button nature="success" variant="text" disabled>Success Button</Button>
   </div>
 </div>
+</Playground>
+
+### A Button can contain an icon as well. In the example below, we are setting a large loading button in this way:
+
+<Playground
+  style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
+>
+  <Button nature='secondary' style={{ width: '50%' }} large={true}>
+    <Loader />
+  </Button>
 </Playground>

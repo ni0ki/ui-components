@@ -1,21 +1,21 @@
 import styled from 'styled-components';
-import { $light } from '@globals/colors';
+import { $light } from '@colors';
+import { Props as IconProps } from '@atoms/svg/base/SvgIcon';
 
-type ColorTypes = 'color' | 'hoverColor' | 'activeColor';
-type ColorProps = {
-  [color in ColorTypes]?: string;
-};
-
-export interface Props extends ColorProps {
-  size?: number;
-  disabled?: boolean;
+export type ColorProps = 'color' | 'hoverColor' | 'activeColor';
+interface Props extends Omit<IconProps, 'title' | 'children'> {
+  animated?: boolean;
 }
 
-const getSize = ({ size = 2 }) => `${size}em`;
-const getColor = (propName: ColorTypes) => (props: Props): string =>
-  props[propName] || $light[700];
+const getSize = ({ size = 1.5 }) => `${size}em`;
+const getColor = (propName: ColorProps) => (props: Props): string =>
+  props.animated ? 'none' : props[propName] || $light[700];
 
-const Icon = styled.svg<Props>`
+const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
+  viewBox: viewBox || '0 0 20 20',
+  version: '1.1',
+  xmlns: 'http://www.w3.org/2000/svg'
+}))`
   display: flex;
   width: ${getSize};
   height: ${getSize};
@@ -25,7 +25,8 @@ const Icon = styled.svg<Props>`
   border-radius: 4px;
   fill: ${getColor('color')};
   opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)}
-  transition: all 0.1s ease-in;
+  transition: ${({ animated }): string =>
+    animated ? 'none' : 'all 0.1s ease-in'};
   &:hover {
     fill: ${getColor('hoverColor')};
   }

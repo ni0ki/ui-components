@@ -2,7 +2,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import BaseButton from './BaseButton';
-import { $primary } from '@globals/colors';
+import { $primary } from '@colors';
 
 const defaultTheme = {
   color: $primary[300],
@@ -13,6 +13,10 @@ const defaultTheme = {
   },
   active: {
     background: $primary[700]
+  },
+  disabled: {
+    color: $primary[100],
+    background: $primary[900]
   }
 };
 
@@ -39,7 +43,8 @@ describe('<BaseButton>', () => {
     it('should have the correct style when disabled', () => {
       const Button = mount(<BaseButton theme={defaultTheme} disabled />);
 
-      expect(Button).toHaveStyleRule('opacity', '0.2');
+      expect(Button).toHaveStyleRule('background-color', '#062931');
+      expect(Button).toHaveStyleRule('color', '#cce5ea');
       expect(Button).toHaveStyleRule('cursor', 'not-allowed');
     });
   });

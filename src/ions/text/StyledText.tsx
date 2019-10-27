@@ -7,11 +7,10 @@ interface TextProps {
 export const fontFamily = css`
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 `;
-const Text = styled.span<TextProps>`
+export const StyledText = styled.span<TextProps>`
   ${fontFamily}
   font-weight: 500;
-  line-height: ${({ large }) => (large ? '1.33' : '1.5')};
+  line-height: 1.125rem;
   font-size: ${({ large }) => (large ? '1.125rem' : '1rem')};
+  display: flex;
 `;
-
-export default Text;

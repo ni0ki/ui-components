@@ -13,5 +13,9 @@ declare module 'styled-components' {
       color?: string;
       background: string;
     };
+    disabled: {
+      color?: string;
+      background?: string;
+    };
   }
 }

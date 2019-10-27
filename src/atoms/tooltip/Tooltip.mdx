@@ -5,10 +5,13 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import Tooltip from './Tooltip';
+import TooltipDemo from './TooltipDemo';
 
 # Tooltip
 
-A tooltip to give an extra information about something when the user moves the mouse pointer over an element.
+A tooltip component that gives an extra information about something when the user moves the mouse pointer over an element.
+This tooltip component is dynamic: it adapts to the container size. It means that if you specify a `right` placement for the tooltip and that placement doesn't fit in the current container, then the tooltip placement will be changed automatically to the first possible placement. The alternative placements order is defined like following `['top', 'left', 'right', 'bottom']`. If the tooltip-ed element changes its position in the container (due to scroll or window resize for example) then the placement will be calculated again to fit the new display.
+Also, if the text of the tooltip changes while its being displayed, then the placement will be calculated again to make sure that it still fits in the container with the new content.
 
 ## Properties
 
@@ -18,30 +21,52 @@ A tooltip to give an extra information about something when the user moves the m
 
 ### Basic usage
 
-<Playground
-  style={{ display: 'flex', justifyContent: 'center', marginTop: '-550px' }}
->
-  <Tooltip title='Copy login Copy login' placement='right'>
-    <button>Tooltip me to the right</button>
-  </Tooltip>
-  <Tooltip title='Oups!' type='error'>
-    <button>Tooltip me to the default (top)</button>
-  </Tooltip>
-  <Tooltip title='Copy login Copy login' placement='left'>
-    <button>Tooltip me to the left</button>
-  </Tooltip>
-  <Tooltip
-    title="Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy! Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy!"
-    placement='bottom'
-    type='success'
-  >
-    <button>Tooltip me to the bottom with success</button>
-  </Tooltip>
-  <Tooltip
-    title="Copy my long text, wait it's not finished yet. I told you this is a heavy text. You can copy it now or should I add more and more text to copy copy copy!"
-    placement='right'
-    type='success'
-  >
-    <button>Tooltip me to the right with a long text</button>
-  </Tooltip>
+Examples below show usage of the tooltip with different titles and types. You can change the size of the window (by opening the dev console for example) to see how the tooltip of the last button adapts to the new container size (placement goes from right to top).
+
+<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }} >
+<div style={{display: 'flex'}}>
+    <div>
+        <Tooltip options={{container: document.getElementById('list')}} title='Oups!' type='error'>
+            <button>Tooltip me to the default (top)</button>
+        </Tooltip>
+    </div>
+    <div>
+        <Tooltip placement='left' options={{container: document.getElementById('list')}} title='At vero eos et accusamus' placement='right'>
+            <button>Tooltip me to the right</button>
+        </Tooltip>
+    </div>
+
+    <div>
+        <Tooltip placement='bottom' options={{container: document.getElementById('list')}}
+        title="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?"
+        placement='bottom' options={{container: document.getElementById('list')}}
+        type='success'
+        >
+            <button>Tooltip me to the bottom with success</button>
+        </Tooltip>
+    </div>
+    <div>
+        <Tooltip placement='right' options={{container: document.getElementById('list')}}
+        title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
+        placement='right'
+        type='success'
+        >
+            <button>Tooltip me to the right with a long text</button>
+        </Tooltip>
+    </div>
+
+</div>
+</Playground>
+
+### Advanced settings
+
+- The Tooltip can be configured with extra options in order to customize it with the desired behaviour. This is where you can make use of the `options` props.
+- The Example below shows a list of items. A tooltip is displayed once we hover the "hover me" button of each item. The placement of tooltip is configured to `bottom` for all items except for the item number `1` that has a `left` placement. The code associated to this example is located in the `TooltipDemo.tsx` file.
+- This example shows how to configure a custom `container` (the `ul` list in our case) if you need to handle the tooltip placement calculation in a specific zone. The placement will be then calculated in the range of that container instead of Window.
+- Also you can configure a `tooltipMaxWidth` to make the max-width property smaller than default (300px) in order to adapt to the tooltip size to the new container.
+- You will notice as you test the behaviour below that for the fourth item the tooltip will be displayed on top instead of specified placement `bottom` since the space left doesn't allow it to be visible. And if you scroll in the list, then the space will be sufficient for it to be displayed so the placement will be set back to bottom.
+- You will notice as well that once you click on the "hover me" button of the item number `1` the tooltip title will be updated and its placement will be automatically calculated again to fit into the container with the new long text.
+
+<Playground>
+  <TooltipDemo />
 </Playground>

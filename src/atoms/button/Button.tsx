@@ -5,57 +5,50 @@ import {
   ButtonLight,
   ButtonSecondary,
   ButtonSuccess
-} from '@ions';
+} from '@ions/button/themes';
 import { assertUnreachable } from '@utility/helpers';
 
 // Downside: Docz will display all props including React.ButtonHTMLAttributes ones
 // https://github.com/doczjs/docz/issues/895
-export interface BaseButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * Default is "false"
+   * The button's nature
+   */
+  nature: 'danger' | 'secondary' | 'dark' | 'light' | 'success';
+  /**
+   * Specifies if the button style should be with background (contained) or transparent (text)
+   * @default contained
+   */
+  variant?: 'contained' | 'text';
+  /**
+   * Disabled state of the button
+   * @default false
    */
   disabled?: boolean;
   /**
-   * Default is "contained"
-   */
-  variant?: ButtonVariant;
-  /**
-   * Default is "false"
+   * A large style option
+   @default false
    */
   large?: boolean;
-  children?: React.ReactNode;
 }
 
-interface Props extends BaseButtonProps {
-  nature: ButtonTypes;
-}
-
-export const enum ButtonVariant {
-  contained = 'contained',
-  text = 'text'
-}
-
-export const enum ButtonTypes {
-  DANGER = 'danger',
-  SECONDARY = 'secondary',
-  DARK = 'dark',
-  LIGHT = 'light',
-  SUCCESS = 'success'
-}
-
-const Button: React.FunctionComponent<Props> = (props: Props): JSX.Element => {
-  const renderButtonByType = ({ nature, ...props }: Props): JSX.Element => {
+const Button: React.FunctionComponent<Props> = (
+  props: Props
+): JSX.Element | null => {
+  const renderButtonByType = ({
+    nature,
+    ...props
+  }: Props): JSX.Element | null => {
     switch (nature) {
-      case ButtonTypes.DANGER:
+      case 'danger':
         return <ButtonDanger {...props} />;
-      case ButtonTypes.SECONDARY:
+      case 'secondary':
         return <ButtonSecondary {...props} />;
-      case ButtonTypes.DARK:
+      case 'dark':
         return <ButtonDark {...props} />;
-      case ButtonTypes.LIGHT:
+      case 'light':
         return <ButtonLight {...props} />;
-      case ButtonTypes.SUCCESS:
+      case 'success':
         return <ButtonSuccess {...props} />;
       default:
         return assertUnreachable(nature);

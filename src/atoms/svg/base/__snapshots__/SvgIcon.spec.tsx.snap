@@ -1,19 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SvgIcon> global render should render 1`] = `
-<SvgIcon
-  name="bell"
->
-  <styled.svg>
+<SvgIcon>
+  <styled.svg
+    animated={false}
+  >
     <StyledComponent
+      animated={false}
       forwardedComponent={
         Object {
           "$$typeof": Symbol(react.forward_ref),
-          "attrs": Array [],
+          "attrs": Array [
+            [Function],
+          ],
           "componentStyle": ComponentStyle {
             "componentId": "sc-bdVaJa",
             "isStatic": false,
-            "lastClassName": "lKKQY",
+            "lastClassName": "iGoMTc",
             "rules": Array [
               "
   display: flex;
@@ -35,7 +38,9 @@ exports[`<SvgIcon> global render should render 1`] = `
   opacity: ",
               [Function],
               "
-  transition: all 0.2s ease-in;
+  transition: ",
+              [Function],
+              ";
   &:hover {
     fill: ",
               [Function],
@@ -62,10 +67,13 @@ exports[`<SvgIcon> global render should render 1`] = `
       forwardedRef={null}
     >
       <svg
-        className="sc-bdVaJa lKKQY"
+        className="sc-bdVaJa iGoMTc"
+        version="1.1"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <use
-          xlinkHref="undefined#icon-bell"
+        <path
+          d="123"
         />
       </svg>
     </StyledComponent>

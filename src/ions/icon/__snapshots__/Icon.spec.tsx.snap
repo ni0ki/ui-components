@@ -6,16 +6,16 @@ exports[`<Icon> global render should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
   stroke-width: 0;
   cursor: pointer;
   outline: none;
   border-radius: 4px;
   fill: #474747;
   opacity: 1;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
 }
 
 .c0:hover {
@@ -31,7 +31,9 @@ exports[`<Icon> global render should render 1`] = `
     forwardedComponent={
       Object {
         "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
+        "attrs": Array [
+          [Function],
+        ],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
           "isStatic": false,
@@ -57,7 +59,9 @@ exports[`<Icon> global render should render 1`] = `
   opacity: ",
             [Function],
             "
-  transition: all 0.2s ease-in;
+  transition: ",
+            [Function],
+            ";
   &:hover {
     fill: ",
             [Function],
@@ -85,6 +89,9 @@ exports[`<Icon> global render should render 1`] = `
   >
     <svg
       className="c0"
+      version="1.1"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
     />
   </StyledComponent>
 </styled.svg>

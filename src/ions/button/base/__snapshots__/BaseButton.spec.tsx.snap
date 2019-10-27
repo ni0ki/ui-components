@@ -2,20 +2,22 @@
 
 exports[`<BaseButton> global render should render 1`] = `
 .c1 {
-  line-height: 1.75;
   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
   font-weight: 500;
-  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-size: 1rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .c0 {
   color: #8cc4d0;
   background-color: #007c97;
-  opacity: 1;
   cursor: pointer;
-  border: 1px solid transparent;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+  border: solid transparent;
+  border-width: 1px;
   border-radius: 4px;
   line-height: 1.75;
   padding: 6px 16px;
@@ -39,38 +41,65 @@ exports[`<BaseButton> global render should render 1`] = `
   outline: 0;
 }
 
-.c0:hover,
-.c0:active {
-  border: 1px solid #005d71;
+.c0:hover {
+  color: #8cc4d0;
+  border-color: #005d71;
+  background-color: #007c97;
+  -webkit-transition: border-color .1s ease-in-out,background-color .1s ease-in-out;
+  transition: border-color .1s ease-in-out,background-color .1s ease-in-out;
 }
 
 .c0:active {
+  color: #8cc4d0;
+  border-color: transparent;
   background-color: #003945;
-  border-color: #003945;
-  color: #ffffff;
+  -webkit-transition: color .1s ease-in-out,background-color .1s ease-in-out;
+  transition: color .1s ease-in-out,background-color .1s ease-in-out;
 }
 
 .c0:disabled span {
   pointer-events: none;
 }
 
+.c0:disabled:hover {
+  border-color: transparent;
+}
+
 <BaseButton
   theme={
     Object {
-      "activeBackground": "#003945",
+      "active": Object {
+        "background": "#003945",
+      },
       "background": "#007c97",
       "color": "#8cc4d0",
-      "hoverBorder": "#005d71",
+      "disabled": Object {
+        "background": "#062931",
+        "color": "#cce5ea",
+      },
+      "hover": Object {
+        "background": "#007c97",
+        "border": "#005d71",
+      },
     }
   }
 >
   <styled.button
     theme={
       Object {
-        "activeBackground": "#003945",
+        "active": Object {
+          "background": "#003945",
+        },
         "background": "#007c97",
         "color": "#8cc4d0",
-        "hoverBorder": "#005d71",
+        "disabled": Object {
+          "background": "#062931",
+          "color": "#cce5ea",
+        },
+        "hover": Object {
+          "background": "#007c97",
+          "border": "#005d71",
+        },
       }
     }
   >
@@ -80,7 +109,7 @@ exports[`<BaseButton> global render should render 1`] = `
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-htpNat",
+            "componentId": "sc-bwzfXH",
             "isStatic": false,
             "lastClassName": "c0",
             "rules": Array [
@@ -91,19 +120,20 @@ exports[`<BaseButton> global render should render 1`] = `
   background-color: ",
               [Function],
               ";
-  opacity: ",
-              [Function],
-              "
   cursor: ",
               [Function],
               "
-  border: 1px solid ",
+  border: solid ",
               "transparent",
               ";
-  transition: all 0.2s ease-in;
+  border-width: ",
+              [Function],
+              ";
   border-radius: 4px;  
   line-height: 1.75;
-  padding: 6px 16px;
+  padding: ",
+              [Function],
+              ";
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   font-weight: 500;
@@ -113,24 +143,40 @@ exports[`<BaseButton> global render should render 1`] = `
   align-items: center;
   justify-content: center;
   outline: 0;
-  &:hover, &:active {
-    border: 1px solid ",
-              [Function],
-              "
-  }
-  &:active {
-    background-color: ",
+  &:hover {
+    color: ",
               [Function],
               ";
     border-color: ",
               [Function],
-              "
-    color: ",
+              ";
+    background-color: ",
               [Function],
               ";
+    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
   }
-  &:disabled span {
-    pointer-events: none;
+  &:active {
+     color: ",
+              [Function],
+              ";
+     border-color: ",
+              [Function],
+              ";
+     background-color: ",
+              [Function],
+              ";
+     transition: color .1s ease-in-out, background-color .1s ease-in-out;
+  }
+  
+  &:disabled {
+    span {
+      pointer-events: none;
+    }
+    &:hover {
+      border-color: ",
+              "transparent",
+              ";
+    }
   }
 ",
             ],
@@ -138,7 +184,7 @@ exports[`<BaseButton> global render should render 1`] = `
           "displayName": "styled.button",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-htpNat",
+          "styledComponentId": "sc-bwzfXH",
           "target": "button",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -148,10 +194,19 @@ exports[`<BaseButton> global render should render 1`] = `
       forwardedRef={null}
       theme={
         Object {
-          "activeBackground": "#003945",
+          "active": Object {
+            "background": "#003945",
+          },
           "background": "#007c97",
           "color": "#8cc4d0",
-          "hoverBorder": "#005d71",
+          "disabled": Object {
+            "background": "#062931",
+            "color": "#cce5ea",
+          },
+          "hover": Object {
+            "background": "#007c97",
+            "border": "#005d71",
+          },
         }
       }
     >
@@ -165,22 +220,29 @@ exports[`<BaseButton> global render should render 1`] = `
                 "$$typeof": Symbol(react.forward_ref),
                 "attrs": Array [],
                 "componentStyle": ComponentStyle {
-                  "componentId": "sc-bwzfXH",
-                  "isStatic": true,
+                  "componentId": "sc-bdVaJa",
+                  "isStatic": false,
                   "lastClassName": "c1",
                   "rules": Array [
                     "
-  line-height: 1.75;
+  ",
+                    "
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+",
+                    "
   font-weight: 500;
-  font-size: 0.875rem;
+  line-height: 1.125rem;
+  font-size: ",
+                    [Function],
+                    ";
+  display: flex;
 ",
                   ],
                 },
                 "displayName": "styled.span",
                 "foldedComponentIds": Array [],
                 "render": [Function],
-                "styledComponentId": "sc-bwzfXH",
+                "styledComponentId": "sc-bdVaJa",
                 "target": "span",
                 "toString": [Function],
                 "warnTooManyClasses": [Function],

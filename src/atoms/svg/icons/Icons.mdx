@@ -1,0 +1,45 @@
+---
+name: Icons
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import SvgIcon from '../base/SvgIcon';
+import Edit from './Edit';
+import Hide from './Hide';
+import Reveal from './Reveal';
+import NoNetwork from './NoNetwork';
+import CopyPassword from './CopyPassword';
+import Loader from './Loader';
+import Shared from './Shared';
+
+# Icons
+
+UI-components offers a set of icons ready to be used in a web application. Icons are built as React components using the `SvgIcon` component.
+
+## Properties
+
+Icons can be configured in the same way (have the same props) as the SvgIcon component (expect the `children` and `title` props since the svg content/title is already set for each icon). Te see theses props in action, you can either go to the documentation of the SvgIcon component or open the playground of the icons and add some props.
+
+<Props of={Edit} />
+
+## Available icons
+
+<Playground
+  style={{
+    backgroundColor: '#F5F6F7',
+    padding: '30px',
+    borderRadius: '4px',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }}
+>
+  <Edit size={2} />
+  <CopyPassword size={2} />
+  <Hide size={2} />
+  <Reveal size={2} />
+  <NoNetwork size={2} />
+  <Shared size={2} />
+  <Loader size={2} />
+</Playground>

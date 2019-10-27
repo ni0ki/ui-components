@@ -2,59 +2,97 @@
 
 exports[`<Button> Global render should render 1`] = `
 <Button
-  type="danger"
+  nature="danger"
 >
-  <WrappedButton>
-    <BaseButton
-      theme={
+  <ButtonDanger>
+    <Component
+      colors={
         Object {
-          "activeBackground": "#8b0018",
-          "background": "#ff002d",
-          "color": "#ffffff",
-          "hoverBorder": "#8b0018",
+          "background": Object {
+            "primary": "#ff002d",
+            "secondary": "#8b0018",
+            "tertiary": "#ffe3dd",
+          },
+          "border": Object {
+            "primary": undefined,
+            "secondary": "#ff002d",
+          },
+          "text": Object {
+            "primary": "#ffffff",
+            "secondary": "#ff002d",
+          },
         }
       }
     >
-      <styled.button
+      <BaseButton
         theme={
           Object {
-            "activeBackground": "#8b0018",
+            "active": Object {
+              "background": "#8b0018",
+              "border": undefined,
+            },
             "background": "#ff002d",
             "color": "#ffffff",
-            "hoverBorder": "#8b0018",
+            "disabled": Object {
+              "background": "#ffe3dd",
+              "color": "#ffffff",
+            },
+            "hover": Object {
+              "background": "#8b0018",
+            },
           }
         }
       >
-        <StyledComponent
-          forwardedComponent={
+        <styled.button
+          theme={
             Object {
-              "$$typeof": Symbol(react.forward_ref),
-              "attrs": Array [],
-              "componentStyle": ComponentStyle {
-                "componentId": "sc-htpNat",
-                "isStatic": false,
-                "lastClassName": "epmijA",
-                "rules": Array [
-                  "
+              "active": Object {
+                "background": "#8b0018",
+                "border": undefined,
+              },
+              "background": "#ff002d",
+              "color": "#ffffff",
+              "disabled": Object {
+                "background": "#ffe3dd",
+                "color": "#ffffff",
+              },
+              "hover": Object {
+                "background": "#8b0018",
+              },
+            }
+          }
+        >
+          <StyledComponent
+            forwardedComponent={
+              Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-htpNat",
+                  "isStatic": false,
+                  "lastClassName": "kMEAZK",
+                  "rules": Array [
+                    "
   color: ",
-                  [Function],
-                  ";
+                    [Function],
+                    ";
   background-color: ",
-                  [Function],
-                  ";
-  opacity: ",
-                  [Function],
-                  "
+                    [Function],
+                    ";
   cursor: ",
-                  [Function],
-                  "
-  border: 1px solid ",
-                  "transparent",
-                  ";
-  transition: all 0.2s ease-in;
+                    [Function],
+                    "
+  border: solid ",
+                    "transparent",
+                    ";
+  border-width: ",
+                    [Function],
+                    ";
   border-radius: 4px;  
   line-height: 1.75;
-  padding: 6px 16px;
+  padding: ",
+                    [Function],
+                    ";
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   font-weight: 500;
@@ -64,93 +102,126 @@ exports[`<Button> Global render should render 1`] = `
   align-items: center;
   justify-content: center;
   outline: 0;
-  &:hover, &:active {
-    border: 1px solid ",
-                  [Function],
-                  "
+  &:hover {
+    color: ",
+                    [Function],
+                    ";
+    border-color: ",
+                    [Function],
+                    ";
+    background-color: ",
+                    [Function],
+                    ";
+    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
   }
   &:active {
-    background-color: ",
-                  [Function],
-                  ";
-    border-color: ",
-                  [Function],
-                  "
-    color: ",
-                  [Function],
-                  ";
+     color: ",
+                    [Function],
+                    ";
+     border-color: ",
+                    [Function],
+                    ";
+     background-color: ",
+                    [Function],
+                    ";
+     transition: color .1s ease-in-out, background-color .1s ease-in-out;
   }
-  &:disabled span {
-    pointer-events: none;
+  
+  &:disabled {
+    span {
+      pointer-events: none;
+    }
+    &:hover {
+      border-color: ",
+                    "transparent",
+                    ";
+    }
   }
 ",
-                ],
-              },
-              "displayName": "styled.button",
-              "foldedComponentIds": Array [],
-              "render": [Function],
-              "styledComponentId": "sc-htpNat",
-              "target": "button",
-              "toString": [Function],
-              "warnTooManyClasses": [Function],
-              "withComponent": [Function],
+                  ],
+                },
+                "displayName": "styled.button",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-htpNat",
+                "target": "button",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              }
             }
-          }
-          forwardedRef={null}
-          theme={
-            Object {
-              "activeBackground": "#8b0018",
-              "background": "#ff002d",
-              "color": "#ffffff",
-              "hoverBorder": "#8b0018",
+            forwardedRef={null}
+            theme={
+              Object {
+                "active": Object {
+                  "background": "#8b0018",
+                  "border": undefined,
+                },
+                "background": "#ff002d",
+                "color": "#ffffff",
+                "disabled": Object {
+                  "background": "#ffe3dd",
+                  "color": "#ffffff",
+                },
+                "hover": Object {
+                  "background": "#8b0018",
+                },
+              }
             }
-          }
-        >
-          <button
-            className="sc-htpNat epmijA"
           >
-            <styled.span>
-              <StyledComponent
-                forwardedComponent={
-                  Object {
-                    "$$typeof": Symbol(react.forward_ref),
-                    "attrs": Array [],
-                    "componentStyle": ComponentStyle {
-                      "componentId": "sc-bwzfXH",
-                      "isStatic": true,
-                      "lastClassName": "EliYd",
-                      "rules": Array [
-                        "
-  line-height: 1.75;
+            <button
+              className="sc-htpNat kMEAZK"
+            >
+              <styled.span>
+                <StyledComponent
+                  forwardedComponent={
+                    Object {
+                      "$$typeof": Symbol(react.forward_ref),
+                      "attrs": Array [],
+                      "componentStyle": ComponentStyle {
+                        "componentId": "sc-bwzfXH",
+                        "isStatic": false,
+                        "lastClassName": "EpsXC",
+                        "rules": Array [
+                          "
+  ",
+                          "
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
 ",
-                      ],
-                    },
-                    "displayName": "styled.span",
-                    "foldedComponentIds": Array [],
-                    "render": [Function],
-                    "styledComponentId": "sc-bwzfXH",
-                    "target": "span",
-                    "toString": [Function],
-                    "warnTooManyClasses": [Function],
-                    "withComponent": [Function],
+                          "
+  font-weight: 500;
+  line-height: 1.125rem;
+  font-size: ",
+                          [Function],
+                          ";
+  display: flex;
+",
+                        ],
+                      },
+                      "displayName": "styled.span",
+                      "foldedComponentIds": Array [],
+                      "render": [Function],
+                      "styledComponentId": "sc-bwzfXH",
+                      "target": "span",
+                      "toString": [Function],
+                      "warnTooManyClasses": [Function],
+                      "withComponent": [Function],
+                    }
                   }
-                }
-                forwardedRef={null}
-              >
-                <span
-                  className="sc-bwzfXH EliYd"
+                  forwardedRef={null}
                 >
-                  Default
-                </span>
-              </StyledComponent>
-            </styled.span>
-          </button>
-        </StyledComponent>
-      </styled.button>
-    </BaseButton>
-  </WrappedButton>
+                  <span
+                    className="sc-bwzfXH EpsXC"
+                  >
+                    Default
+                  </span>
+                </StyledComponent>
+              </styled.span>
+            </button>
+          </StyledComponent>
+        </styled.button>
+      </BaseButton>
+    </Component>
+  </ButtonDanger>
 </Button>
 `;

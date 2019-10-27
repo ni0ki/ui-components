@@ -1,19 +1,15 @@
-import { $danger, $light, $success } from '@globals/colors';
-import {
-  Placement,
-  PossiblePlacements,
-  WrapperProps
-} from './Tooltip';
+import { $danger, $light, $success } from '@colors';
 import { assertUnreachable } from '@utility/helpers';
-import { TooltipType } from '@atoms/tooltip/types';
-
+import { WrapperProps } from './Tooltip';
+import { Placement, TooltipType } from './types';
+export const tooltipMargin = '10';
 const rightTooltipStyle = `
   margin-bottom: 0;
   bottom: auto;
   transform: translate(0, -50%);
   left: 100%;
   top: 50%;
-  margin-left: 10px;
+  margin-left: ${tooltipMargin}px;
 `;
 
 const leftTooltipStyle = `
@@ -23,7 +19,7 @@ const leftTooltipStyle = `
   left: auto;
   right: 100%;
   top: 50%;
-  margin-right: 10px;
+  margin-right: ${tooltipMargin}px;
 `;
 
 const topTooltipStyle = `
@@ -37,7 +33,7 @@ const bottomTooltipStyle = `
   bottom: auto;
   left: 50%;
   top: 100%;
-  margin-top: 10px;
+  margin-top: ${tooltipMargin}px;
 `;
 
 const topTooltipArrowStyle = `
@@ -80,13 +76,13 @@ const bottomTooltipArrowStyle = `
 
 export const handleTooltipPosition = ({ placement }: WrapperProps) => {
   switch (placement) {
-    case Placement.TOP:
+    case 'top':
       return topTooltipStyle;
-    case Placement.RIGHT:
+    case 'right':
       return rightTooltipStyle;
-    case Placement.LEFT:
+    case 'left':
       return leftTooltipStyle;
-    case Placement.BOTTOM:
+    case 'bottom':
       return bottomTooltipStyle;
     default:
       return assertUnreachable(placement);
@@ -95,13 +91,13 @@ export const handleTooltipPosition = ({ placement }: WrapperProps) => {
 
 export const handleTooltipArrowPosition = ({ placement }: WrapperProps) => {
   switch (placement) {
-    case Placement.TOP:
+    case 'top':
       return topTooltipArrowStyle;
-    case Placement.RIGHT:
+    case 'right':
       return rightTooltipArrowStyle;
-    case Placement.LEFT:
+    case 'left':
       return leftTooltipArrowStyle;
-    case Placement.BOTTOM:
+    case 'bottom':
       return bottomTooltipArrowStyle;
     default:
       return assertUnreachable(placement);
@@ -121,52 +117,169 @@ export const getTooltipBgColorByType = (type: TooltipType) => {
   }
 };
 
-export const getNextPossiblePosition = (
-  possiblePlacements: PossiblePlacements
-) => {
-  return (Object.keys(possiblePlacements) as Placement[]).find(
-    (placement: Placement) => !possiblePlacements[placement].outOfScreen
-  );
-};
-
 const returnNumber = (value: number) => (isNaN(value) ? 0 : value);
 
-export const computeTotalTooltipWidth = (tooltipStyle: CSSStyleDeclaration) => {
+export const computeTooltipWidth = (
+  tooltipStyle: CSSStyleDeclaration,
+  placement: Placement,
+  alternativeWidth: string | null
+) => {
   const width =
     parseInt(tooltipStyle.paddingLeft || '0', 10) +
     parseInt(tooltipStyle.paddingRight || '0', 10) +
-    parseInt(tooltipStyle.width || '0', 10);
+    parseInt(tooltipMargin, 10) +
+    parseInt(alternativeWidth || tooltipStyle.width || '0', 10);
 
   return returnNumber(width);
 };
 
-const getMarginByPlacement = (
-  placement: Placement
-): keyof CSSStyleDeclaration => {
-  switch (placement) {
-    case Placement.TOP:
-      return 'marginBottom';
-    case Placement.LEFT:
-      return 'marginRight';
-    case Placement.RIGHT:
-      return 'marginLeft';
-    case Placement.BOTTOM:
-      return 'marginTop';
-
-    default:
-      return assertUnreachable(placement);
-  }
-};
-
-export const computeTotalTooltipHeight = (
+export const computeTooltipHeight = (
   tooltipStyle: CSSStyleDeclaration,
-  placement: Placement
+  placement: Placement,
+  alternativeHeight: string | null
 ) => {
   const height =
     parseInt(tooltipStyle.paddingTop || '0', 10) +
     parseInt(tooltipStyle.paddingBottom || '0', 10) +
-    parseInt(tooltipStyle[getMarginByPlacement(placement)] || '0', 10) +
-    parseInt(tooltipStyle.height || '0', 10);
+    parseInt(tooltipMargin, 10) +
+    parseInt(alternativeHeight || tooltipStyle.height || '0', 10);
 
   return returnNumber(height);
+};
+
+const containsNumber = (value: string) => /\d/.test(value);
+const containsChar = (value: string, char: string) =>
+  value.indexOf(char) !== -1;
+
+export const checkIsStyleComputed = (style: CSSStyleDeclaration) => {
+  const { height, width } = style;
+  if (!height || !width) {
+    return false;
+  }
+
+  return (
+    containsNumber(height) ||
+    containsNumber(width) ||
+    !containsChar(height, '%') ||
+    !containsChar(width, '%')
+  );
+};
+
+export const getCSSComputedStyle = (ref: EventTarget | null) =>
+  window.getComputedStyle(ref as Element, ':before');
+
+export const getBoundingRect = (element: EventTarget | null): ClientRect => {
+  return element
+    ? (element as Element).getBoundingClientRect()
+    : {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: 0,
+        height: 0
+      };
+};
+
+export const getAlternativeStyle = (
+  initialStyle: CSSStyleDeclaration,
+  element: EventTarget | null
+) => {
+  let innerDiv = document.createElement('div');
+  (Object.values(initialStyle) as (keyof CSSStyleDeclaration)[]).forEach(
+    property => {
+      if (
+        property &&
+        property !== 'length' &&
+        property !== 'parentRule' &&
+        !containsNumber(property.toString())
+      ) {
+        innerDiv.style[property] = initialStyle[property];
+      }
+    }
+  );
+  (element as Element).appendChild(innerDiv);
+  let { height, width } = innerDiv.getBoundingClientRect();
+  innerDiv.remove();
+
+  return { height: height.toString(), width: width.toString() };
+};
+
+const getContainerBoundaries = (container: Element | Window) => {
+  if (container === window) {
+    return {
+      maxHeight: window.innerHeight,
+      minHeight: 0,
+      maxWidth: window.innerWidth,
+      minWidth: 0
+    };
+  }
+  const containerRect = getBoundingRect(container);
+
+  return {
+    maxHeight: containerRect.top + containerRect.height,
+    minHeight: containerRect.top,
+    minWidth: containerRect.left,
+    maxWidth: containerRect.left + containerRect.width
+  };
+};
+
+export const isElementOutOfContainer = ({
+  rect,
+  measurements,
+  container,
+  placement
+}: {
+  rect: ClientRect;
+  measurements: {
+    totalWidth: number;
+    totalHeight: number;
+  };
+  container: Element | Window;
+  placement: Placement;
+}): boolean => {
+  let { totalWidth, totalHeight } = measurements;
+  let { maxHeight, minHeight, maxWidth, minWidth } = getContainerBoundaries(
+    container
+  );
+
+  switch (placement) {
+    case 'top':
+      return (
+        rect.top - totalHeight < minHeight ||
+        rect.left + rect.width / 2 + totalWidth / 2 > maxWidth ||
+        rect.left + rect.width / 2 - totalWidth / 2 < minWidth
+      );
+    case 'bottom':
+      return (
+        rect.top + rect.height + totalHeight > maxHeight ||
+        rect.left + rect.width / 2 + totalWidth / 2 > maxWidth ||
+        rect.left + rect.width / 2 - totalWidth / 2 < minWidth
+      );
+    case 'right':
+      return (
+        rect.left + rect.width + totalWidth > maxWidth ||
+        rect.top + rect.height / 2 - totalHeight / 2 < minHeight ||
+        rect.top + rect.height / 2 + totalHeight / 2 > maxHeight
+      );
+    case 'left':
+      return (
+        rect.left - totalWidth < minWidth ||
+        rect.top + rect.height / 2 - totalHeight / 2 < minHeight ||
+        rect.top + rect.height / 2 + totalHeight / 2 > maxHeight
+      );
+
+    default:
+      assertUnreachable(placement);
+      return true;
+  }
+};
+
+export const removeOutOfScreenPlacement = (
+  possibilities: Placement[],
+  placement: Placement
+) => {
+  return possibilities.filter(
+    possiblePlacement => possiblePlacement !== placement
+  );
 };

@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
-import { ButtonLight } from '@ions';
-import { $light } from '@globals/colors';
-import { ButtonVariant } from '@atoms/button/Button';
+import ButtonLight from './ButtonLight';
+import { $light } from '@colors';
 
 describe('<ButtonLight>', () => {
   describe('global render', () => {
     it('should render', () => {
       const ContainedButtonLight = mount(<ButtonLight />);
-      const TextButtonLight = mount(<ButtonLight variant={ButtonVariant.text} />);
+      const TextButtonLight = mount(<ButtonLight variant='text' />);
 
       expect(ContainedButtonLight).toMatchSnapshot();
       expect(TextButtonLight).toMatchSnapshot();
@@ -18,22 +17,18 @@ describe('<ButtonLight>', () => {
     describe('Light style', () => {
       it('should have the correct style for contained buttons ', () => {
         const ContainedButtonLight = mount(<ButtonLight />);
+        const button = ContainedButtonLight.find('button');
 
-        expect(ContainedButtonLight).toHaveStyleRule('color', $light[700]);
-        expect(ContainedButtonLight).toHaveStyleRule(
-          'background-color',
-          $light[300]
-        );
+        expect(button).toHaveStyleRule('color', $light[700]);
+        expect(button).toHaveStyleRule('background-color', $light[300]);
       });
 
       it('should have the correct style for text buttons ', () => {
-        const TextButtonLight = mount(<ButtonLight variant={ButtonVariant.text} />);
+        const TextButtonLight = mount(<ButtonLight variant='text' />);
+        const button = TextButtonLight.find('button');
 
-        expect(TextButtonLight).toHaveStyleRule('color', $light[700]);
-        expect(TextButtonLight).toHaveStyleRule(
-          'background-color',
-          'transparent'
-        );
+        expect(button).toHaveStyleRule('color', $light[700]);
+        expect(button).toHaveStyleRule('background-color', 'transparent');
       });
     });
   });

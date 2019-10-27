@@ -1,8 +1,10 @@
 import * as React from 'react';
 import styled, { DefaultTheme } from 'styled-components';
-import { $light, $transparent } from '@globals/colors';
-import { Text } from '@ions';
-import { BaseButtonProps } from '@atoms/button/Button';
+import { $light, $transparent } from '@colors';
+import { StyledText } from '@ions/text/StyledText';
+import { Props } from '@atoms/button/Button';
+
+export type BaseButtonProps = Omit<Props, 'nature' | 'variant'>;
 
 type Theme = {
   [key in keyof DefaultTheme]: DefaultTheme[key];
@@ -24,14 +26,17 @@ const getHoverBackground = ({ theme }: BaseProps): string =>
 const getHoverColor = ({ theme }: BaseProps): string => theme.color;
 const getHoverBorderColor = ({ theme }: BaseProps): string =>
   theme.hover.border || $transparent;
+const getBgColor = ({ disabled, theme }: BaseProps) =>
+  disabled ? theme.disabled.background : theme.background;
+const getColor = ({ disabled, theme }: BaseProps) =>
+  disabled ? theme.disabled.color : theme.color;
 
 const Button = styled.button<BaseProps>`
-  color: ${({ theme }): string => theme.color || $light[100]};
-  background-color: ${({ theme }): string => theme.background};
-  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)}
+  color: ${getColor || $light[100]};
+  background-color: ${getBgColor};
   cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')}
-  border: 1px solid ${$transparent};
-  transition: background-color .1s ease-in;
+  border: solid ${$transparent};
+  border-width: ${({ theme }) => (theme.active.border ? '2px' : '1px')};
   border-radius: 4px;  
   line-height: 1.75;
   padding: ${({ large = false }) => (large ? '12px 24px' : '6px 16px')};
@@ -44,18 +49,26 @@ const Button = styled.button<BaseProps>`
   align-items: center;
   justify-content: center;
   outline: 0;
-  &:hover{
+  &:hover {
     color: ${getHoverColor};
     border-color: ${getHoverBorderColor};
     background-color: ${getHoverBackground};
+    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
   }
   &:active {
-   color: ${getActiveColor};
-    border-color: ${getActiveBorderColor};
-    background-color: ${getActiveBackground};
+     color: ${getActiveColor};
+     border-color: ${getActiveBorderColor};
+     background-color: ${getActiveBackground};
+     transition: color .1s ease-in-out, background-color .1s ease-in-out;
   }
-  &:disabled span {
-    pointer-events: none;
+  
+  &:disabled {
+    span {
+      pointer-events: none;
+    }
+    &:hover {
+      border-color: ${$transparent};
+    }
   }
 `;
 
@@ -64,7 +77,7 @@ const BaseButton: React.FunctionComponent<BaseProps> = ({
   ...props
 }: BaseProps) => (
   <Button {...props}>
-    <Text large={props.large}>{children || 'Default'}</Text>
+    <StyledText large={props.large}>{children || 'Default'}</StyledText>
   </Button>
 );
 
