@@ -6,13 +6,30 @@ const { exec } = require('child_process');
 
 const containsMdxFile = output => /\.mdx/.test(output);
 
-exec('git status', (err, stdout) => {
+const commitChange = () =>
+  exec(
+    'git add -f docs && git commit -S --no-verify -m "docs: update docz documentation"',
+    error => {
+      if (error) {
+        console.error(`Error occurred: ${error}`);
+        return;
+      }
+
+      console.log(`✨ Documentation successfully updated`);
+    }
+  );
+
+exec('git show HEAD --name-only', (err, stdout) => {
   if (!containsMdxFile(stdout)) {
     console.log('No documentation update needed');
     return null;
   }
+
   console.log('Building the documentation...');
-  exec('yarn docz:build');
-  console.log('Committing the new changes');
-  exec('sh commit-doc.sh');
+  exec('yarn docz:build', error => {
+    if (!error) {
+      console.log('Committing the new changes');
+      commitChange();
+    }
+  });
 });

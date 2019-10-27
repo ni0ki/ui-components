@@ -1,5 +1,7 @@
 /node_modules
-/build
+/lib
 .npmrc
 .docz
 yarn-error.log
+.DS_Store
+docs

@@ -1,6 +1,6 @@
 .docz
-build
+lib
 node_modules
 yarn.lock
 !.eslintrc.json
-docs
+docs/

@@ -89,11 +89,15 @@ We use `prettier` to format and `eslint` with typescript settings to lint our co
 
 - We also have an automatic task that runs a <strong>prettier</strong> and <strong>eslint</strong> check on git staged files everytime you attempt to create a new <strong>commit</strong> in order to be sure that things are OK
 
-- we also execute the task <strong>`yarn exec-docz-update`</strong> on pre-commit that will check if we have added or updated any `Docz` documentation, regenrate documentation build and add them to git : in this way, we assure that https://dashlane.github.io/ui-components is always up to date
+- A check on the message format is executed as well on commit-msg hook using [commitlint tool](https://github.com/conventional-changelog/commitlint)
+
+- we also execute the task <strong>`yarn exec-docz-update`</strong> on post-commit that will check if we have added or updated any `Docz` documentation (by modifying or adding any .mdx file), regenerate new built documentation and add push it through a new dedicated commit : in this way, we assure that https://dashlane.github.io/ui-components is always up to date.
 
 - <strong>Jest tests</strong> are run everytime you attempt to <strong>push new code on remote</strong>
 
 - Theses checks/rules are quite strict but very beneficial: they protect us from having :poop: slip into our code base
+
+- In order to avoid repetitive/manual work to create svg icons components (since they are all similar only the content of the svg changes [see `src/atoms/svg/icons` folder]), we choose to generate them. All you need to do is to update/add content in `src/icons/icons-defs.json` and run the task `yarn generate-icon-components`. This commandline runs a script located in `config/generator/generateIcons.js` that generates all specified icons in the json mentioned earlier following the `config/generator/IconComponentTemplate.tsx.hbs` template. It also updates the `src/atoms/svg/index.ts` to export the generated components. Note: this process is safe: no duplicated components/exports will be generated (if files already exist they will be overridden)
 
 ### Running tests
 
@@ -119,4 +123,4 @@ In order to build this library you can simply run
 yarn build
 ```
 
-which will generate in the folder `build` a transpiled bundle in `ES6` with the associated typing.
+which will generate in the folder `build` a transpiled and minified components as [ES6 modules](https://rollupjs.org/guide/en/#es-module-syntax) (to allow tree-shaking) with the associated typing.

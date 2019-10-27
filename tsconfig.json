@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./build",
-    "module": "commonjs",
+    "outDir": "./lib",
+    "module": "esnext",
     "target": "es6",
     "jsx": "react",
     "moduleResolution": "node",
@@ -9,6 +9,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "strict": true,
+    "resolveJsonModule": true,
     "declaration": true,
     "baseUrl": "src",
     "paths": {
@@ -18,6 +19,9 @@
       "@ions": ["ions/index"],
       "@ions/*": ["ions/*"],
       "@icons/*": ["icons/*"],
+      "@colors": ["colors/index"],
+      "@colors/*": ["colors/*"],
+      "@typings/*": ["typings/*"],
       "@utility/*": ["utility/*"]
     }
   },

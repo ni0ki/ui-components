@@ -19,6 +19,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-var-requires": "error",
     "prettier/prettier": "error",
     "import/no-relative-parent-imports": "error",
@@ -42,13 +43,13 @@
       }
     },
     {
-      "files": ["webpack.*.js", "config/*js", "doczrc.js"],
+      "files": ["webpack.*.js", "config/**/*js", "doczrc.js"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }
     },
     {
-      "files": ["updateDoczBuild.js"],
+      "files": ["updateDoczBuild.js", "generateIcons.js"],
       "rules": {
         "no-console": "off"
       }
@@ -58,11 +59,18 @@
       "rules": {
         "react/prop-types": "off"
       }
+    },
+    {
+      "files": ["src/typings/*.d.ts"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
     }
   ],
   "env": {
     "node": true,
     "jest": true,
-    "browser": true
+    "browser": true,
+    "es6": true
   }
 }
