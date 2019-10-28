@@ -23,9 +23,9 @@
       "@colors/*": ["colors/*"],
       "@typings/*": ["typings/*"],
       "@utility/*": ["utility/*"],
-      "@design-tokens/*": ["../design-tokens/*"]
+      "@design-tokens/*": ["design-tokens/*"]
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/**/*.spec.ts"]
 }

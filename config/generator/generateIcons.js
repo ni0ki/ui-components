@@ -9,7 +9,7 @@
  * Prettier will be executed in order to format generated files
  * Note: the process is safe: no duplicated components/exports will be generated (if files already exist they will be overridden)
  */
-const iconsDef = require('../../design-tokens/icons-defs.json');
+const iconsDef = require('../../src/design-tokens/icons-defs.json');
 const { exec } = require('child_process');
 const util = require('util');
 const execAsync = util.promisify(exec);
