@@ -92,7 +92,8 @@
       ],
       "@semantic-release/npm",
       "@semantic-release/git"
-    ]
+    ],
+    "ci": false
   },
   "commitlint": {
     "extends": [
