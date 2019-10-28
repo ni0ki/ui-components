@@ -1,5 +1,5 @@
 import { BasicColor, ColorExclude } from '@typings/Color.d';
-import * as colors from '@colors/colors.json';
+import * as colors from '@design-tokens/colors.json';
 
 export const $primary: ColorExclude<'200' | '400'> = colors.primary;
 

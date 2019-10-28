@@ -8,7 +8,7 @@
   "files": [
     "lib",
     "CONTRIBUTING.md",
-    "src/colors/colors.json"
+    "design-tokens/colors.json"
   ],
   "types": "lib/index.d.ts",
   "author": "Dashlane",

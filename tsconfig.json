@@ -22,7 +22,8 @@
       "@colors": ["colors/index"],
       "@colors/*": ["colors/*"],
       "@typings/*": ["typings/*"],
-      "@utility/*": ["utility/*"]
+      "@utility/*": ["utility/*"],
+      "@design-tokens/*": ["../design-tokens/*"]
     }
   },
   "include": ["src/**/*"],
