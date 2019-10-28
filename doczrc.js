@@ -15,5 +15,6 @@ export default {
     config.resolve.plugins = [new TsConfigPathsPlugin()];
     return config;
   },
-  plugins: [svgSpriteLoader()]
+  plugins: [svgSpriteLoader()],
+  menu: ['Getting Started', 'Components']
 };
