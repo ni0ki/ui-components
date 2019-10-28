@@ -18,7 +18,7 @@
     "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
     "test": "jest --coverage",
     "test:watch": "yarn test --watch",
-    "release": "semantic-release",
+    "release": "yarn build && semantic-release",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "check-lint": "eslint --ext tsx,ts,js,json .",
@@ -84,6 +84,8 @@
   },
   "release": {
     "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
       [
         "@semantic-release/changelog",
         {
