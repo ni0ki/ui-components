@@ -2,7 +2,52 @@
 name: Getting Started
 route: /
 ---
+# 🔗 Getting Started
 
-# Getting Started
+## 📥 Installation
 
-Welcome to UI-components lib.
+### ✨ Install UI-components, Dashlane's React UI framework.
+
+- UI-components lib is available as an npm package.
+- To install and save in your package.json dependencies, run:
+
+```
+// with npm
+npm install @dashlane/ui-components
+
+// with yarn
+yarn add @dashlane/ui-components
+```
+
+- Please follow instructions available in the `README.md` file for further information.
+
+## 🔧 Usage
+
+### ✨ Get started with React and UI-components in no time.
+
+All needed information for a quick and easy start with the ui-components are provided in the `README.md`. Or you can simply check out the snippet code of the following section.
+
+### Quick start
+
+Here's a quick example to get you started, it's literally all you need:
+
+```
+import * as React from 'react';
+import { Button } from '@dashlane/ui-components';
+
+const App: React.FC = () => {
+  return (
+    <div className='App'>
+      <header className='App-header'>
+        <img className='App-logo' alt='logo' />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+      </header>
+      <Button nature='danger'>Danger Button</Button>
+    </div>
+  );
+};
+
+export default App;
+```

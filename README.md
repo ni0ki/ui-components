@@ -42,7 +42,7 @@ const App: React.FC = () => {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
       </header>
-      <Button title={'Click me'} primary={true} />
+      <Button nature='danger'>Danger Button</Button>
     </div>
   );
 };

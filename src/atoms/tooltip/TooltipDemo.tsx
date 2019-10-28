@@ -41,8 +41,9 @@ class ItemWithTooltip extends React.Component<
       <React.Fragment>
         <li
           style={{
-            width: '100%',
-            backgroundColor: 'lightgray',
+            border: 'solid 1px lightgray',
+            padding: ' 0 4px',
+            borderRadius: '4px',
             display: 'flex',
             justifyContent: 'space-around'
           }}
