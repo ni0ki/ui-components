@@ -9,7 +9,7 @@ export const fontFamily = css`
 `;
 export const StyledText = styled.span<TextProps>`
   ${fontFamily}
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.125rem;
   font-size: ${({ large }) => (large ? '1.125rem' : '1rem')};
   display: flex;

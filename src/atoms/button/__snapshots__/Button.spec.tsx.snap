@@ -70,9 +70,12 @@ exports[`<Button> Global render should render 1`] = `
                 "componentStyle": ComponentStyle {
                   "componentId": "sc-htpNat",
                   "isStatic": false,
-                  "lastClassName": "kMEAZK",
+                  "lastClassName": "GuLGd",
                   "rules": Array [
                     "
+  height: ",
+                    [Function],
+                    ";
   color: ",
                     [Function],
                     ";
@@ -81,22 +84,24 @@ exports[`<Button> Global render should render 1`] = `
                     ";
   cursor: ",
                     [Function],
-                    "
+                    ";
   border: solid ",
                     "transparent",
                     ";
   border-width: ",
                     [Function],
                     ";
-  border-radius: 4px;  
+  border-radius: 4px;
   line-height: 1.75;
   padding: ",
                     [Function],
                     ";
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
+  font-weight: 600;
+  font-size: ",
+                    [Function],
+                    ";
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -112,21 +117,21 @@ exports[`<Button> Global render should render 1`] = `
     background-color: ",
                     [Function],
                     ";
-    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
+    transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
   &:active {
-     color: ",
+    color: ",
                     [Function],
                     ";
-     border-color: ",
+    border-color: ",
                     [Function],
                     ";
-     background-color: ",
+    background-color: ",
                     [Function],
                     ";
-     transition: color .1s ease-in-out, background-color .1s ease-in-out;
+    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
-  
+
   &:disabled {
     span {
       pointer-events: none;
@@ -170,7 +175,7 @@ exports[`<Button> Global render should render 1`] = `
             }
           >
             <button
-              className="sc-htpNat kMEAZK"
+              className="sc-htpNat GuLGd"
             >
               <styled.span>
                 <StyledComponent

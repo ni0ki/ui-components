@@ -32,18 +32,17 @@ const getColor = ({ disabled, theme }: BaseProps) =>
   disabled ? theme.disabled.color : theme.color;
 
 const Button = styled.button<BaseProps>`
+  height: ${({ large = false }) => (large ? '48px' : '32px')};
   color: ${getColor || $light[100]};
   background-color: ${getBgColor};
-  cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')}
+  cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')};
   border: solid ${$transparent};
   border-width: ${({ theme }) => (theme.active.border ? '2px' : '1px')};
-  border-radius: 4px;  
+  border-radius: 4px;
   line-height: 1.75;
-  padding: ${({ large = false }) => (large ? '12px 24px' : '6px 16px')};
+  padding: ${({ large = false }) => (large ? '0 24px' : '0 16px')};
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -53,15 +52,15 @@ const Button = styled.button<BaseProps>`
     color: ${getHoverColor};
     border-color: ${getHoverBorderColor};
     background-color: ${getHoverBackground};
-    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
+    transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
   &:active {
-     color: ${getActiveColor};
-     border-color: ${getActiveBorderColor};
-     background-color: ${getActiveBackground};
-     transition: color .1s ease-in-out, background-color .1s ease-in-out;
+    color: ${getActiveColor};
+    border-color: ${getActiveBorderColor};
+    background-color: ${getActiveBackground};
+    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
-  
+
   &:disabled {
     span {
       pointer-events: none;
