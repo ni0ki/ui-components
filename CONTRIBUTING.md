@@ -97,7 +97,7 @@ We use `prettier` to format and `eslint` with typescript settings to lint our co
 
 - Theses checks/rules are quite strict but very beneficial: they protect us from having :poop: slip into our code base
 
-- In order to avoid repetitive/manual work to create svg icons components (since they are all similar only the content of the svg changes [see `src/atoms/svg/icons` folder]), we choose to generate them. All you need to do is to update/add content in `src/icons/icons-defs.json` and run the task `yarn generate-icon-components`. This commandline runs a script located in `config/generator/generateIcons.js` that generates all specified icons in the json mentioned earlier following the `config/generator/IconComponentTemplate.tsx.hbs` template. It also updates the `src/atoms/svg/index.ts` to export the generated components. Note: this process is safe: no duplicated components/exports will be generated (if files already exist they will be overridden)
+- In order to avoid repetitive/manual work to create svg icons components (since they are all similar only the content of the svg changes [see `src/atoms/svg/icons` folder]), we choose to generate them. All you need to do is to update/add content in `src/design-tokens/icons-defs.json` and run the task `yarn generate-icon-components`. This commandline runs a script located in `config/generator/generateIcons.js` that generates all specified icons in the json mentioned earlier following the `config/generator/IconComponentTemplate.tsx.hbs` template. It also updates the `src/atoms/svg/index.ts` to export the generated components. Note: this process is safe: no duplicated components/exports will be generated (if files already exist they will be overridden)
 
 ### Running tests
 
