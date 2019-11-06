@@ -12,18 +12,18 @@ exports[`<Icon> global render should render 1`] = `
   cursor: pointer;
   outline: none;
   border-radius: 4px;
-  fill: #474747;
+  fill: inherit;
   opacity: 1;
   -webkit-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
 
 .c0:hover {
-  fill: #474747;
+  fill: inherit;
 }
 
 .c0:active {
-  fill: #474747;
+  fill: inherit;
 }
 
 <styled.svg>

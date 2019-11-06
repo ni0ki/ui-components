@@ -70,7 +70,7 @@ exports[`<Button> Global render should render 1`] = `
                 "componentStyle": ComponentStyle {
                   "componentId": "sc-htpNat",
                   "isStatic": false,
-                  "lastClassName": "GuLGd",
+                  "lastClassName": "eVadKc",
                   "rules": Array [
                     "
   height: ",
@@ -98,10 +98,6 @@ exports[`<Button> Global render should render 1`] = `
                     ";
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-weight: 600;
-  font-size: ",
-                    [Function],
-                    ";
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -175,7 +171,7 @@ exports[`<Button> Global render should render 1`] = `
             }
           >
             <button
-              className="sc-htpNat GuLGd"
+              className="sc-htpNat eVadKc"
             >
               <styled.span>
                 <StyledComponent
@@ -186,7 +182,7 @@ exports[`<Button> Global render should render 1`] = `
                       "componentStyle": ComponentStyle {
                         "componentId": "sc-bwzfXH",
                         "isStatic": false,
-                        "lastClassName": "EpsXC",
+                        "lastClassName": "gOTpwd",
                         "rules": Array [
                           "
   ",
@@ -194,7 +190,7 @@ exports[`<Button> Global render should render 1`] = `
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 ",
                           "
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.125rem;
   font-size: ",
                           [Function],
@@ -216,7 +212,7 @@ exports[`<Button> Global render should render 1`] = `
                   forwardedRef={null}
                 >
                   <span
-                    className="sc-bwzfXH EpsXC"
+                    className="sc-bwzfXH gOTpwd"
                   >
                     Default
                   </span>

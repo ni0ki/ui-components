@@ -22,17 +22,17 @@ export interface Props {
   disabled?: boolean;
   /**
    * The icon color
-   * @default #474747 (light700)
+   * @default 'inherit' (parent's fill property)
    */
   color?: string;
   /**
    * The icon color when hovered
-   * @default #474747 (light700)
+   * @default  'inherit' (parent's fill property)
    */
   hoverColor?: string;
   /**
    * The icon color when active
-   * @default #474747 (light700)
+   * @default 'inherit' (parent's fill property)
    */
   activeColor?: string;
   /**
