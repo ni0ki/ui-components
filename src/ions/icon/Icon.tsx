@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { $light } from '@colors';
 import { Props as IconProps } from '@atoms/svg/base/SvgIcon';
 
 export type ColorProps = 'color' | 'hoverColor' | 'activeColor';
@@ -9,7 +8,7 @@ interface Props extends Omit<IconProps, 'title' | 'children'> {
 
 const getSize = ({ size = 1.5 }) => `${size}em`;
 const getColor = (propName: ColorProps) => (props: Props): string =>
-  props.animated ? 'none' : props[propName] || $light[700];
+  props.animated ? 'none' : props[propName] || 'inherit';
 
 const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
   viewBox: viewBox || '0 0 20 20',

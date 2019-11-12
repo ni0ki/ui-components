@@ -3,7 +3,7 @@
 exports[`<BaseButton> global render should render 1`] = `
 .c1 {
   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.125rem;
   font-size: 1rem;
   display: -webkit-box;
@@ -13,6 +13,7 @@ exports[`<BaseButton> global render should render 1`] = `
 }
 
 .c0 {
+  height: 32px;
   color: #8cc4d0;
   background-color: #007c97;
   cursor: pointer;
@@ -20,11 +21,9 @@ exports[`<BaseButton> global render should render 1`] = `
   border-width: 1px;
   border-radius: 4px;
   line-height: 1.75;
-  padding: 6px 16px;
+  padding: 0 16px;
   min-width: 64px;
   font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;
@@ -45,16 +44,16 @@ exports[`<BaseButton> global render should render 1`] = `
   color: #8cc4d0;
   border-color: #005d71;
   background-color: #007c97;
-  -webkit-transition: border-color .1s ease-in-out,background-color .1s ease-in-out;
-  transition: border-color .1s ease-in-out,background-color .1s ease-in-out;
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out;
 }
 
 .c0:active {
   color: #8cc4d0;
   border-color: transparent;
   background-color: #003945;
-  -webkit-transition: color .1s ease-in-out,background-color .1s ease-in-out;
-  transition: color .1s ease-in-out,background-color .1s ease-in-out;
+  -webkit-transition: color 0.1s ease-in-out,background-color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out,background-color 0.1s ease-in-out;
 }
 
 .c0:disabled span {
@@ -114,6 +113,9 @@ exports[`<BaseButton> global render should render 1`] = `
             "lastClassName": "c0",
             "rules": Array [
               "
+  height: ",
+              [Function],
+              ";
   color: ",
               [Function],
               ";
@@ -122,22 +124,20 @@ exports[`<BaseButton> global render should render 1`] = `
               ";
   cursor: ",
               [Function],
-              "
+              ";
   border: solid ",
               "transparent",
               ";
   border-width: ",
               [Function],
               ";
-  border-radius: 4px;  
+  border-radius: 4px;
   line-height: 1.75;
   padding: ",
               [Function],
               ";
   min-width: 64px;
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  font-size: 0.875rem;
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -153,21 +153,21 @@ exports[`<BaseButton> global render should render 1`] = `
     background-color: ",
               [Function],
               ";
-    transition: border-color .1s ease-in-out, background-color .1s ease-in-out;;
+    transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
   &:active {
-     color: ",
+    color: ",
               [Function],
               ";
-     border-color: ",
+    border-color: ",
               [Function],
               ";
-     background-color: ",
+    background-color: ",
               [Function],
               ";
-     transition: color .1s ease-in-out, background-color .1s ease-in-out;
+    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
   }
-  
+
   &:disabled {
     span {
       pointer-events: none;
@@ -230,7 +230,7 @@ exports[`<BaseButton> global render should render 1`] = `
   font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 ",
                     "
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.125rem;
   font-size: ",
                     [Function],

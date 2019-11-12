@@ -2,7 +2,6 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import Icon from './Icon';
-import { $light } from '@colors';
 
 describe('<Icon>', () => {
   describe('global render', () => {
@@ -16,7 +15,7 @@ describe('<Icon>', () => {
       it('should set a default style if none is provided', () => {
         const IconWrapper = mount(<Icon />);
 
-        expect(IconWrapper).toHaveStyleRule('fill', $light[700]);
+        expect(IconWrapper).toHaveStyleRule('fill', 'inherit');
         expect(IconWrapper).toHaveStyleRule('cursor', 'pointer');
         expect(IconWrapper).toHaveStyleRule('width', '1.5em');
         expect(IconWrapper).toHaveStyleRule('height', '1.5em');
