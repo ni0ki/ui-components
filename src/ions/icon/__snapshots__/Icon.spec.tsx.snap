@@ -50,7 +50,7 @@ exports[`<Icon> global render should render 1`] = `
   stroke-width: 0;
   cursor: ",
             [Function],
-            "
+            ";
   outline: none;
   border-radius: 4px;
   fill: ",
@@ -58,7 +58,7 @@ exports[`<Icon> global render should render 1`] = `
             ";
   opacity: ",
             [Function],
-            "
+            ";
   transition: ",
             [Function],
             ";
