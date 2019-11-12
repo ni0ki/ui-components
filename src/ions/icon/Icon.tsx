@@ -19,11 +19,11 @@ const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
   width: ${getSize};
   height: ${getSize};
   stroke-width: 0;
-  cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')}
+  cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')};
   outline: none;
   border-radius: 4px;
   fill: ${getColor('color')};
-  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)}
+  opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
   transition: ${({ animated }): string =>
     animated ? 'none' : 'all 0.1s ease-in'};
   &:hover {

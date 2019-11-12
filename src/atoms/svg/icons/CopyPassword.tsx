@@ -4,7 +4,7 @@ import SvgIcon from '@atoms/svg/base/SvgIcon';
 const CopyPassword: React.FunctionComponent<
   import('../base/SvgIcon').IconProps
 > = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
-  <SvgIcon title='Copy password' {...props}>
+  <SvgIcon {...props}>
     <React.Fragment>
       <path
         fillRule='evenodd'

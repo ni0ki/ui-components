@@ -42,7 +42,7 @@ export interface Props {
   viewBox?: string;
 }
 
-export type IconProps = Pick<Props, Exclude<keyof Props, 'children' | 'title'>>; // Using this rather than Omit<Props, 'children'> because Docz is not able to understand the Omit syntax and to parse the props
+export type IconProps = Pick<Props, Exclude<keyof Props, 'children'>>; // Using this rather than Omit<Props, 'children'> because Docz is not able to understand the Omit syntax and to parse the props
 
 const isAnimatedSvg = (children: React.ReactElement[]) =>
   !!Array.from<React.ReactElement>(children).find(
