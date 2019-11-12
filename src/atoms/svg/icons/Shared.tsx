@@ -4,7 +4,7 @@ import SvgIcon from '@atoms/svg/base/SvgIcon';
 const Shared: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
-  <SvgIcon title='Shared' {...props}>
+  <SvgIcon {...props}>
     <React.Fragment>
       <path
         fillRule='evenodd'

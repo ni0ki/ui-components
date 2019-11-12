@@ -4,7 +4,7 @@ import SvgIcon from '@atoms/svg/base/SvgIcon';
 const Hide: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
-  <SvgIcon title='Hide' {...props}>
+  <SvgIcon {...props}>
     <React.Fragment>
       <path
         fillRule='evenodd'
