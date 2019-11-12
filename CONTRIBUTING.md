@@ -124,3 +124,13 @@ yarn build
 ```
 
 which will generate in the folder `build` a transpiled and minified components as [ES6 modules](https://rollupjs.org/guide/en/#es-module-syntax) (to allow tree-shaking) with the associated typing.
+
+## Release
+
+In order to relase and publish the library, run
+
+```
+yarn release
+```
+
+This will build your project, automaticaly assign a new version to the package and publish it.
