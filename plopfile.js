@@ -1,3 +1,5 @@
+const colorTokens = require('./src/design-tokens/colors.json');
+
 module.exports = plop => {
   plop.setGenerator('component', {
     description: 'Create an icon component',
@@ -25,6 +27,28 @@ module.exports = plop => {
         pattern: /(\/\*-- EXPORT ICON COMPONENTS --\*\/)/gi,
         template:
           "export { default as {{pascalCase name}} } from './icons/{{pascalCase name}}';"
+      }
+    ]
+  });
+
+  plop.setGenerator('colorStylesheet', {
+    description: 'Create color css stylesheet',
+    prompts: [
+      {
+        type: 'input',
+        name: 'language'
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        data: {
+          colorTokens
+        },
+        path: './colors.{{language}}',
+        templateFile:
+          'config/generator/colorGenerator/templates/colors.{{language}}.hbs',
+        force: true
       }
     ]
   });

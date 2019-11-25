@@ -1,0 +1,7 @@
+{{#each colorTokens}}
+/* -- {{constantCase @key}} -- */
+{{#each this}}
+${{@../key}}-{{@key}}: {{this}};
+{{/each}}
+
+{{/each}}
