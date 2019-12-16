@@ -18,7 +18,6 @@ const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
   display: flex;
   width: ${getSize};
   height: ${getSize};
-  stroke-width: 0;
   cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')};
   outline: none;
   border-radius: 4px;
