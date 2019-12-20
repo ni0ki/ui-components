@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Dashlane/ui-components/compare/v1.1.0...v1.1.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* **icon:** remove unnecessary stroke-width property ([7910629](https://github.com/Dashlane/ui-components/commit/7910629669d879ef095a1f2e6462cb766c28698a))
+
 # [1.1.0](https://github.com/Dashlane/ui-components/compare/v1.0.3...v1.1.0) (2019-11-12)
 
 
