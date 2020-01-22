@@ -1,7 +1,7 @@
 const colorTokens = require('./src/design-tokens/colors/colors.json');
 
 module.exports = plop => {
-  plop.setGenerator('component', {
+  plop.setGenerator('iconComponent', {
     description: 'Create an icon component',
     prompts: [
       {
@@ -19,14 +19,22 @@ module.exports = plop => {
         path: 'src/atoms/svg/icons/{{pascalCase name}}.tsx',
         templateFile: 'config/generator/icons/IconComponentTemplate.tsx.hbs',
         force: true
-      },
+      }
+    ]
+  });
+
+  plop.setGenerator('iconIndexFile', {
+    description: 'Write index file with all icons components',
+    prompts: [],
+    actions: [
       {
-        type: 'append',
+        type: 'add',
         path: 'src/atoms/svg/index.ts',
-        unique: true,
-        pattern: /(\/\*-- EXPORT ICON COMPONENTS --\*\/)/gi,
-        template:
-          "export { default as {{pascalCase name}} } from './icons/{{pascalCase name}}';"
+        force: true,
+        templateFile: 'config/generator/IconIndexTemplate.tsx.hbs',
+        data: {
+          iconTokens
+        }
       }
     ]
   });

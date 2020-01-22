@@ -21,7 +21,9 @@ const applyPrettier = async () =>
   ]);
 
 const generateIcon = (name, path) => {
-  return execAsync(`npx plop -- --name '${name}' --path '${path}'`);
+  return execAsync(
+    `npx plop iconComponent -- --name '${name}' --path '${path}'`
+  );
 };
 
 const generateIconComponents = async () => {
@@ -31,6 +33,7 @@ const generateIconComponents = async () => {
         generateIcon(iconName, iconsDef[iconName])
       )
     );
+    await execAsync(`npx plop iconIndexFile`);
     await applyPrettier();
     console.log('All done ✅ \nAll Icon components have been generated 🙌🏼.');
   } catch (e) {
