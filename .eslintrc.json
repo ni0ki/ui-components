@@ -43,13 +43,17 @@
       }
     },
     {
-      "files": ["webpack.*.js", "config/**/*js", "doczrc.js"],
+      "files": ["webpack.*.js", "config/**/*js", "doczrc.js", "./plopfile.js"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }
     },
     {
-      "files": ["updateDoczBuild.js", "generateIcons.js"],
+      "files": [
+        "updateDoczBuild.js",
+        "generateIcons.js",
+        "generateColorStylesheets.js"
+      ],
       "rules": {
         "no-console": "off"
       }

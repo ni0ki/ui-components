@@ -8,7 +8,8 @@
   "files": [
     "lib",
     "CONTRIBUTING.md",
-    "src/design-tokens/colors.json"
+    "src/design-tokens/colors.json",
+    "src/design-tokens/colors/colors.*"
   ],
   "types": "lib/index.d.ts",
   "author": "Dashlane",
@@ -23,7 +24,8 @@
     "docz:build": "docz build",
     "check-lint": "eslint --ext tsx,ts,js,json .",
     "exec-docz-update": "node config/updateDoczBuild.js",
-    "generate-icon-components": "node config/generator/generateIcons.js"
+    "generate-icon-components": "node config/generator/generateIcons.js",
+    "generate-colors-stylesheets": "node config/generator/colorGenerator/generateColorStylesheets.js"
   },
   "sideEffects": false,
   "dependencies": {
