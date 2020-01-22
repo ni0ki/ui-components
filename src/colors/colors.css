@@ -1,0 +1,70 @@
+:root {
+
+/* -- DASH_GREEN -- */
+--dash-green-00: #0E353D;
+--dash-green-01: #3E5D64;
+--dash-green-02: #6E868B;
+--dash-green-03: #9FAEB1;
+--dash-green-04: #CFD7D8;
+--dash-green-05: #D9DFE0;
+--dash-green-06: #F5F7F7;
+
+/* -- DASH_DARKER_GREEN -- */
+--dash-darker-green-00: #071A1E;
+
+/* -- MID_GREEN -- */
+--mid-green-00: #0E6476;
+--mid-green-01: #3E8391;
+--mid-green-02: #6EA2AD;
+--mid-green-03: #9FC1C8;
+--mid-green-04: #CFE0E4;
+--mid-green-05: #D9E6E9;
+
+/* -- PINK -- */
+--pink-00: #FDB5AF;
+--pink-01: #FDC4BF;
+--pink-02: #FED3CF;
+--pink-03: #FEE1DF;
+--pink-04: #FFF0EF;
+--pink-05: #FFF3F2;
+
+/* -- ORANGE -- */
+--orange-00: #FE5B33;
+--orange-01: #FE7C5C;
+--orange-02: #FE9D85;
+--orange-03: #FFBDAD;
+--orange-04: #FFDED6;
+--orange-05: #FFE5DE;
+
+/* -- FUNCTIONAL_RED -- */
+--functional-red-00: #4E000D;
+--functional-red-01: #8B0018;
+--functional-red-02: #FF002D;
+--functional-red-03: #FFA49F;
+
+/* -- RED -- */
+--red-00: #BF0A33;
+--red-01: #CC3B5C;
+--red-02: #D96C85;
+--red-03: #E59DAD;
+--red-04: #F2CED6;
+--red-05: #F5D8DE;
+
+/* -- GREY -- */
+--grey-00: #615B57;
+--grey-01: #999592;
+--grey-02: #CCC7C2;
+--grey-03: #D6D2CE;
+--grey-04: #E0DDDA;
+--grey-05: #EBE9E7;
+--grey-06: #F5F4F3;
+
+/* -- BLACK -- */
+--black: #000000;
+
+/* -- WHITE -- */
+--white: #FFFFFF;
+
+/* -- VALIDATOR_GREEN -- */
+--validator-green: #20B422;
+}

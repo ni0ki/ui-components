@@ -4,7 +4,11 @@
 /* -- {{constantCase @key}} -- */
 {{#each this}}
 --{{@../key}}-{{@key}}: {{this}};
+{{else}}
+--{{@key}}: {{this}};
 {{/each}}
+{{#unless @last}}
 
+{{/unless}}
 {{/each}}
 }

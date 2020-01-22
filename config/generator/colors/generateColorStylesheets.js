@@ -6,7 +6,7 @@ const generateStylesheet = language => {
   return execAsync(`npx plop colorStylesheet -- --language '${language}'`);
 };
 
-const languages = ['css', 'scss'];
+const languages = ['css', 'scss', 'ts'];
 
 const generateStylesheets = async () => {
   try {

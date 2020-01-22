@@ -1,4 +1,4 @@
-const colorTokens = require('./src/design-tokens/colors.json');
+const colorTokens = require('./src/design-tokens/colors/colors.json');
 
 module.exports = plop => {
   plop.setGenerator('component', {
@@ -17,7 +17,7 @@ module.exports = plop => {
       {
         type: 'add',
         path: 'src/atoms/svg/icons/{{pascalCase name}}.tsx',
-        templateFile: 'config/generator/IconComponentTemplate.tsx.hbs',
+        templateFile: 'config/generator/icons/IconComponentTemplate.tsx.hbs',
         force: true
       },
       {
@@ -45,9 +45,9 @@ module.exports = plop => {
         data: {
           colorTokens
         },
-        path: './src/design-tokens/colors/colors.{{language}}',
+        path: './src/colors/colors.{{language}}',
         templateFile:
-          'config/generator/colorGenerator/templates/colors.{{language}}.hbs',
+          'config/generator/colors/templates/colors.{{language}}.hbs',
         force: true
       }
     ]

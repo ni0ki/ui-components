@@ -1,0 +1,11 @@
+{{#each colorTokens}}
+/* -- {{constantCase @key}} -- */
+{{#each this}}
+export const {{camelCase @../key}}{{@key}} = '{{this}}';
+{{else}}
+export const {{camelCase @key}} = '{{this}}';
+{{/each}}
+{{#unless @last}}
+
+{{/unless}}
+{{/each}}
