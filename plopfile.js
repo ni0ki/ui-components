@@ -45,7 +45,7 @@ module.exports = plop => {
         data: {
           colorTokens
         },
-        path: './colors.{{language}}',
+        path: './src/design-tokens/colors/colors.{{language}}',
         templateFile:
           'config/generator/colorGenerator/templates/colors.{{language}}.hbs',
         force: true

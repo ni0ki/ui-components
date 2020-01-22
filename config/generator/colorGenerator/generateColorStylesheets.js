@@ -13,7 +13,9 @@ const generateStylesheets = async () => {
     await Promise.all(
       languages.map(async language => generateStylesheet(language))
     );
-    console.log('All done ✅ \nAll Icon components have been generated 🙌🏼.');
+    console.log(
+      'All done ✅ \nAll colors have bee added to your stylesheets 🙌🏼.'
+    );
   } catch (e) {
     console.error(`Process terminated with error ${e}`);
   }
