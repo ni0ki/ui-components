@@ -14,6 +14,22 @@ import Loader from './Loader';
 import Shared from './Shared';
 import CaretDown from './CaretDown';
 import Check from './Check';
+import Vault from './Vault';
+import Web from './Web';
+import Generator from './Generator';
+import Dots from './Dots';
+import Search from './Search';
+import Close from './Close';
+import ArrowDown from './ArrowDown';
+import Warning from './Warning';
+import Refresh from './Refresh';
+import Tools from './Tools';
+import Computer from './Computer';
+import LogOut from './LogOut';
+import PasswordChanger from './PasswordChanger';
+import SecurityDashboard from './SecurityDashboard';
+import PasswordHistory from './PasswordHistory';
+import Passwords from './Passwords';
 
 # Icons
 
@@ -34,16 +50,31 @@ Icons can be configured in the same way (have the same props) as the SvgIcon com
     borderRadius: '4px',
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-around'
   }}
 >
-  <Edit size={2} title='translation_key' />
-  <CopyPassword size={2} />
-  <Hide size={2} />
-  <Reveal size={2} />
-  <NoNetwork size={2} />
-  <Shared size={2} />
-  <Loader size={2} />
-  <CaretDown size={2} />
-  <Check size={2} style={{ fill: 'none' }} />
+  <Edit title='translation_key' />
+  <CopyPassword />
+  <Reveal />
+  <Hide />
+  <NoNetwork />
+  <Shared />
+  <Loader />
+  <CaretDown />
+  <Check />
+  <Vault />
+  <Web />
+  <Generator />
+  <Dots />
+  <Search />
+  <Close />
+  <ArrowDown />
+  <Refresh />
+  <Tools />
+  <Computer />
+  <PasswordChanger />
+  <SecurityDashboard />
+  <PasswordHistory />
+  <Passwords />
 </Playground>
