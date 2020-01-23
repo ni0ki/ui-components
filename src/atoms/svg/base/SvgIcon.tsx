@@ -11,8 +11,8 @@ export interface Props {
    */
   title?: string;
   /**
-   * The icon size
-   * @default 2em
+   * The icon size in px
+   * @default 20px
    */
   size?: number;
   /**

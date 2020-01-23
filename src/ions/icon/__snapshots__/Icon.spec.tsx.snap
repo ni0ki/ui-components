@@ -6,8 +6,8 @@ exports[`<Icon> global render should render 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 1.5em;
-  height: 1.5em;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   outline: none;
   border-radius: 4px;

@@ -17,16 +17,16 @@ describe('<Icon>', () => {
 
         expect(IconWrapper).toHaveStyleRule('fill', 'inherit');
         expect(IconWrapper).toHaveStyleRule('cursor', 'pointer');
-        expect(IconWrapper).toHaveStyleRule('width', '1.5em');
-        expect(IconWrapper).toHaveStyleRule('height', '1.5em');
+        expect(IconWrapper).toHaveStyleRule('width', '20px');
+        expect(IconWrapper).toHaveStyleRule('height', '20px');
       });
 
       it('should set the provided style', () => {
-        const IconWrapper = mount(<Icon size={4} color='red' />);
+        const IconWrapper = mount(<Icon size={40} color='red' />);
 
         expect(IconWrapper).toHaveStyleRule('fill', 'red');
-        expect(IconWrapper).toHaveStyleRule('width', '4em');
-        expect(IconWrapper).toHaveStyleRule('height', '4em');
+        expect(IconWrapper).toHaveStyleRule('width', '40px');
+        expect(IconWrapper).toHaveStyleRule('height', '40px');
       });
 
       it('should handle disabled mode', () => {
