@@ -1,10 +1,11 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const {{pascalCase name}}: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
-<SvgIcon
-        {...props}
-><React.Fragment>{{{path}}}</React.Fragment></SvgIcon>
-);
+const {{pascalCase name}}Icon: React.FunctionComponent<import('../base/SvgIcon').IconProps>=(props:
+        import('../base/SvgIcon').IconProps): JSX.Element=> (
+        <SvgIcon {...props}>
+                <React.Fragment>{{{path}}}</React.Fragment>
+        </SvgIcon>
+        );
 
-export default {{pascalCase name}};
+        export default {{pascalCase name}}Icon;
