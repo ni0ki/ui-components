@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Search: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+const SearchIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
   <SvgIcon {...props}>
@@ -16,4 +16,4 @@ const Search: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   </SvgIcon>
 );
 
-export default Search;
+export default SearchIcon;

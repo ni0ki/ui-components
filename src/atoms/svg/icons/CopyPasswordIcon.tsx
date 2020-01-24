@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const CopyPassword: React.FunctionComponent<
-  import('../base/SvgIcon').IconProps
-> = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
+const CopyPasswordIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+  props: import('../base/SvgIcon').IconProps
+): JSX.Element => (
   <SvgIcon {...props}>
     <React.Fragment>
       <path d='M12.25 9.75V10.75H13.25V12.25H12.25V13.25H10.75V12.25H9.75V10.75H10.75V9.75H12.25Z' />{' '}
@@ -20,4 +20,4 @@ const CopyPassword: React.FunctionComponent<
   </SvgIcon>
 );
 
-export default CopyPassword;
+export default CopyPasswordIcon;

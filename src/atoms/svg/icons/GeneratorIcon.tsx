@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Generator: React.FunctionComponent<
-  import('../base/SvgIcon').IconProps
-> = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
+const GeneratorIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+  props: import('../base/SvgIcon').IconProps
+): JSX.Element => (
   <SvgIcon {...props}>
     <React.Fragment>
       <path d='M6.25 7.75H9.25V9.25H6.25V7.75Z' />
@@ -17,4 +17,4 @@ const Generator: React.FunctionComponent<
   </SvgIcon>
 );
 
-export default Generator;
+export default GeneratorIcon;

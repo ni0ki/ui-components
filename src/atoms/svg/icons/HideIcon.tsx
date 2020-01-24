@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Hide: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+const HideIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
   <SvgIcon {...props}>
@@ -21,4 +21,4 @@ const Hide: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   </SvgIcon>
 );
 
-export default Hide;
+export default HideIcon;

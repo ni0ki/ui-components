@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const NoNetwork: React.FunctionComponent<
-  import('../base/SvgIcon').IconProps
-> = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
+const NoNetworkIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+  props: import('../base/SvgIcon').IconProps
+): JSX.Element => (
   <SvgIcon {...props}>
     <React.Fragment>
       <path
@@ -15,4 +15,4 @@ const NoNetwork: React.FunctionComponent<
   </SvgIcon>
 );
 
-export default NoNetwork;
+export default NoNetworkIcon;

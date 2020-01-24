@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Check: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+const ComputerIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
   <SvgIcon {...props}>
@@ -9,10 +9,10 @@ const Check: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
       <path
         fillRule='evenodd'
         clipRule='evenodd'
-        d='M18 3.93779L7.89681 16L2 11.0719L2.89069 9.95575L7.72252 13.9939L16.9309 3L18 3.93779Z'
+        d='M15.5 4.5H4.5V12H15.5V11.9951H17V12L19 15.5V17H1V15.5L3 12V3H17V9.49516L15.5 10.4952V4.5ZM3.87048 13.5L2.72763 15.5H17.2724L16.1295 13.5H3.87048Z'
       />
     </React.Fragment>
   </SvgIcon>
 );
 
-export default Check;
+export default ComputerIcon;

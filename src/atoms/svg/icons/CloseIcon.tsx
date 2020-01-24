@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Close: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+const CloseIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
   <SvgIcon {...props}>
@@ -11,4 +11,4 @@ const Close: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   </SvgIcon>
 );
 
-export default Close;
+export default CloseIcon;

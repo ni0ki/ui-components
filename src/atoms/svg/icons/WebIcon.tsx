@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const Web: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+const WebIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   props: import('../base/SvgIcon').IconProps
 ): JSX.Element => (
   <SvgIcon {...props}>
@@ -16,4 +16,4 @@ const Web: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
   </SvgIcon>
 );
 
-export default Web;
+export default WebIcon;

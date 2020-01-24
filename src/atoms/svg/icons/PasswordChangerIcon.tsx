@@ -1,9 +1,9 @@
 import * as React from 'react';
 import SvgIcon from '@atoms/svg/base/SvgIcon';
 
-const PasswordChanger: React.FunctionComponent<
-  import('../base/SvgIcon').IconProps
-> = (props: import('../base/SvgIcon').IconProps): JSX.Element => (
+const PasswordChangerIcon: React.FunctionComponent<import('../base/SvgIcon').IconProps> = (
+  props: import('../base/SvgIcon').IconProps
+): JSX.Element => (
   <SvgIcon {...props}>
     <React.Fragment>
       <path d='M6.50009 9.23919H9.50009V10.741H6.50009V9.23919Z' />
@@ -14,4 +14,4 @@ const PasswordChanger: React.FunctionComponent<
   </SvgIcon>
 );
 
-export default PasswordChanger;
+export default PasswordChangerIcon;
