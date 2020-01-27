@@ -1,7 +1,0 @@
-export { default as SvgIconWrapper } from './wrapper/SvgIconWrapper';
-export { default as SvgIcon } from './base/SvgIcon';
-
-/*-- EXPORT ICON COMPONENTS --*/
-{{#each iconTokens}}
-export { default as {{pascalCase @key}} } from './icons/{{pascalCase @key}}';
-{{/each}}
