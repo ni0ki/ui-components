@@ -19,16 +19,9 @@ module.exports = plop => {
         path: 'src/atoms/svg/icons/{{pascalCase name}}Icon.tsx',
         templateFile: 'config/generator/icons/IconComponentTemplate.tsx.hbs',
         force: true
-      }
-    ]
-  });
-
-  plop.setGenerator('iconIndexFile', {
-    description: 'Write index file with all icons components',
-    prompts: [],
-    actions: [
+      },
       {
-        type: 'add',
+        type: 'append',
         path: 'src/atoms/svg/index.ts',
         unique: true,
         pattern: /(\/\*-- EXPORT ICON COMPONENTS --\*\/)/gi,
