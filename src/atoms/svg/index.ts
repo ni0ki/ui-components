@@ -2,6 +2,18 @@ export { default as SvgIconWrapper } from './wrapper/SvgIconWrapper';
 export { default as SvgIcon } from './base/SvgIcon';
 
 /*-- EXPORT ICON COMPONENTS --*/
+export { default as TacShieldFlagIcon } from './icons/TacShieldFlagIcon';
+export { default as TacShieldCheckIcon } from './icons/TacShieldCheckIcon';
+export { default as PhoneIcon } from './icons/PhoneIcon';
+export { default as BuildingIcon } from './icons/BuildingIcon';
+export { default as HouseIcon } from './icons/HouseIcon';
+export { default as MailIcon } from './icons/MailIcon';
+export { default as PaymentsIcon } from './icons/PaymentsIcon';
+export { default as IdIcon } from './icons/IdIcon';
+export { default as MobileIcon } from './icons/MobileIcon';
+export { default as HelpIcon } from './icons/HelpIcon';
+export { default as PersonalInfoIcon } from './icons/PersonalInfoIcon';
+export { default as InfoCircleIcon } from './icons/InfoCircleIcon';
 export { default as PasswordsIcon } from './icons/PasswordsIcon';
 export { default as PasswordHistoryIcon } from './icons/PasswordHistoryIcon';
 export { default as SecurityDashboardIcon } from './icons/SecurityDashboardIcon';
