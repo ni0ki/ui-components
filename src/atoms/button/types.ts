@@ -1,8 +1,1 @@
-export type ButtonVariant = 'contained' | 'text';
-
-export type ButtonNature =
-  | 'danger'
-  | 'secondary'
-  | 'dark'
-  | 'light'
-  | 'success';
+export type ButtonNature = 'danger' | 'secondary' | 'primary' | 'ghost';

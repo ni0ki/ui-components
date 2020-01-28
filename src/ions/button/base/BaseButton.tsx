@@ -1,83 +1,113 @@
 import * as React from 'react';
-import styled, { DefaultTheme } from 'styled-components';
-import { $light, $transparent } from '@colors';
+import styled, {
+  css,
+  DefaultTheme,
+  FlattenInterpolation,
+  ThemedStyledProps
+} from 'styled-components';
+import { transparent, white } from '@colors';
 import { StyledText } from '@ions/text/StyledText';
 import { Props } from '@atoms/button/Button';
+import { assertUnreachable } from '@utility/helpers';
+import { ButtonState } from '@ions/button/themes/types';
 
-export type BaseButtonProps = Omit<Props, 'nature' | 'variant'>;
-
+export type BaseButtonProps = Omit<Props, 'nature' | 'theme'>;
 type Theme = {
   [key in keyof DefaultTheme]: DefaultTheme[key];
 };
 
 export interface BaseProps extends BaseButtonProps {
   children?: React.ReactNode;
+  customStyle?: FlattenInterpolation<ThemedStyledProps<{}, DefaultTheme>>;
   theme: Theme;
 }
 
-const getActiveBackground = ({ theme }: BaseProps): string =>
-  theme.active.background;
-const getActiveColor = ({ theme }: BaseProps): string =>
-  theme.active.color || theme.color;
-const getActiveBorderColor = ({ theme }: BaseProps): string =>
-  theme.active.border || $transparent;
-const getHoverBackground = ({ theme }: BaseProps): string =>
-  theme.hover.background;
-const getHoverColor = ({ theme }: BaseProps): string => theme.color;
-const getHoverBorderColor = ({ theme }: BaseProps): string =>
-  theme.hover.border || $transparent;
-const getBgColor = ({ disabled, theme }: BaseProps) =>
-  disabled ? theme.disabled.background : theme.background;
-const getColor = ({ disabled, theme }: BaseProps) =>
-  disabled ? theme.disabled.color : theme.color;
+const getBgColorByState = (state: ButtonState) => ({ theme }: BaseProps) =>
+  theme.backgroundColor[state] || transparent;
+const getColor = ({ theme }: BaseProps) => theme.textColor || white;
+const getBorderByState = (state: ButtonState) => ({ theme }: BaseProps) =>
+  theme.borderColor
+    ? `1px solid ${theme.borderColor[state] || transparent}`
+    : 'none';
 
-const Button = styled.button<BaseProps>`
-  height: ${({ large = false }) => (large ? '48px' : '32px')};
-  color: ${getColor || $light[100]};
-  background-color: ${getBgColor};
-  cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')};
-  border: solid ${$transparent};
-  border-width: ${({ theme }) => (theme.active.border ? '2px' : '1px')};
+const baseStyle = css`
+  color: ${getColor};
+  font-size: 16px;
+  line-height: 20px;
+  background-color: ${getBgColorByState('idle')};
+  cursor: pointer;
+  border: ${getBorderByState('idle')};
   border-radius: 4px;
-  line-height: 1.75;
-  padding: ${({ large = false }) => (large ? '0 24px' : '0 16px')};
-  min-width: 64px;
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
-  display: inline-flex;
+  min-width: 60px;
+  display: flex;
+  flex-direction: column;
   position: relative;
   align-items: center;
   justify-content: center;
-  outline: 0;
-  &:hover {
-    color: ${getHoverColor};
-    border-color: ${getHoverBorderColor};
-    background-color: ${getHoverBackground};
-    transition: border-color 0.1s ease-in-out, background-color 0.1s ease-in-out;
-  }
-  &:active {
-    color: ${getActiveColor};
-    border-color: ${getActiveBorderColor};
-    background-color: ${getActiveBackground};
-    transition: color 0.1s ease-in-out, background-color 0.1s ease-in-out;
-  }
+  outline: none;
+  transition: all 0.1s;
+  ${props => props.customStyle};
 
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    border: ${getBorderByState('hover')};
+    background-color: ${getBgColorByState('hover')};
+  }
+  &:active:not(:disabled) {
+    border: ${getBorderByState('active')};
+    background-color: ${getBgColorByState('active')};
+  }
   &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
     span {
       pointer-events: none;
-    }
-    &:hover {
-      border-color: ${$transparent};
     }
   }
 `;
 
+const SmallButton = styled.button<BaseProps>`
+  ${baseStyle}
+  padding: 8px 16px;
+  height: 32px;
+  font-size: 12px;
+  line-height: 16px;
+`;
+
+const MediumButton = styled.button<BaseProps>`
+  ${baseStyle}
+  padding: 10px 16px;
+  height: 40px;
+`;
+
+const LargeButton = styled.button<BaseProps>`
+  ${baseStyle}
+  padding: 14px 24px;
+  height: 48px;
+`;
+
+const StyledContent = styled(StyledText)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const BaseButton: React.FunctionComponent<BaseProps> = ({
   children,
+  size = 'medium',
   ...props
-}: BaseProps) => (
-  <Button {...props}>
-    <StyledText large={props.large}>{children || 'Default'}</StyledText>
-  </Button>
-);
+}: BaseProps) => {
+  const content = <StyledContent>{children || 'Default'}</StyledContent>;
+  switch (size) {
+    case 'small':
+      return <SmallButton {...props}>{content}</SmallButton>;
+    case 'medium':
+      return <MediumButton {...props}>{content}</MediumButton>;
+    case 'large':
+      return <LargeButton {...props}>{content}</LargeButton>;
+    default:
+      return assertUnreachable(size);
+  }
+};
 
 export default BaseButton;

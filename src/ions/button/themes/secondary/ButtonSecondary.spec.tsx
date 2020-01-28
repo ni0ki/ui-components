@@ -2,33 +2,133 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import ButtonSecondary from './ButtonSecondary';
-import { $light, $secondary } from '@colors';
+import {
+  dashGreen00,
+  dashGreen01,
+  dashGreen02,
+  dashGreen03,
+  dashGreen05,
+  transparent,
+  white
+} from '@colors';
 
 describe('<ButtonSecondary>', () => {
   describe('global render', () => {
     it('should render', () => {
-      const ContainedButtonSecondary = mount(<ButtonSecondary />);
-      const TextButtonSecondary = mount(<ButtonSecondary variant='text' />);
+      const SecondaryButton = mount(<ButtonSecondary />);
+      const DarkSecondaryButton = mount(<ButtonSecondary theme='dark' />);
 
-      expect(ContainedButtonSecondary).toMatchSnapshot();
-      expect(TextButtonSecondary).toMatchSnapshot();
+      expect(SecondaryButton).toMatchSnapshot();
+      expect(DarkSecondaryButton).toMatchSnapshot();
     });
 
     describe('Secondary style', () => {
-      it('should have the correct style for contained buttons ', () => {
-        const ContainedButtonSecondary = mount(<ButtonSecondary />);
-        const button = ContainedButtonSecondary.find('button');
+      describe('default theme', function() {
+        it('should have the correct style in idle state', () => {
+          const SecondaryButton = mount(<ButtonSecondary />);
 
-        expect(button).toHaveStyleRule('color', $light[100]);
-        expect(button).toHaveStyleRule('background-color', $secondary[500]);
+          expect(SecondaryButton).toHaveStyleRule('color', dashGreen00);
+          expect(SecondaryButton).toHaveStyleRule(
+            'background-color',
+            transparent
+          );
+          expect(SecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen05}`
+          );
+        });
+
+        it('should have the correct style in hover state', () => {
+          const SecondaryButton = mount(<ButtonSecondary />);
+          const options = {
+            modifier: ':hover:not(:disabled)'
+          };
+
+          expect(SecondaryButton).toHaveStyleRule('color', dashGreen00);
+          expect(SecondaryButton).toHaveStyleRule(
+            'background-color',
+            dashGreen05,
+            options
+          );
+          expect(SecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen05}`,
+            options
+          );
+        });
+
+        it('should have the correct style in active state', () => {
+          const SecondaryButton = mount(<ButtonSecondary />);
+          const options = {
+            modifier: ':active:not(:disabled)'
+          };
+
+          expect(SecondaryButton).toHaveStyleRule('color', dashGreen00);
+          expect(SecondaryButton).toHaveStyleRule(
+            'background-color',
+            dashGreen03,
+            options
+          );
+          expect(SecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen03}`,
+            options
+          );
+        });
       });
 
-      it('should have the correct style for text buttons ', () => {
-        const TextButtonSecondary = mount(<ButtonSecondary variant='text' />);
-        const button = TextButtonSecondary.find('button');
+      describe('dark theme', function() {
+        it('should have the correct style in idle state', () => {
+          const DarkSecondaryButton = mount(<ButtonSecondary theme='dark' />);
 
-        expect(button).toHaveStyleRule('color', $secondary[500]);
-        expect(button).toHaveStyleRule('background-color', 'transparent');
+          expect(DarkSecondaryButton).toHaveStyleRule('color', white);
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'background-color',
+            transparent
+          );
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen01}`
+          );
+        });
+
+        it('should have the correct style in hover state', () => {
+          const DarkSecondaryButton = mount(<ButtonSecondary theme='dark' />);
+          const options = {
+            modifier: ':hover:not(:disabled)'
+          };
+
+          expect(DarkSecondaryButton).toHaveStyleRule('color', white);
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'background-color',
+            dashGreen01,
+            options
+          );
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen01}`,
+            options
+          );
+        });
+
+        it('should have the correct style in active state', () => {
+          const DarkSecondaryButton = mount(<ButtonSecondary theme='dark' />);
+          const options = {
+            modifier: ':active:not(:disabled)'
+          };
+
+          expect(DarkSecondaryButton).toHaveStyleRule('color', white);
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'background-color',
+            dashGreen02,
+            options
+          );
+          expect(DarkSecondaryButton).toHaveStyleRule(
+            'border',
+            `1px solid ${dashGreen02}`,
+            options
+          );
+        });
       });
     });
   });

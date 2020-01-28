@@ -5,7 +5,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
   color: #FFFFFF;
   font-size: 16px;
   line-height: 20px;
-  background-color: #FF002D;
+  background-color: #0E6476;
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -36,12 +36,12 @@ exports[`<ButtonDanger> global render should render 1`] = `
 .c0:hover:not(:disabled),
 .c0:focus:not(:disabled) {
   border: none;
-  background-color: #8B0018;
+  background-color: #0E353D;
 }
 
 .c0:active:not(:disabled) {
   border: none;
-  background-color: #4E000D;
+  background-color: #071A1E;
 }
 
 .c0:disabled {
@@ -70,15 +70,23 @@ exports[`<ButtonDanger> global render should render 1`] = `
   align-items: center;
 }
 
-<ButtonDanger>
+<ButtonPrimary>
   <Component
     colors={
       Object {
+        "dark": Object {
+          "backgroundColor": Object {
+            "active": "#3E8391",
+            "hover": "#9FC1C8",
+            "idle": "#FFFFFF",
+          },
+          "textColor": "#0E353D",
+        },
         "default": Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#071A1E",
+            "hover": "#0E353D",
+            "idle": "#0E6476",
           },
         },
       }
@@ -88,9 +96,9 @@ exports[`<ButtonDanger> global render should render 1`] = `
       theme={
         Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#071A1E",
+            "hover": "#0E353D",
+            "idle": "#0E6476",
           },
         }
       }
@@ -99,9 +107,9 @@ exports[`<ButtonDanger> global render should render 1`] = `
         theme={
           Object {
             "backgroundColor": Object {
-              "active": "#4E000D",
-              "hover": "#8B0018",
-              "idle": "#FF002D",
+              "active": "#071A1E",
+              "hover": "#0E353D",
+              "idle": "#0E6476",
             },
           }
         }
@@ -114,7 +122,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
               "componentStyle": ComponentStyle {
                 "componentId": "sc-bxivhb",
                 "isStatic": false,
-                "lastClassName": "c0",
+                "lastClassName": "ZAVCY",
                 "rules": Array [
                   "
   ",
@@ -189,9 +197,9 @@ exports[`<ButtonDanger> global render should render 1`] = `
           theme={
             Object {
               "backgroundColor": Object {
-                "active": "#4E000D",
-                "hover": "#8B0018",
-                "idle": "#FF002D",
+                "active": "#071A1E",
+                "hover": "#0E353D",
+                "idle": "#0E6476",
               },
             }
           }
@@ -253,15 +261,15 @@ exports[`<ButtonDanger> global render should render 1`] = `
       </styled.button>
     </BaseButton>
   </Component>
-</ButtonDanger>
+</ButtonPrimary>
 `;
 
 exports[`<ButtonDanger> global render should render 2`] = `
 .c0 {
-  color: #FFFFFF;
+  color: #0E353D;
   font-size: 16px;
   line-height: 20px;
-  background-color: #FF002D;
+  background-color: #FFFFFF;
   cursor: pointer;
   border: none;
   border-radius: 4px;
@@ -292,12 +300,12 @@ exports[`<ButtonDanger> global render should render 2`] = `
 .c0:hover:not(:disabled),
 .c0:focus:not(:disabled) {
   border: none;
-  background-color: #8B0018;
+  background-color: #9FC1C8;
 }
 
 .c0:active:not(:disabled) {
   border: none;
-  background-color: #4E000D;
+  background-color: #3E8391;
 }
 
 .c0:disabled {
@@ -326,17 +334,25 @@ exports[`<ButtonDanger> global render should render 2`] = `
   align-items: center;
 }
 
-<ButtonDanger
+<ButtonPrimary
   theme="dark"
 >
   <Component
     colors={
       Object {
+        "dark": Object {
+          "backgroundColor": Object {
+            "active": "#3E8391",
+            "hover": "#9FC1C8",
+            "idle": "#FFFFFF",
+          },
+          "textColor": "#0E353D",
+        },
         "default": Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#071A1E",
+            "hover": "#0E353D",
+            "idle": "#0E6476",
           },
         },
       }
@@ -347,10 +363,11 @@ exports[`<ButtonDanger> global render should render 2`] = `
       theme={
         Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#3E8391",
+            "hover": "#9FC1C8",
+            "idle": "#FFFFFF",
           },
+          "textColor": "#0E353D",
         }
       }
     >
@@ -358,10 +375,11 @@ exports[`<ButtonDanger> global render should render 2`] = `
         theme={
           Object {
             "backgroundColor": Object {
-              "active": "#4E000D",
-              "hover": "#8B0018",
-              "idle": "#FF002D",
+              "active": "#3E8391",
+              "hover": "#9FC1C8",
+              "idle": "#FFFFFF",
             },
+            "textColor": "#0E353D",
           }
         }
       >
@@ -448,10 +466,11 @@ exports[`<ButtonDanger> global render should render 2`] = `
           theme={
             Object {
               "backgroundColor": Object {
-                "active": "#4E000D",
-                "hover": "#8B0018",
-                "idle": "#FF002D",
+                "active": "#3E8391",
+                "hover": "#9FC1C8",
+                "idle": "#FFFFFF",
               },
+              "textColor": "#0E353D",
             }
           }
         >
@@ -512,5 +531,5 @@ exports[`<ButtonDanger> global render should render 2`] = `
       </styled.button>
     </BaseButton>
   </Component>
-</ButtonDanger>
+</ButtonPrimary>
 `;

@@ -5,15 +5,12 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import Button from './Button';
-import Loader from '../svg/icons/LoaderIcon';
-
+import CopyPassword from '../svg/icons/CopyPasswordIcon';
+import Shared from '../svg/icons/SharedIcon';
 
 # Button
 
-A Button that allows users to take actions, and make choices, with a single tap. It can be a either:
-
-- `Contained (filled) button`
-- `Text button`
+A Button that allows users to take actions, and make choices, with a single tap.
 
 #### Downside: Since Button props extends the default html button props, Docz will display all props including `React.ButtonHTMLAttributes` ones 😭
 
@@ -25,140 +22,177 @@ Bug on repo link: https://github.com/doczjs/docz/issues/895
 
 ## Usage
 
-### Default variant for the button is `contained`
+### Available buttons:
 
 <Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-  <div>
-    <Button nature="danger">Danger Button</Button>
-  </div>
+    <div>
+      <Button nature="secondary">Cancel</Button>
+    </div>
 
-<div>
-  <Button nature='dark'>Dark Button</Button>
-</div>
+    <div>
+      <Button nature="primary">Save</Button>
+    </div>
 
-<div>
-  <Button nature='light'>Light Button</Button>
-</div>
+    <div>
+        <Button nature="danger">Delete</Button>
+    </div>
 
-<div>
-  <Button nature='secondary'>Secondary Button</Button>
-</div>
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <Button nature="ghost" size="small"><CopyPassword /></Button>
+    </div>
 
-  <div>
-    <Button nature="success">Success Button</Button>
-  </div>
 </Playground>
 
-### You can have a text button by specifying `variant` property to `text`
-
-<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-  <div>
-    <Button nature="danger" variant="text">Danger Button</Button>
-  </div>
-
-<div>
-  <Button nature='dark' variant='text'>
-    Dark Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='light' variant='text'>
-    Light Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='secondary' variant='text'>
-    Secondary Button
-  </Button>
-</div>
-
-  <div>
-    <Button nature="success" variant="text">Success Button</Button>
-  </div>
-</Playground>
-
-### Buttons (either `contained` or `text`) can be `large` ones
-
-<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-<div>
-  <Button nature='secondary' variant='text' large={true}>
-    Label
-  </Button>
-</div>
-
-  <div>
-    <Button nature="success" large={true}>Label</Button>
-  </div>
-</Playground>
-
-### In disabled mode, buttons will behave as following
-
-<Playground className="test" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexFlow: 'wrap' }}>
-<div style={{ display: 'flex', justifyContent: 'space-around', width: '100%' }}>
-  <div>
-    <Button nature="danger" disabled>Danger Button</Button>
-  </div>
-
-<div>
-  <Button nature='dark' disabled>
-    Dark Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='light' disabled>
-    Light Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='secondary' disabled>
-    Secondary Button
-  </Button>
-</div>
-
-  <div>
-    <Button nature="success" disabled>Success Button</Button>
-  </div>
-</div>
-
-<div style={{ display: 'flex', justifyContent: 'space-around', width: '100%', margin: '10px 0' }}>
-  <div>
-    <Button nature="danger" variant="text" disabled>Danger Button</Button>
-  </div>
-
-<div>
-  <Button nature='dark' variant='text' disabled>
-    Dark Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='light' variant='text' disabled>
-    Light Button
-  </Button>
-</div>
-
-<div>
-  <Button nature='secondary' variant='text' disabled>
-    Secondary Button
-  </Button>
-</div>
-
-<div>
-  <Button nature="success" variant="text" disabled>Success Button</Button>
-  </div>
-</div>
-</Playground>
-
-### A Button can contain an icon as well. In the example below, we are setting a large loading button in this way:
+### All buttons can display icons, text or mixed content:
 
 <Playground
-  style={{ display: 'flex', width: '100%', justifyContent: 'center' }}
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }}
 >
-  <Button nature='secondary' style={{ width: '50%' }} large={true}>
-    <Loader />
-  </Button>
+  <div>
+    <Button nature='secondary'>
+      <>
+        <Shared /> Share
+      </>
+    </Button>
+  </div>
+  <div>
+    <Button nature='danger'>
+      <>
+        <Shared color='white' /> Delete
+      </>
+    </Button>
+  </div>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}
+  >
+    <Button nature='ghost' size='small'>
+      <CopyPassword />
+    </Button>
+  </div>
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center'
+    }}
+  >
+    <Button nature='ghost' size='small'>
+      Confirm
+    </Button>
+  </div>
+</Playground>
+
+### The default theme is light (white), but some buttons can be displayed in a Dark theme (Dashlane's dark green) ( ⚠️ `danger` button is not supported in dark theme):
+
+<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', backgroundColor: '#0E353D', height: '12vw', margin: '-40px', alignItems: 'center' }}>
+    <div>
+      <Button nature="secondary" theme="dark">Cancel</Button>
+    </div>
+
+    <div>
+      <Button nature="primary" theme="dark">Save</Button>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <Button nature="ghost" size="small" theme="dark"><CopyPassword color="white"/></Button>
+    </div>
+
+</Playground>
+
+### Buttons can be have different sizes [`small`, `medium`, `large`] with `medium` being the default value if none is specified:
+
+<Playground style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', minHeight: '150px' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Button nature="secondary" size="small">
+            Cancel
+          </Button>
+         <Button nature="secondary" size="medium">
+            Cancel
+          </Button>
+         <Button nature="secondary" size="large">
+            Cancel
+          </Button>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Button nature="primary" size="small">
+            Save
+         </Button>
+        <Button nature="primary" size="medium">
+            Save
+         </Button>
+        <Button nature="primary" size="large">
+            Save
+         </Button>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Button nature="danger" size="small">
+            Delete
+         </Button>
+        <Button nature="danger">
+            Delete
+         </Button>
+        <Button nature="danger" size="large">
+            Delete
+         </Button>
+    </div>
+
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Button nature="ghost" size="small">
+            Decline
+         </Button>
+        <Button nature="ghost">
+            Decline
+         </Button>
+        <Button nature="ghost" size="large">
+            Decline
+        </Button>
+    </div>
+
+</Playground>
+
+### In disabled mode, buttons will behave as following:
+
+<Playground className="test" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexFlow: 'wrap' }}>
+    <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%', margin: '10px 0' }}>
+          <div>
+               <Button nature="secondary" disabled>
+                  Cancel
+                </Button>
+          </div>
+
+           <div>
+              <Button nature="primary" disabled>
+                 Save
+              </Button>
+            </div>
+
+          <div>
+             <Button nature="danger" disabled>
+                Delete
+             </Button>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+             <Button nature="ghost" size="medium" disabled>
+                 Decline
+             </Button>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+             <Button nature="ghost" disabled>
+                 <CopyPassword />
+             </Button>
+          </div>
+    </div>
+
 </Playground>
