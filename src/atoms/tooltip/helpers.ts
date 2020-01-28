@@ -1,4 +1,4 @@
-import { $danger, $light, $success } from '@colors';
+import { dashGreen00, functionalRed02, validatorGreen } from '@colors';
 import { assertUnreachable } from '@utility/helpers';
 import { WrapperProps } from './Tooltip';
 import { Placement, TooltipType } from './types';
@@ -107,11 +107,11 @@ export const handleTooltipArrowPosition = ({ placement }: WrapperProps) => {
 export const getTooltipBgColorByType = (type: TooltipType) => {
   switch (type) {
     case 'info':
-      return $light[700];
+      return dashGreen00;
     case 'success':
-      return $success[500];
+      return validatorGreen;
     case 'error':
-      return $danger[500];
+      return functionalRed02;
     default:
       return assertUnreachable(type);
   }
