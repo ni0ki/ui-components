@@ -2,8 +2,8 @@ export { default as SvgIconWrapper } from './wrapper/SvgIconWrapper';
 export { default as SvgIcon } from './base/SvgIcon';
 
 /*-- EXPORT ICON COMPONENTS --*/
-export { default as TacShieldFlagIcon } from './icons/TacShieldFlagIcon';
-export { default as TacShieldCheckIcon } from './icons/TacShieldCheckIcon';
+export { default as ShieldFlagIcon } from './icons/ShieldFlagIcon';
+export { default as ShieldCheckIcon } from './icons/ShieldCheckIcon';
 export { default as PhoneIcon } from './icons/PhoneIcon';
 export { default as BuildingIcon } from './icons/BuildingIcon';
 export { default as HouseIcon } from './icons/HouseIcon';
@@ -39,3 +39,5 @@ export { default as HideIcon } from './icons/HideIcon';
 export { default as RevealIcon } from './icons/RevealIcon';
 export { default as CopyPasswordIcon } from './icons/CopyPasswordIcon';
 export { default as EditIcon } from './icons/EditIcon';
+export { default as TacShieldFlagIcon } from './icons/TacShieldFlagIcon';
+export { default as TacShieldCheckIcon } from './icons/TacShieldCheckIcon';
