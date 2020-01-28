@@ -1,6 +1,3 @@
-export { default as SvgIconWrapper } from './wrapper/SvgIconWrapper';
-export { default as SvgIcon } from './base/SvgIcon';
-
 /*-- EXPORT ICON COMPONENTS --*/
 export { default as ShieldFlagIcon } from './icons/ShieldFlagIcon';
 export { default as ShieldCheckIcon } from './icons/ShieldCheckIcon';

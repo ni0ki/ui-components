@@ -7,8 +7,8 @@ interface Props extends Omit<IconProps, 'title' | 'children'> {
 }
 
 const getSize = ({ size = 20 }) => `${size}px`;
-const getColor = (propName: ColorProps) => (props: Props): string =>
-  props.animated ? 'none' : props[propName] || 'inherit';
+const getColor = (propName: ColorProps = 'color') => (props: Props): string =>
+  props.animated ? 'none' : props[propName] || props['color'] || 'inherit';
 
 const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
   viewBox: viewBox || '0 0 20 20',
@@ -21,7 +21,7 @@ const Icon = styled.svg.attrs<Props>(({ viewBox }: Props) => ({
   cursor: ${({ disabled }): string => (disabled ? 'not-allowed' : 'pointer')};
   outline: none;
   border-radius: 4px;
-  fill: ${getColor('color')};
+  fill: ${getColor()};
   opacity: ${({ disabled }): number => (disabled ? 0.5 : 1)};
   transition: ${({ animated }): string =>
     animated ? 'none' : 'all 0.1s ease-in'};
