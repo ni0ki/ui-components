@@ -180,9 +180,9 @@ describe('<BaseButton>', () => {
 
   describe('No matching button size case', () => {
     it('should throw when the size is wrong', () => {
+      const BaseButtonWrapper = shallow(<BaseButton theme={selectedTheme} />);
       expect(() =>
-        // @ts-ignore
-        shallow(<BaseButton size='unknown' />)
+        BaseButtonWrapper.setProps({ size: 'unknown' })
       ).toThrowError(/Unexpected value. Should have been never./);
     });
   });

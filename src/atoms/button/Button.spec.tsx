@@ -76,19 +76,18 @@ describe('<Button>', () => {
         borderColor: {
           idle: transparent,
           hover: dashGreen05,
-          active: dashGreen05,
-          disabled: transparent
+          active: dashGreen05
         }
       });
     });
   });
 
   describe('No matching button type case', () => {
-    it('should throw when the type is wrong', () => {
-      expect(() =>
-        // @ts-ignore
-        shallow(<Button nature='unknown'>Unknown</Button>)
-      ).toThrowError(/Unexpected value. Should have been never./);
+    it('should throw when the nature is wrong', () => {
+      const ButtonWrapper = shallow(<Button nature='primary'>Unknown</Button>);
+      expect(() => ButtonWrapper.setProps({ nature: 'unknown' })).toThrowError(
+        /Unexpected value. Should have been never./
+      );
     });
   });
 });
