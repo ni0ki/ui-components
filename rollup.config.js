@@ -15,7 +15,7 @@ const config = {
       typescript: require('typescript'),
       objectHashIgnoreUnknownHack: true
     }),
-    json({ preferConst: false })
+    json({ preferConst: true })
   ],
   output: [{ file: pkg.module, format: 'esm', sourcemap: true }]
 };

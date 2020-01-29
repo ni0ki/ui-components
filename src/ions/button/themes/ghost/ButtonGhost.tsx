@@ -15,8 +15,7 @@ const primaryColors: ThemeColors = {
     borderColor: {
       idle: transparent,
       hover: dashGreen05,
-      active: dashGreen05,
-      disabled: transparent
+      active: dashGreen05
     }
   },
   dark: {
@@ -28,8 +27,7 @@ const primaryColors: ThemeColors = {
     borderColor: {
       idle: transparent,
       hover: dashGreen01,
-      active: dashGreen01,
-      disabled: transparent
+      active: dashGreen01
     }
   }
 };

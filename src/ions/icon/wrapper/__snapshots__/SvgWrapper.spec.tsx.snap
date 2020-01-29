@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SvgIcon> global render should render 1`] = `
+<SvgWrapper>
+  <styled.svg
+    animated={false}
+  >
+    <StyledComponent
+      animated={false}
+      forwardedComponent={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [
+            [Function],
+          ],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bdVaJa",
+            "isStatic": false,
+            "lastClassName": "cCEOKG",
+            "rules": Array [
+              "
+  display: flex;
+  width: ",
+              [Function],
+              ";
+  height: ",
+              [Function],
+              ";
+  cursor: ",
+              [Function],
+              ";
+  outline: none;
+  border-radius: 4px;
+  fill: ",
+              [Function],
+              ";
+  opacity: ",
+              [Function],
+              ";
+  transition: ",
+              [Function],
+              ";
+  &:hover {
+    fill: ",
+              [Function],
+              ";
+  }
+  &:active {
+    fill: ",
+              [Function],
+              ";
+  }
+",
+            ],
+          },
+          "displayName": "styled.svg",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bdVaJa",
+          "target": "svg",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        }
+      }
+      forwardedRef={null}
+    >
+      <svg
+        className="sc-bdVaJa cCEOKG"
+        version="1.1"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="123"
+        />
+      </svg>
+    </StyledComponent>
+  </styled.svg>
+</SvgWrapper>
+`;

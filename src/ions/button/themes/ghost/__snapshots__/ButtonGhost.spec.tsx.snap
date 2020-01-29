@@ -87,7 +87,6 @@ exports[`<ButtonGhost> global render should render 1`] = `
           },
           "borderColor": Object {
             "active": "#3E5D64",
-            "disabled": "transparent",
             "hover": "#3E5D64",
             "idle": "transparent",
           },
@@ -100,7 +99,6 @@ exports[`<ButtonGhost> global render should render 1`] = `
           },
           "borderColor": Object {
             "active": "#D9DFE0",
-            "disabled": "transparent",
             "hover": "#D9DFE0",
             "idle": "transparent",
           },
@@ -139,7 +137,6 @@ exports[`<ButtonGhost> global render should render 1`] = `
           },
           "borderColor": Object {
             "active": "#D9DFE0",
-            "disabled": "transparent",
             "hover": "#D9DFE0",
             "idle": "transparent",
           },
@@ -167,7 +164,6 @@ exports[`<ButtonGhost> global render should render 1`] = `
             },
             "borderColor": Object {
               "active": "#D9DFE0",
-              "disabled": "transparent",
               "hover": "#D9DFE0",
               "idle": "transparent",
             },
@@ -274,7 +270,6 @@ exports[`<ButtonGhost> global render should render 1`] = `
               },
               "borderColor": Object {
                 "active": "#D9DFE0",
-                "disabled": "transparent",
                 "hover": "#D9DFE0",
                 "idle": "transparent",
               },
@@ -431,7 +426,6 @@ exports[`<ButtonGhost> global render should render 2`] = `
           },
           "borderColor": Object {
             "active": "#3E5D64",
-            "disabled": "transparent",
             "hover": "#3E5D64",
             "idle": "transparent",
           },
@@ -444,7 +438,6 @@ exports[`<ButtonGhost> global render should render 2`] = `
           },
           "borderColor": Object {
             "active": "#D9DFE0",
-            "disabled": "transparent",
             "hover": "#D9DFE0",
             "idle": "transparent",
           },
@@ -484,7 +477,6 @@ exports[`<ButtonGhost> global render should render 2`] = `
           },
           "borderColor": Object {
             "active": "#3E5D64",
-            "disabled": "transparent",
             "hover": "#3E5D64",
             "idle": "transparent",
           },
@@ -511,7 +503,6 @@ exports[`<ButtonGhost> global render should render 2`] = `
             },
             "borderColor": Object {
               "active": "#3E5D64",
-              "disabled": "transparent",
               "hover": "#3E5D64",
               "idle": "transparent",
             },
@@ -617,7 +608,6 @@ exports[`<ButtonGhost> global render should render 2`] = `
               },
               "borderColor": Object {
                 "active": "#3E5D64",
-                "disabled": "transparent",
                 "hover": "#3E5D64",
                 "idle": "transparent",
               },
