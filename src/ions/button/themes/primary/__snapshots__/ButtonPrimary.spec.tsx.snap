@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ButtonDanger> global render should render 1`] = `
+exports[`<ButtonPrimary> global render should render 1`] = `
 .c0 {
   color: #FFFFFF;
   font-size: 16px;
@@ -264,7 +264,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
 </ButtonPrimary>
 `;
 
-exports[`<ButtonDanger> global render should render 2`] = `
+exports[`<ButtonPrimary> global render should render 2`] = `
 .c0 {
   color: #0E353D;
   font-size: 16px;

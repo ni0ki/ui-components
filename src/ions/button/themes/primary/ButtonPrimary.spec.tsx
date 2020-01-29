@@ -11,7 +11,7 @@ import {
   white
 } from '@colors';
 
-describe('<ButtonDanger>', () => {
+describe('<ButtonPrimary>', () => {
   describe('global render', () => {
     it('should render', () => {
       const PrimaryButton = mount(<ButtonPrimary />);

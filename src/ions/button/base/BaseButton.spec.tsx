@@ -44,7 +44,7 @@ describe('<BaseButton>', () => {
       expect(Button).toHaveStyleRule('line-height', '20px');
     });
 
-    it('should render default colors', () => {
+    it('should render default colors when properties are not provided', () => {
       const specificTheme = {
         backgroundColor: {
           hover: dashGreen05,
@@ -62,7 +62,7 @@ describe('<BaseButton>', () => {
       expect(Button).toHaveStyleRule('border', `1px solid ${transparent}`);
     });
 
-    it('should render with the specified theme and default medium size', () => {
+    it('should render with the specified theme', () => {
       const Button = mount(<BaseButton theme={selectedTheme} />);
 
       expect(Button).toHaveStyleRule('color', selectedTheme.textColor);
