@@ -1,8 +1,3 @@
-// loop through icons.json and for each entry exec plop with key as name param and value as path param
-// add action 'add' that add index.ts file (skip if exists) (or append atoms/index.ts ?)
-// add action 'append' that updates index.ts file with export { default as name } from ./name
-// apply prettier on files
-
 /**
  * This script will loop through icons.json and for each entry exec plop with key as name param and value as path param in order to create automatically all the svg icon components
  * After the creation of each the component, it will be reexported from atoms/svg/index.ts
@@ -20,17 +15,17 @@ const applyPrettier = async () =>
     execAsync('npx pretty-quick --pattern "src/atoms/svg/index.ts"')
   ]);
 
-const generateIcon = (name, path) => {
-  return execAsync(`npx plop -- --name '${name}' --path '${path}'`);
+const generateIcon = async (name, path) => {
+  return await execAsync(
+    `npx plop iconComponent -- --name '${name}' --path '${path}'`
+  );
 };
 
 const generateIconComponents = async () => {
   try {
-    await Promise.all(
-      Object.keys(iconsDef).map(iconName =>
-        generateIcon(iconName, iconsDef[iconName])
-      )
-    );
+    for (let key of Object.keys(iconsDef)) {
+      await generateIcon(key, iconsDef[key]);
+    }
     await applyPrettier();
     console.log('All done ✅ \nAll Icon components have been generated 🙌🏼.');
   } catch (e) {

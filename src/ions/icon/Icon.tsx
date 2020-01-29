@@ -6,7 +6,7 @@ interface Props extends Omit<IconProps, 'title' | 'children'> {
   animated?: boolean;
 }
 
-const getSize = ({ size = 1.5 }) => `${size}em`;
+const getSize = ({ size = 20 }) => `${size}px`;
 const getColor = (propName: ColorProps) => (props: Props): string =>
   props.animated ? 'none' : props[propName] || 'inherit';
 

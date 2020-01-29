@@ -4,26 +4,56 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz';
-import SvgIcon from '../base/SvgIcon';
-import Edit from './Edit';
-import Hide from './Hide';
-import Reveal from './Reveal';
-import NoNetwork from './NoNetwork';
-import CopyPassword from './CopyPassword';
-import Loader from './Loader';
-import Shared from './Shared';
-import CaretDown from './CaretDown';
-import Check from './Check';
+import EditIcon from './EditIcon';
+import HideIcon from './HideIcon';
+import RevealIcon from './RevealIcon';
+import NoNetworkIcon from './NoNetworkIcon';
+import CopyPasswordIcon from './CopyPasswordIcon';
+import LoaderIcon from './LoaderIcon';
+import SharedIcon from './SharedIcon';
+import CaretDownIcon from './CaretDownIcon';
+import CheckIcon from './CheckIcon';
+import VaultIcon from './VaultIcon';
+import WebIcon from './WebIcon';
+import GeneratorIcon from './GeneratorIcon';
+import DotsIcon from './DotsIcon';
+import SearchIcon from './SearchIcon';
+import CloseIcon from './CloseIcon';
+import ArrowDownIcon from './ArrowDownIcon';
+import WarningIcon from './WarningIcon';
+import RefreshIcon from './RefreshIcon';
+import ToolsIcon from './ToolsIcon';
+import ComputerIcon from './ComputerIcon';
+import LogOutIcon from './LogOutIcon';
+import PasswordChangerIcon from './PasswordChangerIcon';
+import SecurityDashboardIcon from './SecurityDashboardIcon';
+import PasswordHistoryIcon from './PasswordHistoryIcon';
+import PasswordsIcon from './PasswordsIcon';
+import InfoCircleIcon from './InfoCircleIcon';
+import PersonalInfoIcon from './PersonalInfoIcon';
+import HelpIcon from './HelpIcon';
+import MobileIcon from './MobileIcon';
+import IdIcon from './IdIcon';
+import PaymentsIcon from './PaymentsIcon';
+import MailIcon from './MailIcon';
+import HouseIcon from './HouseIcon';
+import BuildingIcon from './BuildingIcon';
+import PhoneIcon from './PhoneIcon';
+import ShieldCheckIcon from './ShieldCheckIcon';
+import ShieldFlagIcon from './ShieldFlagIcon';
 
 # Icons
 
-UI-components offers a set of icons ready to be used in a web application. Icons are built as React components using the `SvgIcon` component.
+UI-components offers a set of icons ready to be used in a web application.
+Icons are built as React components using the `SvgIcon` component.
 
 ## Properties
 
-Icons can be configured in the same way (have the same props) as the SvgIcon component (expect the `children` prop since the svg content is already set for each icon). Te see theses props in action, you can either go to the documentation of the SvgIcon component or open the playground of the icons and add some props.
+Icons can be configured in the same way (have the same props) as the SvgIcon component (expect the `children` prop since the svg content is already set for each icon). 
+To see theses props in action, you can either go to the documentation of the SvgIcon component or open the 
+playground of the icons and add some props.
 
-<Props of={Edit} />
+<Props of={PasswordsIcon} />
 
 ## Available icons
 
@@ -34,16 +64,43 @@ Icons can be configured in the same way (have the same props) as the SvgIcon com
     borderRadius: '4px',
     display: 'flex',
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-around'
   }}
 >
-  <Edit size={2} title='translation_key' />
-  <CopyPassword size={2} />
-  <Hide size={2} />
-  <Reveal size={2} />
-  <NoNetwork size={2} />
-  <Shared size={2} />
-  <Loader size={2} />
-  <CaretDown size={2} />
-  <Check size={2} style={{ fill: 'none' }} />
+  <EditIcon title='translation_key' />
+  <CopyPasswordIcon />
+  <RevealIcon />
+  <HideIcon />
+  <NoNetworkIcon />
+  <SharedIcon />
+  <LoaderIcon />
+  <CaretDownIcon />
+  <CheckIcon />
+  <VaultIcon />
+  <WebIcon />
+  <GeneratorIcon />
+  <DotsIcon />
+  <SearchIcon />
+  <CloseIcon />
+  <ArrowDownIcon />
+  <RefreshIcon />
+  <ToolsIcon />
+  <ComputerIcon />
+  <PasswordChangerIcon />
+  <SecurityDashboardIcon />
+  <PasswordHistoryIcon />
+  <PasswordsIcon />
+  <InfoCircleIcon />
+  <PersonalInfoIcon />
+  <HelpIcon />
+  <MobileIcon />
+  <IdIcon />
+  <PaymentsIcon />
+  <MailIcon />
+  <HouseIcon />
+  <BuildingIcon />
+  <PhoneIcon />
+  <ShieldCheckIcon viewBox='0 0 50 50'/>
+  <ShieldFlagIcon viewBox='0 0 50 50'/>
 </Playground>
