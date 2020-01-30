@@ -1,3 +1,10 @@
+## [1.2.1](https://gitlab.dashlane.com/webproduct/ui-components/compare/v1.2.0...v1.2.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* include design tokens and generated stylesheets in build dir ([042295a](https://gitlab.dashlane.com/webproduct/ui-components/commit/042295acf9a75974af7e2f14020b9d584b9f3cd6))
+
 # [1.2.0](https://gitlab.dashlane.com/webproduct/ui-components/compare/v1.1.1...v1.2.0) (2020-01-30)
 
 
