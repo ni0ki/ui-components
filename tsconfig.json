@@ -18,6 +18,7 @@
       "@atoms/*": ["atoms/*"],
       "@ions": ["ions/index"],
       "@ions/*": ["ions/*"],
+      "@icons": ["icons/index"],
       "@icons/*": ["icons/*"],
       "@colors": ["colors/colors"],
       "@colors/*": ["colors/*"],

@@ -16,17 +16,17 @@ module.exports = plop => {
     actions: [
       {
         type: 'add',
-        path: 'src/atoms/svg/icons/{{pascalCase name}}Icon.tsx',
+        path: 'src/atoms/icons/{{pascalCase name}}Icon.tsx',
         templateFile: 'config/generator/icons/IconComponentTemplate.tsx.hbs',
         force: true
       },
       {
         type: 'append',
-        path: 'src/atoms/svg/index.ts',
+        path: 'src/atoms/icons/index.ts',
         unique: true,
         pattern: /(\/\*-- EXPORT ICON COMPONENTS --\*\/)/gi,
         template:
-          "export { default as {{pascalCase name}}Icon } from './icons/{{pascalCase name}}Icon';"
+          "export { default as {{pascalCase name}}Icon } from './{{pascalCase name}}Icon';"
       }
     ]
   });
