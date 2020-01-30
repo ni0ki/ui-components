@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {
   ButtonDanger,
-  ButtonDark,
-  ButtonLight,
-  ButtonSecondary,
-  ButtonSuccess
+  ButtonGhost,
+  ButtonPrimary,
+  ButtonSecondary
 } from '@ions/button/themes';
 import { assertUnreachable } from '@utility/helpers';
 
@@ -14,12 +13,11 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * The button's nature
    */
-  nature: 'danger' | 'secondary' | 'dark' | 'light' | 'success';
+  nature: 'danger' | 'secondary' | 'primary' | 'ghost';
   /**
-   * Specifies if the button style should be with background (contained) or transparent (text)
-   * @default contained
+   * Activates the button dark mode
    */
-  variant?: 'contained' | 'text';
+  theme?: 'default' | 'dark';
   /**
    * Disabled state of the button
    * @default false
@@ -29,7 +27,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    * A large style option
    @default false
    */
-  large?: boolean;
+  size?: 'small' | 'medium' | 'large';
 }
 
 const Button: React.FunctionComponent<Props> = (
@@ -44,12 +42,10 @@ const Button: React.FunctionComponent<Props> = (
         return <ButtonDanger {...props} />;
       case 'secondary':
         return <ButtonSecondary {...props} />;
-      case 'dark':
-        return <ButtonDark {...props} />;
-      case 'light':
-        return <ButtonLight {...props} />;
-      case 'success':
-        return <ButtonSuccess {...props} />;
+      case 'primary':
+        return <ButtonPrimary {...props} />;
+      case 'ghost':
+        return <ButtonGhost {...props} />;
       default:
         return assertUnreachable(nature);
     }

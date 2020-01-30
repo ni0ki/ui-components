@@ -1,7 +1,17 @@
 import * as React from 'react';
 import { mount, shallow } from 'enzyme';
 import Button from './Button';
-import { $danger, $light, $secondary, $success } from '@colors';
+import {
+  dashDarkerGreen00,
+  dashGreen00,
+  dashGreen03,
+  dashGreen05,
+  functionalRed00,
+  functionalRed01,
+  functionalRed02,
+  midGreen00,
+  transparent
+} from '@colors';
 
 describe('<Button>', () => {
   describe('Global render', () => {
@@ -16,14 +26,22 @@ describe('<Button>', () => {
     it('should render a danger button', () => {
       const ButtonWrapper = mount(<Button nature='danger'>Danger</Button>);
       expect(ButtonWrapper.find('BaseButton').prop('theme')).toMatchObject({
-        background: $danger[500]
+        backgroundColor: {
+          idle: functionalRed02,
+          hover: functionalRed01,
+          active: functionalRed00
+        }
       });
     });
 
-    it('should render a success button', () => {
-      const ButtonWrapper = mount(<Button nature='success'>Success</Button>);
+    it('should render a primary button', () => {
+      const ButtonWrapper = mount(<Button nature='primary'>Primary</Button>);
       expect(ButtonWrapper.find('BaseButton').prop('theme')).toMatchObject({
-        background: $success[500]
+        backgroundColor: {
+          idle: midGreen00,
+          hover: dashGreen00,
+          active: dashDarkerGreen00
+        }
       });
     });
 
@@ -32,25 +50,35 @@ describe('<Button>', () => {
         <Button nature='secondary'>Secondary</Button>
       );
       expect(ButtonWrapper.find('BaseButton').prop('theme')).toMatchObject({
-        background: $secondary[500]
+        backgroundColor: {
+          idle: transparent,
+          hover: dashGreen05,
+          active: dashGreen03
+        },
+        textColor: dashGreen00,
+        borderColor: {
+          idle: dashGreen05,
+          hover: dashGreen05,
+          active: dashGreen03
+        }
       });
     });
 
-    it('should render a light button', () => {
-      const ButtonWrapper = mount(<Button nature='light'>Light</Button>);
+    it('should render a ghost button', () => {
+      const ButtonWrapper = mount(<Button nature='ghost'>Ghost</Button>);
       expect(ButtonWrapper.find('BaseButton').prop('theme')).toMatchObject({
-        background: $light[300]
-      });
-    });
-
-    it('should render a dark button', () => {
-      const ButtonWrapper = mount(
-        <Button nature='dark' onClick={() => alert('hi')}>
-          Dark
-        </Button>
-      );
-      expect(ButtonWrapper.find('BaseButton').prop('theme')).toMatchObject({
-        background: $light[400]
+        backgroundColor: {
+          idle: transparent,
+          hover: transparent,
+          active: dashGreen05
+        },
+        textColor: dashGreen00,
+        borderColor: {
+          idle: transparent,
+          hover: dashGreen05,
+          active: dashGreen05,
+          disabled: transparent
+        }
       });
     });
   });

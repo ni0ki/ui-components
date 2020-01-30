@@ -1,29 +1,45 @@
 import * as React from 'react';
-import { $light, $secondary } from '@colors';
 import {
-  ThemeColors,
-  ThemedButton,
-  ThemedButtonProps
-} from '@ions/button/themes/helpers/ThemedButton';
+  dashGreen00,
+  dashGreen01,
+  dashGreen02,
+  dashGreen03,
+  dashGreen05,
+  transparent
+} from '@colors';
+import { ThemeColors, ThemeWrapperProps } from '@ions/button/themes/types';
+import { ThemeWrapper } from '@ions/button/themes/ThemeWrapper';
 
 const secondaryColors: ThemeColors = {
-  background: {
-    primary: $secondary[500],
-    secondary: $secondary[700],
-    tertiary: $secondary[300]
+  default: {
+    backgroundColor: {
+      idle: transparent,
+      hover: dashGreen05,
+      active: dashGreen03
+    },
+    textColor: dashGreen00,
+    borderColor: {
+      idle: dashGreen05,
+      hover: dashGreen05,
+      active: dashGreen03
+    }
   },
-  text: {
-    primary: $light[100],
-    secondary: $secondary[500]
-  },
-  border: {
-    primary: $secondary[900],
-    secondary: $secondary[500]
+  dark: {
+    backgroundColor: {
+      idle: transparent,
+      hover: dashGreen01,
+      active: dashGreen02
+    },
+    borderColor: {
+      idle: dashGreen01,
+      hover: dashGreen01,
+      active: dashGreen02
+    }
   }
 };
 
-const ButtonSecondary = (props: ThemedButtonProps) => (
-  <ThemedButton colors={secondaryColors} {...props} />
+const ButtonSecondary = (props: ThemeWrapperProps) => (
+  <ThemeWrapper colors={secondaryColors} {...props} />
 );
 
 export default ButtonSecondary;

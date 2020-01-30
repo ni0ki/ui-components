@@ -1,29 +1,20 @@
 import * as React from 'react';
-import { $danger, $light } from '@colors';
-import {
-  ThemeColors,
-  ThemedButton,
-  ThemedButtonProps
-} from '@ions/button/themes/helpers/ThemedButton';
+import { functionalRed00, functionalRed01, functionalRed02 } from '@colors';
+import { ThemeColors, ThemeWrapperProps } from '@ions/button/themes/types';
+import { ThemeWrapper } from '@ions/button/themes/ThemeWrapper';
 
 const dangerColors: ThemeColors = {
-  background: {
-    primary: $danger[500],
-    secondary: $danger[700],
-    tertiary: $danger[300]
-  },
-  text: {
-    primary: $light[100],
-    secondary: $danger[500]
-  },
-  border: {
-    primary: $danger[900],
-    secondary: $danger[500]
+  default: {
+    backgroundColor: {
+      idle: functionalRed02,
+      hover: functionalRed01,
+      active: functionalRed00
+    }
   }
 };
 
-const ButtonDanger = (props: ThemedButtonProps) => (
-  <ThemedButton colors={dangerColors} {...props} />
+const ButtonDanger = (props: ThemeWrapperProps) => (
+  <ThemeWrapper colors={dangerColors} {...props} />
 );
 
 export default ButtonDanger;

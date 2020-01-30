@@ -2,14 +2,8 @@
 
 exports[`<Text> global render should render 1`] = `
 .c0 {
-  font-family: 'Source Sans Pro',Helvetica,Arial,sans-serif;
+  font-family: 'Public Sans','Helvetica Neue',Helvetica,Arial, 'Lucida Grande',sans-serif;
   font-weight: 600;
-  line-height: 1.125rem;
-  font-size: 1rem;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 <styled.span>
@@ -20,21 +14,18 @@ exports[`<Text> global render should render 1`] = `
         "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
-          "isStatic": false,
+          "isStatic": true,
           "lastClassName": "c0",
           "rules": Array [
             "
   ",
             "
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600&display=swap');
+  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
 ",
             "
   font-weight: 600;
-  line-height: 1.125rem;
-  font-size: ",
-            [Function],
-            ";
-  display: flex;
 ",
           ],
         },

@@ -19,7 +19,7 @@
       "@ions": ["ions/index"],
       "@ions/*": ["ions/*"],
       "@icons/*": ["icons/*"],
-      "@colors": ["colors/index"],
+      "@colors": ["colors/colors"],
       "@colors/*": ["colors/*"],
       "@typings/*": ["typings/*"],
       "@utility/*": ["utility/*"],

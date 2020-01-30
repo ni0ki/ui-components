@@ -60,5 +60,6 @@
   },
   "black": "#000000",
   "white": "#FFFFFF",
-  "validator-green": "#20B422"
+  "validator-green": "#20B422",
+  "transparent": "transparent"
 }

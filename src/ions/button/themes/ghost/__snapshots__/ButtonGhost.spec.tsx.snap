@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ButtonDanger> global render should render 1`] = `
+exports[`<ButtonGhost> global render should render 1`] = `
 .c0 {
-  color: #FFFFFF;
+  color: #0E353D;
   font-size: 16px;
   line-height: 20px;
-  background-color: #FF002D;
+  background-color: transparent;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   min-width: 60px;
   display: -webkit-box;
@@ -29,19 +29,24 @@ exports[`<ButtonDanger> global render should render 1`] = `
   outline: none;
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
+  min-width: 32px;
   padding: 10px 16px;
   height: 40px;
 }
 
+.c0 svg {
+  margin: -8px -16px;
+}
+
 .c0:hover:not(:disabled),
 .c0:focus:not(:disabled) {
-  border: none;
-  background-color: #8B0018;
+  border: 1px solid #D9DFE0;
+  background-color: transparent;
 }
 
 .c0:active:not(:disabled) {
-  border: none;
-  background-color: #4E000D;
+  border: 1px solid #D9DFE0;
+  background-color: #D9DFE0;
 }
 
 .c0:disabled {
@@ -70,43 +75,117 @@ exports[`<ButtonDanger> global render should render 1`] = `
   align-items: center;
 }
 
-<ButtonDanger>
+<ButtonGhost>
   <Component
     colors={
       Object {
+        "dark": Object {
+          "backgroundColor": Object {
+            "active": "#3E5D64",
+            "hover": "transparent",
+            "idle": "transparent",
+          },
+          "borderColor": Object {
+            "active": "#3E5D64",
+            "disabled": "transparent",
+            "hover": "#3E5D64",
+            "idle": "transparent",
+          },
+        },
         "default": Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#D9DFE0",
+            "hover": "transparent",
+            "idle": "transparent",
           },
+          "borderColor": Object {
+            "active": "#D9DFE0",
+            "disabled": "transparent",
+            "hover": "#D9DFE0",
+            "idle": "transparent",
+          },
+          "textColor": "#0E353D",
         },
       }
     }
+    customStyle={
+      Array [
+        "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+      ]
+    }
   >
     <BaseButton
+      customStyle={
+        Array [
+          "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+        ]
+      }
       theme={
         Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#D9DFE0",
+            "hover": "transparent",
+            "idle": "transparent",
           },
+          "borderColor": Object {
+            "active": "#D9DFE0",
+            "disabled": "transparent",
+            "hover": "#D9DFE0",
+            "idle": "transparent",
+          },
+          "textColor": "#0E353D",
         }
       }
     >
       <styled.button
+        customStyle={
+          Array [
+            "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+          ]
+        }
         theme={
           Object {
             "backgroundColor": Object {
-              "active": "#4E000D",
-              "hover": "#8B0018",
-              "idle": "#FF002D",
+              "active": "#D9DFE0",
+              "hover": "transparent",
+              "idle": "transparent",
             },
+            "borderColor": Object {
+              "active": "#D9DFE0",
+              "disabled": "transparent",
+              "hover": "#D9DFE0",
+              "idle": "transparent",
+            },
+            "textColor": "#0E353D",
           }
         }
       >
         <StyledComponent
+          customStyle={
+            Array [
+              "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+            ]
+          }
           forwardedComponent={
             Object {
               "$$typeof": Symbol(react.forward_ref),
@@ -114,7 +193,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
               "componentStyle": ComponentStyle {
                 "componentId": "sc-bxivhb",
                 "isStatic": false,
-                "lastClassName": "c0",
+                "lastClassName": "cqcLst",
                 "rules": Array [
                   "
   ",
@@ -189,10 +268,17 @@ exports[`<ButtonDanger> global render should render 1`] = `
           theme={
             Object {
               "backgroundColor": Object {
-                "active": "#4E000D",
-                "hover": "#8B0018",
-                "idle": "#FF002D",
+                "active": "#D9DFE0",
+                "hover": "transparent",
+                "idle": "transparent",
               },
+              "borderColor": Object {
+                "active": "#D9DFE0",
+                "disabled": "transparent",
+                "hover": "#D9DFE0",
+                "idle": "transparent",
+              },
+              "textColor": "#0E353D",
             }
           }
         >
@@ -253,17 +339,17 @@ exports[`<ButtonDanger> global render should render 1`] = `
       </styled.button>
     </BaseButton>
   </Component>
-</ButtonDanger>
+</ButtonGhost>
 `;
 
-exports[`<ButtonDanger> global render should render 2`] = `
+exports[`<ButtonGhost> global render should render 2`] = `
 .c0 {
   color: #FFFFFF;
   font-size: 16px;
   line-height: 20px;
-  background-color: #FF002D;
+  background-color: transparent;
   cursor: pointer;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   min-width: 60px;
   display: -webkit-box;
@@ -285,19 +371,24 @@ exports[`<ButtonDanger> global render should render 2`] = `
   outline: none;
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
+  min-width: 32px;
   padding: 10px 16px;
   height: 40px;
 }
 
+.c0 svg {
+  margin: -8px -16px;
+}
+
 .c0:hover:not(:disabled),
 .c0:focus:not(:disabled) {
-  border: none;
-  background-color: #8B0018;
+  border: 1px solid #3E5D64;
+  background-color: transparent;
 }
 
 .c0:active:not(:disabled) {
-  border: none;
-  background-color: #4E000D;
+  border: 1px solid #3E5D64;
+  background-color: #3E5D64;
 }
 
 .c0:disabled {
@@ -326,46 +417,118 @@ exports[`<ButtonDanger> global render should render 2`] = `
   align-items: center;
 }
 
-<ButtonDanger
+<ButtonGhost
   theme="dark"
 >
   <Component
     colors={
       Object {
-        "default": Object {
+        "dark": Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#3E5D64",
+            "hover": "transparent",
+            "idle": "transparent",
+          },
+          "borderColor": Object {
+            "active": "#3E5D64",
+            "disabled": "transparent",
+            "hover": "#3E5D64",
+            "idle": "transparent",
           },
         },
+        "default": Object {
+          "backgroundColor": Object {
+            "active": "#D9DFE0",
+            "hover": "transparent",
+            "idle": "transparent",
+          },
+          "borderColor": Object {
+            "active": "#D9DFE0",
+            "disabled": "transparent",
+            "hover": "#D9DFE0",
+            "idle": "transparent",
+          },
+          "textColor": "#0E353D",
+        },
       }
+    }
+    customStyle={
+      Array [
+        "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+      ]
     }
     theme="dark"
   >
     <BaseButton
+      customStyle={
+        Array [
+          "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+        ]
+      }
       theme={
         Object {
           "backgroundColor": Object {
-            "active": "#4E000D",
-            "hover": "#8B0018",
-            "idle": "#FF002D",
+            "active": "#3E5D64",
+            "hover": "transparent",
+            "idle": "transparent",
+          },
+          "borderColor": Object {
+            "active": "#3E5D64",
+            "disabled": "transparent",
+            "hover": "#3E5D64",
+            "idle": "transparent",
           },
         }
       }
     >
       <styled.button
+        customStyle={
+          Array [
+            "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+          ]
+        }
         theme={
           Object {
             "backgroundColor": Object {
-              "active": "#4E000D",
-              "hover": "#8B0018",
-              "idle": "#FF002D",
+              "active": "#3E5D64",
+              "hover": "transparent",
+              "idle": "transparent",
+            },
+            "borderColor": Object {
+              "active": "#3E5D64",
+              "disabled": "transparent",
+              "hover": "#3E5D64",
+              "idle": "transparent",
             },
           }
         }
       >
         <StyledComponent
+          customStyle={
+            Array [
+              "
+  min-width: 32px;
+  svg {
+    margin: -8px -16px;
+  }
+",
+            ]
+          }
           forwardedComponent={
             Object {
               "$$typeof": Symbol(react.forward_ref),
@@ -448,9 +611,15 @@ exports[`<ButtonDanger> global render should render 2`] = `
           theme={
             Object {
               "backgroundColor": Object {
-                "active": "#4E000D",
-                "hover": "#8B0018",
-                "idle": "#FF002D",
+                "active": "#3E5D64",
+                "hover": "transparent",
+                "idle": "transparent",
+              },
+              "borderColor": Object {
+                "active": "#3E5D64",
+                "disabled": "transparent",
+                "hover": "#3E5D64",
+                "idle": "transparent",
               },
             }
           }
@@ -512,5 +681,5 @@ exports[`<ButtonDanger> global render should render 2`] = `
       </styled.button>
     </BaseButton>
   </Component>
-</ButtonDanger>
+</ButtonGhost>
 `;

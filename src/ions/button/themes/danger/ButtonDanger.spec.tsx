@@ -2,33 +2,74 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import 'jest-styled-components';
 import ButtonDanger from './ButtonDanger';
-import { $danger, $light } from '@colors';
+import {
+  functionalRed00,
+  functionalRed01,
+  functionalRed02,
+  white
+} from '@colors';
 
 describe('<ButtonDanger>', () => {
   describe('global render', () => {
     it('should render', () => {
-      const ContainedButtonDanger = mount(<ButtonDanger />);
-      const TextButtonDanger = mount(<ButtonDanger variant='text' />);
+      const DangerButton = mount(<ButtonDanger />);
+      const DarkDangerButton = mount(<ButtonDanger theme='dark' />);
 
-      expect(ContainedButtonDanger).toMatchSnapshot();
-      expect(TextButtonDanger).toMatchSnapshot();
+      expect(DangerButton).toMatchSnapshot();
+      expect(DarkDangerButton).toMatchSnapshot();
     });
 
     describe('Danger style', () => {
-      it('should have the correct style for contained buttons ', () => {
-        const ContainedButtonDanger = mount(<ButtonDanger />);
-        const button = ContainedButtonDanger.find('button');
+      describe('default theme', function() {
+        it('should have the correct style for idle state', () => {
+          const DangerButton = mount(<ButtonDanger />);
 
-        expect(button).toHaveStyleRule('color', $light[100]);
-        expect(button).toHaveStyleRule('background-color', $danger[500]);
+          expect(DangerButton).toHaveStyleRule('color', white);
+          expect(DangerButton).toHaveStyleRule(
+            'background-color',
+            functionalRed02
+          );
+        });
+
+        it('should have the correct style for hover state', () => {
+          const DangerButton = mount(<ButtonDanger />);
+          const options = {
+            modifier: ':hover:not(:disabled)'
+          };
+
+          expect(DangerButton).toHaveStyleRule('color', white);
+          expect(DangerButton).toHaveStyleRule(
+            'background-color',
+            functionalRed01,
+            options
+          );
+        });
+
+        it('should have the correct style for active state', () => {
+          const DangerButton = mount(<ButtonDanger />);
+          const options = {
+            modifier: ':active:not(:disabled)'
+          };
+
+          expect(DangerButton).toHaveStyleRule('color', white);
+          expect(DangerButton).toHaveStyleRule(
+            'background-color',
+            functionalRed00,
+            options
+          );
+        });
       });
 
-      it('should have the correct style for text buttons ', () => {
-        const TextButtonDanger = mount(<ButtonDanger variant='text' />);
-        const button = TextButtonDanger.find('button');
+      describe('dark theme', function() {
+        it('should not support dark theme (fallback to default)', () => {
+          const DarkDangerButton = mount(<ButtonDanger theme='dark' />);
 
-        expect(button).toHaveStyleRule('color', $danger[500]);
-        expect(button).toHaveStyleRule('background-color', 'transparent');
+          expect(DarkDangerButton).toHaveStyleRule('color', white);
+          expect(DarkDangerButton).toHaveStyleRule(
+            'background-color',
+            functionalRed02
+          );
+        });
       });
     });
   });

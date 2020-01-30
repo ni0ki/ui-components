@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import { fontFamily } from '@ions/text/StyledText';
-import { $light } from '@colors';
+import { white } from '@colors';
 import { Placement } from './types';
 import {
   checkIsStyleComputed,
@@ -69,7 +69,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
     background-color: ${({ type }: WrapperProps) =>
       getTooltipBgColorByType(type)};
     content: attr(data-tooltip);
-    color: ${$light[100]};
+    color: ${white};
     position: absolute;
     max-width: ${({ options }: WrapperProps) =>
       options.tooltipMaxWidth ? `${options.tooltipMaxWidth}px` : '300px'};
