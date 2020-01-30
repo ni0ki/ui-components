@@ -22,7 +22,7 @@ module.exports = plop => {
       },
       {
         type: 'append',
-        path: 'src/atoms/svg/index.ts',
+        path: 'src/atoms/icons/index.ts',
         unique: true,
         pattern: /(\/\*-- EXPORT ICON COMPONENTS --\*\/)/gi,
         template:
