@@ -142,16 +142,10 @@ exports[`<Button> Global render should render 1`] = `
                       "componentStyle": ComponentStyle {
                         "componentId": "sc-EHOje",
                         "isStatic": true,
-                        "lastClassName": "lgcqjo",
+                        "lastClassName": "kdyCPA",
                         "rules": Array [
                           "
-  ",
-                          "
-  @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600&display=swap');
-  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial,
-    'Lucida Grande', sans-serif;
-",
-                          "
+  font-family: inherit;
   font-weight: 600;
 ",
                           "
@@ -176,7 +170,7 @@ exports[`<Button> Global render should render 1`] = `
                   forwardedRef={null}
                 >
                   <span
-                    className="sc-bwzfXH sc-EHOje lgcqjo"
+                    className="sc-bwzfXH sc-EHOje kdyCPA"
                   >
                     Default
                   </span>

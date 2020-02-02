@@ -2,7 +2,7 @@
 
 exports[`<Text> global render should render 1`] = `
 .c0 {
-  font-family: 'Public Sans','Helvetica Neue',Helvetica,Arial, 'Lucida Grande',sans-serif;
+  font-family: inherit;
   font-weight: 600;
 }
 
@@ -18,13 +18,7 @@ exports[`<Text> global render should render 1`] = `
           "lastClassName": "c0",
           "rules": Array [
             "
-  ",
-            "
-  @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600&display=swap');
-  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial,
-    'Lucida Grande', sans-serif;
-",
-            "
+  font-family: inherit;
   font-weight: 600;
 ",
           ],

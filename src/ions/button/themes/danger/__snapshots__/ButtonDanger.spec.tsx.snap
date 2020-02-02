@@ -54,7 +54,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
 }
 
 .c1 {
-  font-family: 'Public Sans','Helvetica Neue',Helvetica,Arial, 'Lucida Grande',sans-serif;
+  font-family: inherit;
   font-weight: 600;
   display: -webkit-box;
   display: -webkit-flex;
@@ -211,13 +211,7 @@ exports[`<ButtonDanger> global render should render 1`] = `
                       "lastClassName": "c1",
                       "rules": Array [
                         "
-  ",
-                        "
-  @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600&display=swap');
-  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial,
-    'Lucida Grande', sans-serif;
-",
-                        "
+  font-family: inherit;
   font-weight: 600;
 ",
                         "
@@ -310,7 +304,7 @@ exports[`<ButtonDanger> global render should render 2`] = `
 }
 
 .c1 {
-  font-family: 'Public Sans','Helvetica Neue',Helvetica,Arial, 'Lucida Grande',sans-serif;
+  font-family: inherit;
   font-weight: 600;
   display: -webkit-box;
   display: -webkit-flex;
@@ -470,13 +464,7 @@ exports[`<ButtonDanger> global render should render 2`] = `
                       "lastClassName": "c1",
                       "rules": Array [
                         "
-  ",
-                        "
-  @import url('https://fonts.googleapis.com/css?family=Public+Sans:400,500,600&display=swap');
-  font-family: 'Public Sans', 'Helvetica Neue', Helvetica, Arial,
-    'Lucida Grande', sans-serif;
-",
-                        "
+  font-family: inherit;
   font-weight: 600;
 ",
                         "
