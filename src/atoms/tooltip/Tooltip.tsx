@@ -1,8 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { fontFamily } from '@ions/text/StyledText';
 import { white } from '@colors';
-import { Placement } from './types';
+import { Placement } from '@atoms/tooltip/types';
 import {
   checkIsStyleComputed,
   computeTooltipHeight,
@@ -15,7 +14,7 @@ import {
   handleTooltipPosition,
   isElementOutOfContainer,
   removeOutOfScreenPlacement
-} from './helpers';
+} from '@atoms/tooltip/helpers';
 
 export interface Props {
   title: string;
@@ -57,7 +56,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
   }
 
   > :first-child::before {
-    ${fontFamily}
+    font-family: inherit;
     visibility: hidden;
     opacity: 0;
     font-size: 0.75rem;
