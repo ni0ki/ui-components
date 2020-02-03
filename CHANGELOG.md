@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/Dashlane/ui-components/compare/v1.2.1...v1.2.2) (2020-02-03)
+
+
+### Bug Fixes
+
+* remove font family config for each component ([d3a228b](https://github.com/Dashlane/ui-components/commit/d3a228bfb36f20ed24197100a4de37d676ab48da))
+
 ## [1.2.1](https://gitlab.dashlane.com/webproduct/ui-components/compare/v1.2.0...v1.2.1) (2020-01-30)
 
 
