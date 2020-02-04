@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { css } from 'styled-components';
 import { dashGreen00, dashGreen01, dashGreen05, transparent } from '@colors';
-import { ThemeColors, ThemeWrapperProps } from '@ions/button/themes/types';
-import { ThemeWrapper } from '@ions/button/themes/ThemeWrapper';
+import { ButtonThemeConfig } from '@ions/button/themes/types';
+import { Props as ButtonProps } from '@atoms/button/Button';
+import BaseButton from '@ions/button/base/BaseButton';
+import { ThemeColors } from '@ions/theme/types';
+import { ThemeWrapper } from '@ions/theme/ThemeWrapper';
 
-const primaryColors: ThemeColors = {
+const primaryColors: ThemeColors<ButtonThemeConfig> = {
   default: {
     backgroundColor: {
       idle: transparent,
@@ -42,8 +45,10 @@ const ghostStyle = css`
   }
 `;
 
-const ButtonGhost = (props: ThemeWrapperProps) => (
-  <ThemeWrapper customStyle={ghostStyle} colors={primaryColors} {...props} />
+const ButtonGhost = ThemeWrapper<ButtonProps, ButtonThemeConfig>(
+  BaseButton,
+  primaryColors,
+  ghostStyle
 );
 
 export default ButtonGhost;

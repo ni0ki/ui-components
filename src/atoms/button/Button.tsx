@@ -15,7 +15,8 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    */
   nature: 'danger' | 'secondary' | 'primary' | 'ghost';
   /**
-   * Activates the button dark mode
+   * Defines a theme for a button
+   * @default default
    */
   theme?: 'default' | 'dark';
   /**
@@ -24,8 +25,8 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    */
   disabled?: boolean;
   /**
-   * A large style option
-   @default false
+   * The button size
+   @default medium
    */
   size?: 'small' | 'medium' | 'large';
 }

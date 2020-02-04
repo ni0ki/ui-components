@@ -9,12 +9,9 @@ import { transparent, white } from '@colors';
 import { StyledText } from '@ions/text/StyledText';
 import { Props } from '@atoms/button/Button';
 import { assertUnreachable } from '@utility/helpers';
-import { ButtonState } from '@ions/button/themes/types';
+import { State as ButtonState, Theme } from '@ions/theme/types';
 
 export type BaseButtonProps = Omit<Props, 'nature' | 'theme'>;
-type Theme = {
-  [key in keyof DefaultTheme]: DefaultTheme[key];
-};
 
 export interface BaseProps extends BaseButtonProps {
   children?: React.ReactNode;
@@ -23,8 +20,9 @@ export interface BaseProps extends BaseButtonProps {
 }
 
 const getBgColorByState = (state: ButtonState) => ({ theme }: BaseProps) =>
-  theme.backgroundColor[state] || transparent;
-const getColor = ({ theme }: BaseProps) => theme.textColor || white;
+  (theme.backgroundColor && theme.backgroundColor[state]) || transparent;
+const getColor = ({ theme }: BaseProps) =>
+  (typeof theme.textColor === 'string' && theme.textColor) || white;
 const getBorderByState = (state: ButtonState) => ({ theme }: BaseProps) =>
   theme.borderColor
     ? `1px solid ${theme.borderColor[state] || transparent}`
@@ -46,7 +44,7 @@ const baseStyle = css`
   justify-content: center;
   outline: none;
   transition: all 0.1s;
-  ${props => props.customStyle};
+  ${(props: BaseProps) => props.customStyle};
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {

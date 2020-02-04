@@ -1,18 +1,10 @@
 import { Props as ButtonProps } from '@atoms/button/Button';
+import { StateColor as ButtonStateColor } from '@ions/theme/types';
 
-export type ButtonState = 'idle' | 'hover' | 'active';
-type ButtonStateColor = {
-  [key in ButtonState]?: string;
-};
-
-export interface ModeThemeConfig {
+export interface ButtonThemeConfig {
   backgroundColor: ButtonStateColor;
   borderColor?: ButtonStateColor;
   textColor?: string;
-}
-export interface ThemeColors {
-  dark?: ModeThemeConfig; // Dashlane darker theme
-  default: ModeThemeConfig; // Default light theme
 }
 
 export type ThemeWrapperProps = Omit<ButtonProps, 'nature'>;

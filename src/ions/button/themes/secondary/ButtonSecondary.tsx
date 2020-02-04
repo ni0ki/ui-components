@@ -7,10 +7,13 @@ import {
   dashGreen05,
   transparent
 } from '@colors';
-import { ThemeColors, ThemeWrapperProps } from '@ions/button/themes/types';
-import { ThemeWrapper } from '@ions/button/themes/ThemeWrapper';
+import { ButtonThemeConfig } from '@ions/button/themes/types';
+import { Props as ButtonProps } from '@atoms/button/Button';
+import BaseButton from '@ions/button/base/BaseButton';
+import { ThemeColors } from '@ions/theme/types';
+import { ThemeWrapper } from '@ions/theme/ThemeWrapper';
 
-const secondaryColors: ThemeColors = {
+const secondaryColors: ThemeColors<ButtonThemeConfig> = {
   default: {
     backgroundColor: {
       idle: transparent,
@@ -38,8 +41,9 @@ const secondaryColors: ThemeColors = {
   }
 };
 
-const ButtonSecondary = (props: ThemeWrapperProps) => (
-  <ThemeWrapper colors={secondaryColors} {...props} />
+const ButtonSecondary = ThemeWrapper<ButtonProps, ButtonThemeConfig>(
+  BaseButton,
+  secondaryColors
 );
 
 export default ButtonSecondary;

@@ -7,10 +7,13 @@ import {
   midGreen03,
   white
 } from '@colors';
-import { ThemeColors, ThemeWrapperProps } from '@ions/button/themes/types';
-import { ThemeWrapper } from '@ions/button/themes/ThemeWrapper';
+import { ButtonThemeConfig } from '@ions/button/themes/types';
+import { Props as ButtonProps } from '@atoms/button/Button';
+import BaseButton from '@ions/button/base/BaseButton';
+import { ThemeColors } from '@ions/theme/types';
+import { ThemeWrapper } from '@ions/theme/ThemeWrapper';
 
-const primaryColors: ThemeColors = {
+const primaryColors: ThemeColors<ButtonThemeConfig> = {
   default: {
     backgroundColor: {
       idle: midGreen00,
@@ -28,8 +31,9 @@ const primaryColors: ThemeColors = {
   }
 };
 
-const ButtonPrimary = (props: ThemeWrapperProps) => (
-  <ThemeWrapper colors={primaryColors} {...props} />
+const ButtonPrimary = ThemeWrapper<ButtonProps, ButtonThemeConfig>(
+  BaseButton,
+  primaryColors
 );
 
 export default ButtonPrimary;

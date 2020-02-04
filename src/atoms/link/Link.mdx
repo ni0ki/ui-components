@@ -1,0 +1,45 @@
+---
+name: Link
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Link from './Link';
+
+# Link
+
+## Properties
+
+<Props of={Link} />
+
+## Usage
+
+### Possible link config:
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }}
+>
+  <Link>Need help?</Link>
+  <Link disabled>Need help?</Link>
+  <Link size='small'>Need help?</Link>
+</Playground>
+
+### The default theme is light (white), but a link can also be displayed in a Dark theme (Dashlane's dark green):
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    backgroundColor: '#0E353D',
+    height: '12vw',
+    margin: '-40px',
+    alignItems: 'center'
+  }}
+>
+  <Link theme='dark'>Need help?</Link>
+</Playground>
