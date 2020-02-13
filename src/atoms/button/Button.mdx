@@ -54,16 +54,12 @@ Bug on repo link: https://github.com/doczjs/docz/issues/895
 >
   <div>
     <Button nature='secondary'>
-      <>
-        <Shared /> Share
-      </>
+      <Shared /> Share
     </Button>
   </div>
   <div>
     <Button nature='danger'>
-      <>
-        <Shared color='white' /> Delete
-      </>
+      <Shared color='white' /> Delete
     </Button>
   </div>
   <div
@@ -163,36 +159,37 @@ Bug on repo link: https://github.com/doczjs/docz/issues/895
 ### In disabled mode, buttons will behave as following:
 
 <Playground className="test" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', flexFlow: 'wrap' }}>
-    <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%', margin: '10px 0' }}>
-          <div>
-               <Button nature="secondary" disabled>
-                  Cancel
-                </Button>
-          </div>
+  <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%', margin: '10px 0' }}>
+        <div>
+            <Button nature="secondary" disabled>
+              Cancel
+            </Button>
+        </div>
 
-           <div>
-              <Button nature="primary" disabled>
-                 Save
-              </Button>
-            </div>
+        <div>
+            <Button nature="primary" disabled>
+                Save
+            </Button>
+        </div>
 
-          <div>
-             <Button nature="danger" disabled>
-                Delete
-             </Button>
-          </div>
+        <div>
+            <Button nature="danger" disabled>
+              Delete
+            </Button>
+        </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-             <Button nature="ghost" size="medium" disabled>
-                 Decline
-             </Button>
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Button nature="ghost" size="medium" disabled>
+                Decline
+            </Button>
+        </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-             <Button nature="ghost" disabled>
-                 <CopyPassword />
-             </Button>
-          </div>
-    </div>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <Button nature="ghost" disabled>
+                <CopyPassword />
+            </Button>
+        </div>
+
+  </div>
 
 </Playground>
