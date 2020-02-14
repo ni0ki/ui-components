@@ -141,7 +141,7 @@ exports[`<Button> Global render should render 1`] = `
                       "attrs": Array [],
                       "componentStyle": ComponentStyle {
                         "componentId": "sc-EHOje",
-                        "isStatic": true,
+                        "isStatic": false,
                         "lastClassName": "kdyCPA",
                         "rules": Array [
                           "

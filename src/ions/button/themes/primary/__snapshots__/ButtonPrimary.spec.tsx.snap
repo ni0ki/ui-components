@@ -215,7 +215,7 @@ exports[`<ButtonPrimary> global render should render 1`] = `
                     "attrs": Array [],
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
-                      "isStatic": true,
+                      "isStatic": false,
                       "lastClassName": "c1",
                       "rules": Array [
                         "
@@ -479,7 +479,7 @@ exports[`<ButtonPrimary> global render should render 2`] = `
                     "attrs": Array [],
                     "componentStyle": ComponentStyle {
                       "componentId": "sc-EHOje",
-                      "isStatic": true,
+                      "isStatic": false,
                       "lastClassName": "c1",
                       "rules": Array [
                         "

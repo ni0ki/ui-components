@@ -14,7 +14,7 @@ exports[`<Text> global render should render 1`] = `
         "attrs": Array [],
         "componentStyle": ComponentStyle {
           "componentId": "sc-bdVaJa",
-          "isStatic": true,
+          "isStatic": false,
           "lastClassName": "c0",
           "rules": Array [
             "
