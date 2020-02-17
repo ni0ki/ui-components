@@ -4,3 +4,6 @@ node_modules
 yarn.lock
 !.eslintrc.json
 docs/
+gatsby-config.js
+gatsby-node.js
+src/gatsby-theme-docz/

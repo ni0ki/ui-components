@@ -1,7 +1,10 @@
 const TsConfigPathsPlugin = require('awesome-typescript-loader')
   .TsConfigPathsPlugin;
 
-exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
-  const config = getConfig();
-  config.resolve.plugins = [new TsConfigPathsPlugin()];
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      plugins: [new TsConfigPathsPlugin()]
+    }
+  });
 };
