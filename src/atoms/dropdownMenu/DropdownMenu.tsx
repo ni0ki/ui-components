@@ -2,37 +2,38 @@ import * as React from 'react';
 import DropdownCard from '@ions/dropdown/card/DropdownCard';
 import DropdownElement from '@ions/dropdown/element/DropdownElement';
 import styled from 'styled-components';
-
-type OnClickFunction = (e: React.MouseEvent) => void;
-
-interface DropdownElementInfo {
-  title: string;
-  icon?: JSX.Element;
-  onClick: OnClickFunction;
-}
+import { DropdownElementInfo, OnClickFunction } from './types';
 
 interface Props {
   elements: DropdownElementInfo[];
 }
 
-const DropdownMenuWrapper = styled.div`
+const DropdownMenuWrapper = styled.div<{ height: number }>`
   position: relative;
-`;
-
-const ButtonWrapper = styled.div`
-  /* margin-bottom: 4px; */
+  padding: 0 4px;
+  height: ${props => props.height + 4}px;
+  /* 4px is to add a margin between 
+  the action and the menu*/
 `;
 
 const MenuWrapper = styled.div`
   position: absolute;
   display: block;
   left: 0;
-  bottom: -4px;
+  top: 100%;
   max-width: 300px;
 `;
 
 const DropdownMenu: React.FC<Props> = props => {
   const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
+  const [height, setHeight] = React.useState(0);
+  const buttonRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (buttonRef.current) {
+      setHeight(buttonRef.current.clientHeight);
+    }
+  }, [buttonRef]);
 
   const onChildClick: OnClickFunction = e => {
     e.preventDefault();
@@ -71,8 +72,9 @@ const DropdownMenu: React.FC<Props> = props => {
   };
 
   return (
-    <DropdownMenuWrapper>
-      <ButtonWrapper>{getChild()}</ButtonWrapper>
+    <DropdownMenuWrapper height={height}>
+      <div ref={buttonRef}>{getChild()}</div>
+
       {dropdownIsOpen && (
         <MenuWrapper>
           <DropdownCard>
