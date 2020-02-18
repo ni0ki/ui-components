@@ -1,0 +1,44 @@
+---
+name: Dropdown Menu
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import DropdownMenu from './DropdownMenu';
+import Button from '../button/Button';
+import PhoneIcon from '../icons/PhoneIcon';
+
+# Dropdown Menu
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+  <DropdownMenu
+    elements={[
+      {
+        title: 'Hello',
+        icon: <PhoneIcon />,
+        onClick: () => {}
+      },
+      {
+        title: 'Holà',
+        onClick: () => {}
+      },
+      {
+        title: 'Bonjour',
+        onClick: () => {}
+      },
+      {
+        title: 'Gutten Tag',
+        onClick: () => {}
+      }
+    ]}
+  >
+    <Button nature='primary'> Click Me </Button>
+  </DropdownMenu>
+</Playground>
