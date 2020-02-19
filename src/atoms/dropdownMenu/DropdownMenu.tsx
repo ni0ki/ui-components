@@ -9,21 +9,23 @@ interface Props {
   elements: DropdownElementInfo[];
   menuMaxHeight?: number;
   dockingSide?: 'left' | 'right';
+  placement?: 'top' | 'bottom';
 }
 
 const DropdownMenuWrapper = styled.div<{ height: number }>`
   position: relative;
-  padding: 0 4px;
-  height: ${props => props.height + 4}px;
-  /* 4px is to add a margin between 
-  the action and the menu*/
+  padding: 4px;
+  height: ${props => props.height}px;
 `;
 
-const MenuWrapper = styled.div<{ dockingSide?: 'left' | 'right' }>`
+const MenuWrapper = styled.div<{
+  dockingSide?: 'left' | 'right';
+  placement?: 'top' | 'bottom';
+}>`
   position: absolute;
   display: block;
   ${props => props.dockingSide || 'left'}: 0;
-  top: 100%;
+  ${props => (props.placement === 'top' ? 'bottom' : 'top')}: 100%;
   max-width: 318px;
 `;
 
@@ -85,7 +87,10 @@ const DropdownMenu: React.FC<Props> = props => {
       <div ref={buttonRef}>{getChild()}</div>
 
       {dropdownIsOpen && (
-        <MenuWrapper dockingSide={props.dockingSide}>
+        <MenuWrapper
+          dockingSide={props.dockingSide}
+          placement={props.placement}
+        >
           <DropdownCard maxHeight={props.menuMaxHeight}>
             {props.elements.map((element, key) => (
               <DropdownElement

@@ -15,6 +15,7 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
   style={{
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-around',
     height: '200px'
   }}
@@ -98,6 +99,23 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
     dockingSide="right"
   >
     <Button nature='primary'> On the right </Button>
+
+  </DropdownMenu>
+
+  <DropdownMenu
+    elements={[
+      {
+        title: 'Hello',
+        onClick: () => {}
+      },
+      {
+        title: 'Holà',
+        onClick: () => {}
+      }
+    ]}
+    placement="top"
+  >
+    <Button nature='primary'> On the top </Button>
 
   </DropdownMenu>
 
