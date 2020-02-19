@@ -1,0 +1,41 @@
+---
+name: Quick Actions Menu
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Button from '../../atoms/button/Button';
+import PhoneIcon from '../../atoms/icons/PhoneIcon';
+import QuickActionsMenu from './QuickActionsMenu';
+
+
+# Quick Actions Menu
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+    <QuickActionsMenu
+      elements={[
+        {
+          title: 'Hello',
+          icon: <PhoneIcon />,
+          onClick: () => {}
+        },
+        {
+          title: 'Holà',
+          icon: <PhoneIcon />,
+          onClick: () => {}
+        },
+        {
+          title: 'Bonjour',
+          icon: <PhoneIcon />,
+          onClick: () => {}
+        }
+      ]}
+    />
+</Playground>
