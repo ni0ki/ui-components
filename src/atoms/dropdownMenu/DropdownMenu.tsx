@@ -6,6 +6,7 @@ import { DropdownElementInfo, OnClickFunction } from './types';
 
 interface Props {
   elements: DropdownElementInfo[];
+  menuMaxHeight?: number;
 }
 
 const DropdownMenuWrapper = styled.div<{ height: number }>`
@@ -21,7 +22,7 @@ const MenuWrapper = styled.div`
   display: block;
   left: 0;
   top: 100%;
-  max-width: 300px;
+  max-width: 318px;
 `;
 
 const DropdownMenu: React.FC<Props> = props => {
@@ -77,7 +78,7 @@ const DropdownMenu: React.FC<Props> = props => {
 
       {dropdownIsOpen && (
         <MenuWrapper>
-          <DropdownCard>
+          <DropdownCard maxHeight={props.menuMaxHeight}>
             {props.elements.map((element, key) => (
               <DropdownElement
                 text={element.title}

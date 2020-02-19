@@ -22,7 +22,7 @@ const Wrapper = styled.button`
   display: flex;
   box-sizing: border-box;
   height: 36px;
-  flex-grow: 0;
+  flex-shrink: 0;
   padding: 8px 16px;
   overflow: hidden;
   white-space: nowrap;
