@@ -3,6 +3,7 @@ import DropdownCard from '@ions/dropdown/card/DropdownCard';
 import DropdownElement from '@ions/dropdown/element/DropdownElement';
 import styled from 'styled-components';
 import { DropdownElementInfo, OnClickFunction } from './types';
+import { useOnClickOutside } from '@utility/withClickOutside';
 
 interface Props {
   elements: DropdownElementInfo[];
@@ -29,12 +30,18 @@ const DropdownMenu: React.FC<Props> = props => {
   const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
   const [height, setHeight] = React.useState(0);
   const buttonRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     if (buttonRef.current) {
       setHeight(buttonRef.current.clientHeight);
     }
   }, [buttonRef]);
+
+  useOnClickOutside(containerRef, e => {
+    e.preventDefault();
+    setDropdownIsOpen(false);
+  });
 
   const onChildClick: OnClickFunction = e => {
     e.preventDefault();
@@ -73,7 +80,7 @@ const DropdownMenu: React.FC<Props> = props => {
   };
 
   return (
-    <DropdownMenuWrapper height={height}>
+    <DropdownMenuWrapper height={height} ref={containerRef}>
       <div ref={buttonRef}>{getChild()}</div>
 
       {dropdownIsOpen && (
