@@ -8,6 +8,7 @@ import { useOnClickOutside } from '@utility/withClickOutside';
 interface Props {
   elements: DropdownElementInfo[];
   menuMaxHeight?: number;
+  dockingSide?: 'left' | 'right';
 }
 
 const DropdownMenuWrapper = styled.div<{ height: number }>`
@@ -18,10 +19,10 @@ const DropdownMenuWrapper = styled.div<{ height: number }>`
   the action and the menu*/
 `;
 
-const MenuWrapper = styled.div`
+const MenuWrapper = styled.div<{ dockingSide?: 'left' | 'right' }>`
   position: absolute;
   display: block;
-  left: 0;
+  ${props => props.dockingSide || 'left'}: 0;
   top: 100%;
   max-width: 318px;
 `;
@@ -84,7 +85,7 @@ const DropdownMenu: React.FC<Props> = props => {
       <div ref={buttonRef}>{getChild()}</div>
 
       {dropdownIsOpen && (
-        <MenuWrapper>
+        <MenuWrapper dockingSide={props.dockingSide}>
           <DropdownCard maxHeight={props.menuMaxHeight}>
             {props.elements.map((element, key) => (
               <DropdownElement

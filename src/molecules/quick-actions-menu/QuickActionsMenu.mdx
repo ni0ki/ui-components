@@ -8,7 +8,6 @@ import Button from '../../atoms/button/Button';
 import PhoneIcon from '../../atoms/icons/PhoneIcon';
 import QuickActionsMenu from './QuickActionsMenu';
 
-
 # Quick Actions Menu
 
 <Playground
@@ -19,23 +18,23 @@ import QuickActionsMenu from './QuickActionsMenu';
     height: '200px'
   }}
 >
-    <QuickActionsMenu
-      elements={[
-        {
-          title: 'Hello',
-          icon: <PhoneIcon />,
-          onClick: () => {}
-        },
-        {
-          title: 'Holà',
-          icon: <PhoneIcon />,
-          onClick: () => {}
-        },
-        {
-          title: 'Bonjour',
-          icon: <PhoneIcon />,
-          onClick: () => {}
-        }
-      ]}
-    />
+  <QuickActionsMenu
+    elements={[
+      {
+        title: 'Hello',
+        icon: <PhoneIcon />,
+        onClick: () => {}
+      },
+      {
+        title: 'Holà',
+        icon: <PhoneIcon />,
+        onClick: () => {}
+      },
+      {
+        title: 'Bonjour',
+        icon: <PhoneIcon />,
+        onClick: () => {}
+      }
+    ]}
+  />
 </Playground>

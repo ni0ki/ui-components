@@ -44,8 +44,47 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
 
   </DropdownMenu>
 
+<DropdownMenu
+  menuMaxHeight={150}
+  elements={[
+    {
+      title: 'Hello',
+      onClick: () => {}
+    },
+    {
+      title: 'Holà',
+      onClick: () => {}
+    },
+    {
+      title: 'Bonjour',
+      onClick: () => {}
+    },
+    {
+      title: 'Gutten Tag',
+      onClick: () => {}
+    },
+    {
+      title: 'Ciao',
+      onClick: () => {}
+    },
+    {
+      title: 'Konnichiha',
+      onClick: () => {}
+    },
+    {
+      title: 'Ni Hao',
+      onClick: () => {}
+    },
+    {
+      title: 'Dobry Degn',
+      onClick: () => {}
+    }
+  ]}
+>
+  <Button nature='primary'> With long list </Button>
+</DropdownMenu>
+
   <DropdownMenu
-    menuMaxHeight={150}
     elements={[
       {
         title: 'Hello',
@@ -54,36 +93,12 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
       {
         title: 'Holà',
         onClick: () => {}
-      },
-      {
-        title: 'Bonjour',
-        onClick: () => {}
-      },
-      {
-        title: 'Gutten Tag',
-        onClick: () => {}
-      },
-      {
-        title: 'Ciao',
-        onClick: () => {}
-      },
-      {
-        title: 'Konnichiha',
-        onClick: () => {}
-      },
-      {
-        title: 'Ni Hao',
-        onClick: () => {}
-      },
-      {
-        title: 'Dobry Degn',
-        onClick: () => {}
       }
     ]}
+    dockingSide="right"
   >
-    <Button nature='primary'> With long list </Button>
+    <Button nature='primary'> On the right </Button>
+
   </DropdownMenu>
 
-
 </Playground>
-

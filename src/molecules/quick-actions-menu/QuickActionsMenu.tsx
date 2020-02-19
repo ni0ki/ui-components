@@ -15,6 +15,7 @@ interface QuickActionsElement extends DropdownElementInfo {
 
 interface Props {
   elements: QuickActionsElement[];
+  maxMenuHeight?: number;
 }
 
 const SquareButton = styled(Button)`
@@ -24,7 +25,11 @@ const SquareButton = styled(Button)`
 
 const QuickActionsMenu: React.FC<Props> = props => {
   return (
-    <DropdownMenu elements={props.elements}>
+    <DropdownMenu
+      elements={props.elements}
+      dockingSide='right'
+      menuMaxHeight={props.maxMenuHeight}
+    >
       <SquareButton nature='ghost'>
         <MoreIcon />
       </SquareButton>
