@@ -2,7 +2,8 @@ import { dashGreen00, functionalRed02, validatorGreen } from '@colors';
 import { assertUnreachable } from '@utility/helpers';
 import { WrapperProps } from './Tooltip';
 import { Placement, TooltipType } from './types';
-export const tooltipMargin = '10';
+import { IsElementOutOfContainerMethod } from '@utility/positionCompute';
+export const tooltipMargin = 10;
 const rightTooltipStyle = `
   margin-bottom: 0;
   bottom: auto;
@@ -124,153 +125,65 @@ export const getTooltipBgColorByType = (type: TooltipType) => {
   }
 };
 
-const returnNumber = (value: number) => (isNaN(value) ? 0 : value);
-
-export const computeTooltipWidth = (
-  tooltipStyle: CSSStyleDeclaration,
-  alternativeWidth: string | null
-) => {
-  const width =
-    parseInt(tooltipStyle.paddingLeft || '0', 10) +
-    parseInt(tooltipStyle.paddingRight || '0', 10) +
-    parseInt(tooltipMargin, 10) +
-    parseInt(alternativeWidth || tooltipStyle.width || '0', 10);
-
-  return returnNumber(width);
-};
-
-export const computeTooltipHeight = (
-  tooltipStyle: CSSStyleDeclaration,
-  alternativeHeight: string | null
-) => {
-  const height =
-    parseInt(tooltipStyle.paddingTop || '0', 10) +
-    parseInt(tooltipStyle.paddingBottom || '0', 10) +
-    parseInt(tooltipMargin, 10) +
-    parseInt(alternativeHeight || tooltipStyle.height || '0', 10);
-  return returnNumber(height);
-};
-
-const containsNumber = (value: string) => /\d/.test(value);
-const containsChar = (value: string, char: string) =>
-  value.indexOf(char) !== -1;
-
-export const checkIsStyleComputed = (style: CSSStyleDeclaration) => {
-  const { height, width } = style;
-  if (!height || !width) {
-    return false;
-  }
-
-  return (
-    containsNumber(height) ||
-    containsNumber(width) ||
-    !containsChar(height, '%') ||
-    !containsChar(width, '%')
-  );
-};
-
-export const getCSSComputedStyle = (ref: Element | null) =>
-  window.getComputedStyle(ref as Element, ':before');
-
-export const getBoundingRect = (element: EventTarget | null): ClientRect => {
-  return element
-    ? (element as Element).getBoundingClientRect()
-    : {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: 0,
-        height: 0
-      };
-};
-
-export const getAlternativeStyle = (
-  initialStyle: CSSStyleDeclaration,
-  element: EventTarget | null
-) => {
-  let innerDiv = document.createElement('div');
-  (Object.values(initialStyle) as (keyof CSSStyleDeclaration)[]).forEach(
-    property => {
-      if (
-        property &&
-        property !== 'length' &&
-        property !== 'parentRule' &&
-        !containsNumber(property.toString())
-      ) {
-        innerDiv.style[property] = initialStyle[property];
-      }
-    }
-  );
-  (element as Element).appendChild(innerDiv);
-  let { height, width } = innerDiv.getBoundingClientRect();
-  innerDiv.remove();
-
-  return { height: height.toString(), width: width.toString() };
-};
-
-export const getContainerBoundaries = (container: Element | Window) => {
-  if (container === window) {
-    return {
-      maxHeight: window.innerHeight,
-      minHeight: 0,
-      maxWidth: window.innerWidth,
-      minWidth: 0
-    };
-  }
-  const containerRect = getBoundingRect(container);
-
-  return {
-    maxHeight: containerRect.top + containerRect.height,
-    minHeight: containerRect.top,
-    minWidth: containerRect.left,
-    maxWidth: containerRect.left + containerRect.width
-  };
-};
-
-export const isElementOutOfContainer = ({
-  rect,
-  measurements,
-  container,
-  placement
-}: {
-  rect: ClientRect;
-  measurements: {
-    totalWidth: number;
-    totalHeight: number;
-  };
-  container: Element | Window;
-  placement: Placement;
-}): boolean => {
-  let { totalWidth, totalHeight } = measurements;
-  let { maxHeight, minHeight, maxWidth, minWidth } = getContainerBoundaries(
-    container
-  );
-
+export const isTooltipOutOfContainer: IsElementOutOfContainerMethod<
+  Placement
+> = ({ elementDimensions, containerDimensions, placement }): boolean => {
   switch (placement) {
     case 'top':
       return (
-        rect.top - totalHeight < minHeight ||
-        rect.left + rect.width / 2 + totalWidth / 2 > maxWidth ||
-        rect.left + rect.width / 2 - totalWidth / 2 < minWidth
+        elementDimensions.rect.top - elementDimensions.totalHeight <
+          containerDimensions.minHeight ||
+        elementDimensions.rect.left +
+          elementDimensions.rect.width / 2 +
+          elementDimensions.totalWidth / 2 >
+          containerDimensions.maxWidth ||
+        elementDimensions.rect.left +
+          elementDimensions.rect.width / 2 -
+          elementDimensions.totalWidth / 2 <
+          containerDimensions.minWidth
       );
     case 'bottom':
       return (
-        rect.top + rect.height + totalHeight > maxHeight ||
-        rect.left + rect.width / 2 + totalWidth / 2 > maxWidth ||
-        rect.left + rect.width / 2 - totalWidth / 2 < minWidth
+        elementDimensions.rect.top +
+          elementDimensions.rect.height +
+          elementDimensions.totalHeight >
+          containerDimensions.maxHeight ||
+        elementDimensions.rect.left +
+          elementDimensions.rect.width / 2 +
+          elementDimensions.totalWidth / 2 >
+          containerDimensions.maxWidth ||
+        elementDimensions.rect.left +
+          elementDimensions.rect.width / 2 -
+          elementDimensions.totalWidth / 2 <
+          containerDimensions.minWidth
       );
     case 'right':
       return (
-        rect.left + rect.width + totalWidth > maxWidth ||
-        rect.top + rect.height / 2 - totalHeight / 2 < minHeight ||
-        rect.top + rect.height / 2 + totalHeight / 2 > maxHeight
+        elementDimensions.rect.left +
+          elementDimensions.rect.width +
+          elementDimensions.totalWidth >
+          containerDimensions.maxWidth ||
+        elementDimensions.rect.top +
+          elementDimensions.rect.height / 2 -
+          elementDimensions.totalHeight / 2 <
+          containerDimensions.minHeight ||
+        elementDimensions.rect.top +
+          elementDimensions.rect.height / 2 +
+          elementDimensions.totalHeight / 2 >
+          containerDimensions.maxHeight
       );
     case 'left':
       return (
-        rect.left - totalWidth < minWidth ||
-        rect.top + rect.height / 2 - totalHeight / 2 < minHeight ||
-        rect.top + rect.height / 2 + totalHeight / 2 > maxHeight
+        elementDimensions.rect.left - elementDimensions.totalWidth <
+          containerDimensions.minWidth ||
+        elementDimensions.rect.top +
+          elementDimensions.rect.height / 2 -
+          elementDimensions.totalHeight / 2 <
+          containerDimensions.minHeight ||
+        elementDimensions.rect.top +
+          elementDimensions.rect.height / 2 +
+          elementDimensions.totalHeight / 2 >
+          containerDimensions.maxHeight
       );
 
     default:

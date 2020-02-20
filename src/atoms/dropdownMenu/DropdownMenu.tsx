@@ -9,7 +9,12 @@ import {
   Placement
 } from './types';
 import { useOnClickOutside } from '@utility/withClickOutside';
-import { getDropdownPlacement } from './helpers';
+import { isDropdownOutOfContainer } from './helpers';
+import {
+  getContainerBoundaries,
+  getElementDimensions,
+  getElementPlacement
+} from '@utility/positionCompute';
 
 interface Props {
   elements: DropdownElementInfo[];
@@ -58,12 +63,22 @@ const DropdownMenu: React.FC<Props> = props => {
   }, [buttonRef]);
 
   React.useEffect(() => {
+    if (!menuRef.current) {
+      return;
+    }
+    const elementDimensions = getElementDimensions(menuRef);
+
+    const containerElement =
+      (props.containerRef && props.containerRef.current) || window;
+    const containerDimensions = getContainerBoundaries(containerElement);
+
     try {
-      const newPlacement = getDropdownPlacement(
+      const newPlacement = getElementPlacement(
+        isDropdownOutOfContainer,
         placement || props.placement || DEFAULT_PLACEMENT,
         POSSIBLE_PLACEMENTS,
-        menuRef,
-        props.containerRef
+        elementDimensions,
+        containerDimensions
       );
       setPlacement(newPlacement);
     } catch (e) {

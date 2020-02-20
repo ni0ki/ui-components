@@ -3,19 +3,18 @@ import styled from 'styled-components';
 import { white } from '@colors';
 import { Placement } from '@atoms/tooltip/types';
 import {
-  checkIsStyleComputed,
-  computeTooltipHeight,
-  computeTooltipWidth,
   displayIfInContainer,
-  getAlternativeStyle,
-  getBoundingRect,
-  getCSSComputedStyle,
   getTooltipBgColorByType,
   handleTooltipArrowPosition,
   handleTooltipPosition,
-  isElementOutOfContainer,
-  removeOutOfScreenPlacement
+  isTooltipOutOfContainer
 } from '@atoms/tooltip/helpers';
+import {
+  getBoundingRect,
+  getContainerBoundaries,
+  getElementDimensions,
+  getElementPlacement
+} from '@utility/positionCompute';
 
 export interface Props {
   title: string;
@@ -41,13 +40,13 @@ export interface Props {
     /**
      * An element as a container (if not the default window)
      */
-    container?: HTMLElement | null;
+    container?: React.RefObject<HTMLElement>;
   };
 }
 
 interface State {
-  placement: Placement;
   outOfContainer: boolean;
+  placement: Placement | null;
 }
 
 export type WrapperProps = Omit<Required<Props>, 'title'> & {
@@ -115,7 +114,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
 `;
 
 class Tooltip extends React.PureComponent<Props, State> {
-  private ref: EventTarget | null;
+  private ref: React.RefObject<HTMLElement> = React.createRef();
   private coordinates: { top: number | null; left: number | null };
   private readonly tooltipPossiblePlacements: Placement[] = [];
   private readonly defaultPlacement: Placement;
@@ -123,7 +122,6 @@ class Tooltip extends React.PureComponent<Props, State> {
   public constructor(props: Props) {
     super(props);
     this.defaultPlacement = 'top';
-    this.ref = null;
     this.state = {
       placement: props.placement || this.defaultPlacement,
       outOfContainer: false
@@ -143,7 +141,7 @@ class Tooltip extends React.PureComponent<Props, State> {
     this.positionTooltip();
   }
 
-  private onHover = (event: MouseEvent) => {
+  private onHover = (event: React.MouseEvent<HTMLElement>) => {
     const target = event.currentTarget;
     const { top: previousTop, left: previousLeft } = this.coordinates;
     const { top, left } = getBoundingRect(target);
@@ -153,60 +151,32 @@ class Tooltip extends React.PureComponent<Props, State> {
     }
 
     this.coordinates = { ...this.coordinates, ...{ top, left } };
-    this.ref = target;
     this.positionTooltip();
   };
 
-  private getTooltipPlacement(
-    placement: Placement,
-    possibilities: Placement[]
-  ): Placement {
-    if (!placement) {
-      throw new Error(
-        'Tooltip cannot be displayed in the container Element/Window due to its incompatible size. Please consider reducing it or better position tooltiped element in the screen.'
-      );
-    }
-
-    if (!this.isOutScreen(placement)) {
-      return placement;
-    }
-
-    const newPossibilities = removeOutOfScreenPlacement(
-      possibilities,
-      placement
-    );
-    const [firstPossiblePlacement] = newPossibilities;
-
-    return this.getTooltipPlacement(firstPossiblePlacement, newPossibilities);
-  }
-
-  private isOutScreen(placement: Placement): boolean {
-    const tooltipStyle = getCSSComputedStyle(this.ref as Element);
-    const isStyleComputed = checkIsStyleComputed(tooltipStyle);
-    const { width = null, height = null } = isStyleComputed
-      ? {}
-      : getAlternativeStyle(tooltipStyle, this.ref); // Extra calculations For Edge
-
-    const totalWidth = computeTooltipWidth(tooltipStyle, width);
-    const totalHeight = computeTooltipHeight(tooltipStyle, height);
-    const rect = getBoundingRect(this.ref);
-    const { options } = this.props;
-    const container =
-      !options || !options.container ? window : options.container;
-
-    return isElementOutOfContainer({
-      rect,
-      measurements: { totalWidth, totalHeight },
-      container,
-      placement
-    });
-  }
-
   private positionTooltip() {
+    if (!this.ref.current) {
+      return;
+    }
+    const isBeforePseudoElement = true;
+    const elementDimensions = getElementDimensions(
+      this.ref,
+      isBeforePseudoElement
+    );
+
+    const containerElement =
+      (this.props.options &&
+        this.props.options.container &&
+        this.props.options.container.current) ||
+      window;
+    const containerDimensions = getContainerBoundaries(containerElement);
     try {
-      const placement = this.getTooltipPlacement(
+      const placement = getElementPlacement<Placement>(
+        isTooltipOutOfContainer,
         this.props.placement || this.defaultPlacement,
-        this.tooltipPossiblePlacements
+        this.tooltipPossiblePlacements,
+        elementDimensions,
+        containerDimensions
       );
       this.setState({ placement: placement });
     } catch (e) {
@@ -215,11 +185,15 @@ class Tooltip extends React.PureComponent<Props, State> {
     }
   }
 
-  private cloneChildren = (title: string) => (child: React.ReactNode) => {
+  private cloneChildren = (title: string) => (
+    child: React.ReactNode,
+    key: number
+  ) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
         'data-tooltip': title,
-        onMouseEnter: this.onHover
+        onMouseEnter: this.onHover,
+        ref: key === 0 && this.ref
       });
     }
   };
@@ -237,7 +211,12 @@ class Tooltip extends React.PureComponent<Props, State> {
     );
 
     return (
-      <TooltipWrapper type={type} {...this.state} options={options}>
+      <TooltipWrapper
+        type={type}
+        placement={this.state.placement || this.defaultPlacement}
+        outOfContainer={this.state.outOfContainer}
+        options={options}
+      >
         {childrenWithProps}
       </TooltipWrapper>
     );
