@@ -15,7 +15,7 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
   style={{
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-around',
     height: '200px'
   }}
@@ -102,21 +102,72 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
 
   </DropdownMenu>
 
-  <DropdownMenu
-    elements={[
-      {
-        title: 'Hello',
-        onClick: () => {}
-      },
-      {
-        title: 'Holà',
-        onClick: () => {}
-      }
-    ]}
-    placement="top"
-  >
-    <Button nature='primary'> On the top </Button>
+  <div style={{alignSelf: 'flex-end'}}>
+    <DropdownMenu
+      elements={[
+        {
+          title: 'Hello',
+          onClick: () => {}
+        },
+        {
+          title: 'Holà',
+          onClick: () => {}
+        }
+      ]}
+      placement="top"
+    >
+      <Button nature='primary'> On the top </Button>
 
-  </DropdownMenu>
+    </DropdownMenu>
+  </div>
 
+</Playground>
+
+## Position within a container
+
+<Playground >
+
+  {
+    () => {
+      const containerRef = React.useRef();
+      return (  
+        <div ref={containerRef} style={{height:"250px", display: "flex", background: "ghostwhite"}}>
+          <DropdownMenu
+            elements={[
+              {
+                title: 'Hello',
+                onClick: () => {}
+              },
+              {
+                title: 'Holà',
+                onClick: () => {}
+              }
+            ]}
+            placement="top"
+            containerRef={containerRef}
+          >
+            <Button nature='primary'>This is too long!</Button>
+          </DropdownMenu>
+          <div style={{alignSelf:"flex-end"}}>
+            <DropdownMenu
+              elements={[
+                {
+                  title: 'Hello',
+                  onClick: () => {}
+                },
+                {
+                  title: 'Holà',
+                  onClick: () => {}
+                }
+              ]}
+              placement="bottom"
+              containerRef={containerRef}
+            >
+              <Button nature='primary'>This is too long!</Button>
+            </DropdownMenu>
+          </div>
+        </div>
+      )
+    }
+  }
 </Playground>

@@ -181,14 +181,14 @@ class Tooltip extends React.PureComponent<Props, State> {
   }
 
   private isOutScreen(placement: Placement): boolean {
-    const tooltipStyle = getCSSComputedStyle(this.ref);
+    const tooltipStyle = getCSSComputedStyle(this.ref as Element);
     const isStyleComputed = checkIsStyleComputed(tooltipStyle);
     const { width = null, height = null } = isStyleComputed
       ? {}
       : getAlternativeStyle(tooltipStyle, this.ref); // Extra calculations For Edge
 
-    const totalWidth = computeTooltipWidth(tooltipStyle, placement, width);
-    const totalHeight = computeTooltipHeight(tooltipStyle, placement, height);
+    const totalWidth = computeTooltipWidth(tooltipStyle, width);
+    const totalHeight = computeTooltipHeight(tooltipStyle, height);
     const rect = getBoundingRect(this.ref);
     const { options } = this.props;
     const container =
