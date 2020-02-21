@@ -5,6 +5,7 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import DropdownMenu from './DropdownMenu';
+import DropdownDemo from './DropdownDemo';
 import Button from '../button/Button';
 import PhoneIcon from '../icons/PhoneIcon';
 import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMenu';
@@ -20,154 +21,54 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
     height: '200px'
   }}
 >
-  <DropdownMenu
-    elements={[
-      {
-        title: 'Hello',
-        icon: <PhoneIcon />,
-        onClick: () => {}
-      },
-      {
-        title: 'Holà',
-        onClick: () => {}
-      },
-      {
-        title: 'Bonjour',
-        onClick: () => {}
-      },
-      {
-        title: 'Gutten Tag',
-        onClick: () => {}
-      }
-    ]}
-  >
-    <Button nature='primary'> Click Me </Button>
-
-  </DropdownMenu>
-
-<DropdownMenu
-  menuMaxHeight={150}
-  elements={[
-    {
-      title: 'Hello',
-      onClick: () => {}
-    },
-    {
-      title: 'Holà',
-      onClick: () => {}
-    },
-    {
-      title: 'Bonjour',
-      onClick: () => {}
-    },
-    {
-      title: 'Gutten Tag',
-      onClick: () => {}
-    },
-    {
-      title: 'Ciao',
-      onClick: () => {}
-    },
-    {
-      title: 'Konnichiha',
-      onClick: () => {}
-    },
-    {
-      title: 'Ni Hao',
-      onClick: () => {}
-    },
-    {
-      title: 'Dobry Degn',
-      onClick: () => {}
-    }
-  ]}
->
-  <Button nature='primary'> With long list </Button>
-</DropdownMenu>
-
-  <DropdownMenu
-    elements={[
-      {
-        title: 'Hello',
-        onClick: () => {}
-      },
-      {
-        title: 'Holà',
-        onClick: () => {}
-      }
-    ]}
-    dockingSide="right"
-  >
-    <Button nature='primary'> On the right </Button>
-
-  </DropdownMenu>
-
-  <div style={{alignSelf: 'flex-end'}}>
-    <DropdownMenu
-      elements={[
-        {
-          title: 'Hello',
-          onClick: () => {}
-        },
-        {
-          title: 'Holà',
-          onClick: () => {}
-        }
-      ]}
-      placement="top"
-    >
-      <Button nature='primary'> On the top </Button>
-
-    </DropdownMenu>
-  </div>
-
+  <DropdownDemo/>
 </Playground>
 
 ## Position within a container
 
 <Playground >
 
-  {
-    () => {
-      const containerRef = React.useRef();
-      return (  
-        <div ref={containerRef} style={{height:"250px", display: "flex", background: "ghostwhite"}}>
-          <DropdownMenu
-            elements={[
-              {
-                title: 'Hello',
-                onClick: () => {}
-              },
-              {
-                title: 'Holà',
-                onClick: () => {}
-              }
-            ]}
-            placement="top"
-            containerRef={containerRef}
-          >
-            <Button nature='primary'>This is too long!</Button>
-          </DropdownMenu>
-          <div style={{alignSelf:"flex-end"}}>
-            <DropdownMenu
-              elements={[
-                {
-                  title: 'Hello',
-                  onClick: () => {}
-                },
-                {
-                  title: 'Holà',
-                  onClick: () => {}
-                }
-              ]}
-              placement="bottom"
-              containerRef={containerRef}
-            >
-              <Button nature='primary'>This is too long!</Button>
-            </DropdownMenu>
-          </div>
-        </div>
-      )
-    }
-  }
+{
+() => {
+const containerRef = React.useRef();
+return (
+
+ <div ref={containerRef} style={{height:"250px", display: "flex", background: "ghostwhite"}}>
+<DropdownMenu
+elements={[
+{
+title: 'Hello',
+onClick: () => {}
+},
+{
+title: 'Holà',
+onClick: () => {}
+}
+]}
+placement="top"
+containerRef={containerRef} >
+<Button nature='primary'>This is too long!</Button>
+</DropdownMenu>
+<div style={{alignSelf:"flex-end"}}>
+<DropdownMenu
+elements={[
+{
+title: 'Hello',
+onClick: () => {}
+},
+{
+title: 'Holà',
+onClick: () => {}
+}
+]}
+placement="bottom"
+containerRef={containerRef} >
+<Button nature='primary'>This is too long!</Button>
+</DropdownMenu>
+</div>
+</div>
+)
+}
+}
+
 </Playground>

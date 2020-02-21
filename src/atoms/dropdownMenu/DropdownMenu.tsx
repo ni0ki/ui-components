@@ -6,10 +6,11 @@ import {
   DockingSide,
   DropdownElementInfo,
   OnClickFunction,
-  Placement
+  Placement,
+  Position
 } from './types';
 import { useOnClickOutside } from '@utility/withClickOutside';
-import { isDropdownOutOfContainer } from './helpers';
+import { isDropdownOutOfContainer, getDropdownPosition } from './helpers';
 import {
   getContainerBoundaries,
   getElementDimensions,
@@ -17,50 +18,56 @@ import {
 } from '@utility/positionCompute';
 
 interface Props {
+  isOpen: boolean;
   elements: DropdownElementInfo[];
   menuMaxHeight?: number;
   dockingSide?: DockingSide;
   placement?: Placement;
   containerRef?: React.RefObject<HTMLElement>;
+  buttonRef?: React.RefObject<HTMLElement>;
 }
-
-const DropdownMenuWrapper = styled.div<{ height: number }>`
-  position: relative;
-  padding: 4px;
-  height: ${props => props.height}px;
-`;
 
 const MenuWrapper = styled.div<{
   dockingSide?: DockingSide;
-  placement: Placement | null;
+  position: Position;
+  placement: Placement;
 }>`
   position: absolute;
-  opacity: ${props => {
-    return props.placement ? 1 : 0;
-  }};
-  ${props => props.dockingSide || 'left'}: 0;
-  ${props => (props.placement === 'top' ? 'bottom' : 'top')}: 100%;
+  ${props => props.placement}: ${props => props.position.y}px;
+  left: ${props => props.position.x}px;
   max-width: 318px;
 `;
 
 const DEFAULT_PLACEMENT = 'bottom';
 const POSSIBLE_PLACEMENTS: Placement[] = ['top', 'bottom'];
 
-const DropdownMenu: React.FC<Props> = props => {
-  const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
-  const [childHeight, setChildHeight] = React.useState(0);
-
+const DropdownMenu: React.FC<Props> = (props: Props) => {
   const [placement, setPlacement] = React.useState<Placement | null>(null);
+  const [position, setPosition] = React.useState<Position>({
+    y: 0,
+    x: 0
+  });
 
-  const buttonRef = React.useRef<HTMLDivElement>(null);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    if (buttonRef.current) {
-      setChildHeight(buttonRef.current.clientHeight);
+    const elt = props.buttonRef && props.buttonRef.current;
+
+    if (elt) {
+      const eltPosition = {
+        top: elt.clientTop,
+        left: elt.clientLeft,
+        width: elt.clientWidth,
+        height: elt.clientHeight
+      };
+      const newPosition = getDropdownPosition(
+        eltPosition,
+        props.dockingSide || 'left'
+      );
+      console.log(newPosition);
+      setPosition(newPosition);
     }
-  }, [buttonRef]);
+  }, [placement]);
 
   React.useEffect(() => {
     if (!menuRef.current) {
@@ -84,57 +91,21 @@ const DropdownMenu: React.FC<Props> = props => {
     } catch (e) {
       console.error(e);
     }
-  }, [dropdownIsOpen]);
-
-  useOnClickOutside(dropdownRef, e => {
-    e.preventDefault();
-    setDropdownIsOpen(false);
   });
-
-  const onChildClick: OnClickFunction = e => {
-    e.preventDefault();
-    setDropdownIsOpen(!dropdownIsOpen);
-  };
-
-  const getChild = () => {
-    let child;
-    try {
-      React.Children.only(props.children);
-
-      child = React.Children.map(props.children, child => {
-        if (!React.isValidElement(child)) {
-          throw Error;
-        }
-        return React.cloneElement(child, {
-          onClick: onChildClick
-        });
-      });
-    } catch {
-      if (process.env.NODE_ENV !== 'production') {
-        console.error(
-          'DropdownMenu must have one child that is a React element'
-        );
-      }
-    }
-
-    return child;
-  };
 
   const getElementOnClick = (onClick: OnClickFunction): OnClickFunction => {
     return e => {
-      setDropdownIsOpen(false);
       onClick(e);
     };
   };
 
   return (
-    <DropdownMenuWrapper height={childHeight} ref={dropdownRef}>
-      <div ref={buttonRef}>{getChild()}</div>
-
-      {dropdownIsOpen && (
+    <>
+      {props.isOpen && (
         <MenuWrapper
           dockingSide={props.dockingSide}
-          placement={placement}
+          position={position}
+          placement={placement || DEFAULT_PLACEMENT}
           ref={menuRef}
         >
           <DropdownCard maxHeight={props.menuMaxHeight}>
@@ -149,7 +120,7 @@ const DropdownMenu: React.FC<Props> = props => {
           </DropdownCard>
         </MenuWrapper>
       )}
-    </DropdownMenuWrapper>
+    </>
   );
 };
 

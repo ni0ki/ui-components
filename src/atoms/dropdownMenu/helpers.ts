@@ -1,4 +1,4 @@
-import { Placement } from './types';
+import { Placement, Position, DockingSide } from './types';
 import { assertUnreachable } from '@utility/helpers';
 import { IsElementOutOfContainerMethod } from '@utility/positionCompute';
 
@@ -22,4 +22,18 @@ export const isDropdownOutOfContainer: IsElementOutOfContainerMethod<
       assertUnreachable(placement);
       return true;
   }
+};
+
+export const getDropdownPosition = (
+  buttonRect: any,
+  dockingSide: DockingSide
+): Position => {
+  const x =
+    dockingSide === 'right'
+      ? buttonRect.left + buttonRect.width
+      : buttonRect.left;
+  return {
+    y: Math.floor(buttonRect.height + buttonRect.top + 4),
+    x: Math.floor(x)
+  };
 };
