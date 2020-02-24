@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Dashlane/ui-components/compare/v1.2.2...v1.3.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* add icon in doc and fix icon-defs formatting ([f6f8056](https://github.com/Dashlane/ui-components/commit/f6f8056e5babde84fad0585b7ac57cbcc38fddfe))
+
+
+### Features
+
+* add open website icon ([7b10024](https://github.com/Dashlane/ui-components/commit/7b10024d997fab2547708d1d258bca68eef23217))
+
 ## [1.2.2](https://github.com/Dashlane/ui-components/compare/v1.2.1...v1.2.2) (2020-02-03)
 
 
