@@ -6,35 +6,37 @@ import {
   DockingSide,
   DropdownElementInfo,
   OnClickFunction,
-  Placement,
-  Position
+  Placement
 } from './types';
-import { useOnClickOutside } from '@utility/withClickOutside';
-import { isDropdownOutOfContainer, getDropdownPosition } from './helpers';
+import {
+  getControllerAndMenuDimensions,
+  getDropdownPosition,
+  isDropdownOutOfContainer
+} from './helpers';
 import {
   getContainerBoundaries,
-  getElementDimensions,
   getElementPlacement
 } from '@utility/positionCompute';
 
 interface Props {
   isOpen: boolean;
   elements: DropdownElementInfo[];
+  controllerRef: React.RefObject<HTMLElement>;
   menuMaxHeight?: number;
   dockingSide?: DockingSide;
   placement?: Placement;
   containerRef?: React.RefObject<HTMLElement>;
-  buttonRef?: React.RefObject<HTMLElement>;
+}
+export interface MenuWrapperProps {
+  placement: Placement;
+  dockingSide: DockingSide;
+  isReadyForDisplay: boolean;
 }
 
-const MenuWrapper = styled.div<{
-  dockingSide?: DockingSide;
-  position: Position;
-  placement: Placement;
-}>`
+const MenuWrapper = styled.div<MenuWrapperProps>`
   position: absolute;
-  ${props => props.placement}: ${props => props.position.y}px;
-  left: ${props => props.position.x}px;
+  opacity: ${props => (props.isReadyForDisplay ? 1 : 0)};
+  ${getDropdownPosition}
   max-width: 318px;
 `;
 
@@ -43,37 +45,21 @@ const POSSIBLE_PLACEMENTS: Placement[] = ['top', 'bottom'];
 
 const DropdownMenu: React.FC<Props> = (props: Props) => {
   const [placement, setPlacement] = React.useState<Placement | null>(null);
-  const [position, setPosition] = React.useState<Position>({
-    y: 0,
-    x: 0
-  });
-
   const menuRef = React.useRef<HTMLDivElement>(null);
+  const prevIsOpen = React.useRef(false);
 
   React.useEffect(() => {
-    const elt = props.buttonRef && props.buttonRef.current;
-
-    if (elt) {
-      const eltPosition = {
-        top: elt.clientTop,
-        left: elt.clientLeft,
-        width: elt.clientWidth,
-        height: elt.clientHeight
-      };
-      const newPosition = getDropdownPosition(
-        eltPosition,
-        props.dockingSide || 'left'
-      );
-      console.log(newPosition);
-      setPosition(newPosition);
+    if (props.isOpen === prevIsOpen.current) {
+      return;
     }
-  }, [placement]);
-
-  React.useEffect(() => {
+    prevIsOpen.current = props.isOpen;
     if (!menuRef.current) {
       return;
     }
-    const elementDimensions = getElementDimensions(menuRef);
+    const elementDimensions = getControllerAndMenuDimensions(
+      menuRef,
+      props.controllerRef
+    );
 
     const containerElement =
       (props.containerRef && props.containerRef.current) || window;
@@ -103,10 +89,10 @@ const DropdownMenu: React.FC<Props> = (props: Props) => {
     <>
       {props.isOpen && (
         <MenuWrapper
-          dockingSide={props.dockingSide}
-          position={position}
           placement={placement || DEFAULT_PLACEMENT}
           ref={menuRef}
+          dockingSide={props.dockingSide || 'left'}
+          isReadyForDisplay={placement !== null}
         >
           <DropdownCard maxHeight={props.menuMaxHeight}>
             {props.elements.map((element, key) => (

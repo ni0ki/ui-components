@@ -6,7 +6,7 @@ const containsNumber = (value: string) => /\d/.test(value);
 const containsChar = (value: string, char: string) =>
   value.indexOf(char) !== -1;
 
-const checkIsStyleComputed = (style: CSSStyleDeclaration) => {
+export const checkIsStyleComputed = (style: CSSStyleDeclaration) => {
   const { height, width } = style;
   if (!height || !width) {
     return false;
@@ -22,7 +22,7 @@ const checkIsStyleComputed = (style: CSSStyleDeclaration) => {
 
 const returnNumber = (value: number) => (isNaN(value) ? 0 : value);
 
-const computeElementHeight = (
+export const computeElementHeight = (
   elementStyle: CSSStyleDeclaration,
   alternativeHeight: string | null
 ) => {
@@ -35,7 +35,7 @@ const computeElementHeight = (
   return returnNumber(height);
 };
 
-const computeElementWidth = (
+export const computeElementWidth = (
   tooltipStyle: CSSStyleDeclaration,
   alternativeWidth: string | null
 ) => {
@@ -49,7 +49,7 @@ const computeElementWidth = (
   return returnNumber(width);
 };
 
-const getAlternativeStyle = (
+export const getAlternativeStyle = (
   initialStyle: CSSStyleDeclaration,
   element: EventTarget | null
 ) => {
@@ -73,17 +73,22 @@ const getAlternativeStyle = (
   return { height: height.toString(), width: width.toString() };
 };
 
-export const getBoundingRect = (element: EventTarget | null): ClientRect => {
-  return element
-    ? (element as Element).getBoundingClientRect()
-    : {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        width: 0,
-        height: 0
-      };
+export const getBoundingRect = (element: Element | null): DOMRect => {
+  if (element) {
+    return element.getBoundingClientRect();
+  } else {
+    return {
+      x: 0,
+      y: 0,
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: 0,
+      height: 0,
+      toJSON: () => {}
+    };
+  }
 };
 
 export const getContainerBoundaries = (
@@ -97,7 +102,7 @@ export const getContainerBoundaries = (
       minWidth: 0
     };
   }
-  const containerRect = getBoundingRect(container);
+  const containerRect = getBoundingRect(container as Element);
 
   return {
     maxHeight: containerRect.top + containerRect.height,
@@ -107,7 +112,7 @@ export const getContainerBoundaries = (
   };
 };
 
-const getCSSComputedStyle = (
+export const getCSSComputedStyle = (
   ref: Element | null,
   getBeforePseudoElement?: boolean
 ) =>
@@ -136,8 +141,8 @@ export const getElementDimensions = (
   };
 };
 
-interface ElementDimensions {
-  rect: ClientRect;
+export interface ElementDimensions {
+  rect: DOMRect;
   totalHeight: number;
   totalWidth: number;
 }
