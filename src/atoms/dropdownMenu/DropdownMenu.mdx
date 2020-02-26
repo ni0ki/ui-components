@@ -5,7 +5,7 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import DropdownMenu from './DropdownMenu';
-import DropdownDemo from './DropdownDemo';
+import DropdownElement from '../../ions/dropdown/element/DropdownElement';
 import Button from '../button/Button';
 import PhoneIcon from '../icons/PhoneIcon';
 import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMenu';
@@ -23,13 +23,11 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
 >
   {() => {
   const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
-    const buttonRef = React.useRef(null);
-
-
+    const controllerRef = React.useRef(null);
 
   return (
     <div style={{ position: 'relative' }}>
-      <div ref={buttonRef}>
+      <div ref={controllerRef}>
         <Button
           nature='primary'
           onClick={() => setDropdownIsOpen(!dropdownIsOpen)}
@@ -38,30 +36,16 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
         </Button>
       </div>
       <DropdownMenu
-        elements={[
-          {
-            title: 'Hello',
-            icon: <PhoneIcon />,
-            onClick: () => {}
-          },
-          {
-            title: 'Holà',
-            onClick: () => {}
-          },
-          {
-            title: 'Bonjour',
-            onClick: () => {}
-          },
-          {
-            title: 'Gutten Tag',
-            onClick: () => {}
-          }
-        ]}
         isOpen={dropdownIsOpen}
         dockingSide='left'
         placement='bottom'
-        buttonRef={buttonRef}
-      ></DropdownMenu>
+        controllerRef={controllerRef}
+      >
+        <DropdownElement icon={<PhoneIcon />} text="Hello" />
+        <DropdownElement text="Holà" />
+        <DropdownElement text="Salut" />
+        <DropdownElement text="Hallo" />
+      </DropdownMenu>
     </div>
   );
 }}
@@ -97,31 +81,16 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
           </Button>
         </div>
         <DropdownMenu
-          elements={[
-            {
-              title: 'Hello',
-              icon: <PhoneIcon />,
-              onClick: () => {}
-            },
-            {
-              title: 'Holà',
-              onClick: () => {}
-            },
-            {
-              title: 'Bonjour',
-              onClick: () => {}
-            },
-            {
-              title: 'Gutten Tag',
-              onClick: () => {}
-            }
-          ]}
           isOpen={dropdown1IsOpen}
           dockingSide='left'
           placement='top'
           containerRef={containerRef}
-          buttonRef={button1Ref}
-        ></DropdownMenu>
+          controllerRef={button1Ref}
+        >
+          <DropdownElement text="Hello" />
+          <DropdownElement text="Holà" />
+          <DropdownElement text="Salut" />
+        </DropdownMenu>
       </div>
 
       <div
@@ -165,8 +134,12 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
           dockingSide='left'
           placement='bottom'
           containerRef={containerRef}
-          buttonRef={button2Ref}
-        ></DropdownMenu>
+          controllerRef={button2Ref}
+        >
+          <DropdownElement text="Hello" />
+          <DropdownElement text="Holà" />
+          <DropdownElement text="Salut" />
+        </DropdownMenu>
       </div>
     </div>
   )

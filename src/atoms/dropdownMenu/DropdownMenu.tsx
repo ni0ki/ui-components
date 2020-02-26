@@ -20,7 +20,6 @@ import {
 
 interface Props {
   isOpen: boolean;
-  elements: DropdownElementInfo[];
   controllerRef: React.RefObject<HTMLElement>;
   menuMaxHeight?: number;
   dockingSide?: DockingSide;
@@ -43,7 +42,7 @@ const MenuWrapper = styled.div<MenuWrapperProps>`
 const DEFAULT_PLACEMENT = 'bottom';
 const POSSIBLE_PLACEMENTS: Placement[] = ['top', 'bottom'];
 
-const DropdownMenu: React.FC<Props> = (props: Props) => {
+const DropdownMenu: React.FC<Props> = props => {
   const [placement, setPlacement] = React.useState<Placement | null>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
   const prevIsOpen = React.useRef(false);
@@ -53,7 +52,7 @@ const DropdownMenu: React.FC<Props> = (props: Props) => {
       return;
     }
     prevIsOpen.current = props.isOpen;
-    if (!menuRef.current) {
+    if (!menuRef.current || !props.controllerRef.current) {
       return;
     }
     const elementDimensions = getControllerAndMenuDimensions(
@@ -79,12 +78,6 @@ const DropdownMenu: React.FC<Props> = (props: Props) => {
     }
   });
 
-  const getElementOnClick = (onClick: OnClickFunction): OnClickFunction => {
-    return e => {
-      onClick(e);
-    };
-  };
-
   return (
     <>
       {props.isOpen && (
@@ -95,14 +88,7 @@ const DropdownMenu: React.FC<Props> = (props: Props) => {
           isReadyForDisplay={placement !== null}
         >
           <DropdownCard maxHeight={props.menuMaxHeight}>
-            {props.elements.map((element, key) => (
-              <DropdownElement
-                text={element.title}
-                icon={element.icon}
-                key={key}
-                onClick={getElementOnClick(element.onClick)}
-              />
-            ))}
+            {props.children}
           </DropdownCard>
         </MenuWrapper>
       )}
