@@ -46,6 +46,8 @@ const DropdownMenu: React.FC<Props> = props => {
       return;
     }
     prevIsOpen.current = props.isOpen;
+    setPlacement(null);
+
     if (!menuRef.current || !props.controllerRef.current) {
       return;
     }
