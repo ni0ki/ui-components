@@ -12,6 +12,19 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
 
 # Dropdown Menu
 
+The Dropdown Menu can be used to display a menu of options that can be hidden.
+
+## Properties
+
+<Props of={DropdownMenu} />
+
+## Usage
+
+The dropdown can be defined alongside a controller. To display it correctly:
+
+- **both components must be wrapped in a container with an relative or absolute position**
+- the controller's ref must be passed to the Dropdown
+
 <Playground
   style={{
     display: 'flex',
@@ -25,33 +38,101 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
   const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
     const controllerRef = React.useRef(null);
 
-  return (
-    <div style={{ position: 'relative' }}>
-      <div ref={controllerRef}>
-        <Button
-          nature='primary'
-          onClick={() => setDropdownIsOpen(!dropdownIsOpen)}
-        >
-          Click Me
-        </Button>
-      </div>
-      <DropdownMenu
+return (
+
+<div style={{ position: 'relative' }}>
+<div ref={controllerRef}>
+<Button
+nature='primary'
+onClick={() => setDropdownIsOpen(!dropdownIsOpen)} >
+Click Me
+</Button>
+</div>
+<DropdownMenu
         isOpen={dropdownIsOpen}
         dockingSide='left'
         placement='bottom'
         controllerRef={controllerRef}
       >
-        <DropdownElement icon={<PhoneIcon />} text="Hello" />
+<DropdownElement icon={<PhoneIcon />} text="Hello" />
+<DropdownElement text="Holà" />
+<DropdownElement text="Salut" />
+<DropdownElement text="Hallo" />
+</DropdownMenu>
+</div>
+);
+}}
+
+</Playground>
+
+Dropdown can be defined as:
+
+- placed below or above their controllerRef,
+- aligned on their controller left or right
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+  {() => {
+    const controller1Ref = React.useRef(null);
+    const controller2Ref = React.useRef(null);
+
+return (
+
+  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "100%", height: "100%"}}>
+    <div style={{ position: 'relative' }}>
+      <div ref={controller1Ref}>
+        <Button
+        nature='primary' >
+          TOP
+        </Button>
+      </div>
+      <DropdownMenu
+      isOpen={true}
+      placement='top'
+      controllerRef={controller1Ref}
+      >
+        <DropdownElement text="Hello" />
         <DropdownElement text="Holà" />
-        <DropdownElement text="Salut" />
-        <DropdownElement text="Hallo" />
       </DropdownMenu>
     </div>
-  );
+
+    <div style={{ position: 'relative' }}>
+      <div ref={controller2Ref}>
+        <Button
+        nature='primary' >
+          RIGHT
+        </Button>
+      </div>
+      <DropdownMenu
+      isOpen={true}
+      dockingSide='right'
+      controllerRef={controller2Ref}
+      >
+        <DropdownElement text="Good Morning" />
+        <DropdownElement text="Konnichiha" />
+        <DropdownElement text="Guten Tag" />
+      </DropdownMenu>
+    </div>
+
+  </div>
+);
 }}
+
 </Playground>
 
 ## Position within a container
+
+Dropdown computes it's ideal position within a container: 
+if you pass `top` as the placement prop but there is not enough space within the container,
+the menu position will be overwritten to `bottom`.
+
 
 <Playground >
 {() => {
@@ -61,37 +142,36 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
   const button1Ref = React.useRef(null);
   const button2Ref = React.useRef(null);
 
-  return (
-    <div
-      ref={containerRef}
-      style={{
+return (
+
+<div
+ref={containerRef}
+style={{
         height: '250px',
         display: 'flex',
         background: 'ghostwhite',
         justifyContent: 'space-between'
-      }}
-    >
-      <div style={{ position: 'relative', height: 'fit-content' }}>
-        <div ref={button1Ref}>
-          <Button
-            nature='primary'
-            onClick={() => setDropdown1IsOpen(!dropdown1IsOpen)}
-          >
-            Click Me
-          </Button>
-        </div>
-        <DropdownMenu
+      }} >
+<div style={{ position: 'relative', height: 'fit-content' }}>
+<div ref={button1Ref}>
+<Button
+nature='primary'
+onClick={() => setDropdown1IsOpen(!dropdown1IsOpen)} >
+Click Me
+</Button>
+</div>
+<DropdownMenu
           isOpen={dropdown1IsOpen}
           dockingSide='left'
           placement='top'
           containerRef={containerRef}
           controllerRef={button1Ref}
         >
-          <DropdownElement text="Hello" />
-          <DropdownElement text="Holà" />
-          <DropdownElement text="Salut" />
-        </DropdownMenu>
-      </div>
+<DropdownElement text="Hello" />
+<DropdownElement text="Holà" />
+<DropdownElement text="Salut" />
+</DropdownMenu>
+</div>
 
       <div
         style={{
@@ -142,6 +222,8 @@ import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMen
         </DropdownMenu>
       </div>
     </div>
-  )
+
+)
 }}
+
 </Playground>
