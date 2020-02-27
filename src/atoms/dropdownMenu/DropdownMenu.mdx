@@ -80,6 +80,8 @@ Dropdown can be defined as:
   }}
 >
   {() => {
+    const [dropdown1IsOpen, setDropdown1IsOpen] = React.useState(false);
+    const [dropdown2IsOpen, setDropdown2IsOpen] = React.useState(false);
     const controller1Ref = React.useRef(null);
     const controller2Ref = React.useRef(null);
 
@@ -89,12 +91,13 @@ return (
     <div style={{ position: 'relative' }}>
       <div ref={controller1Ref}>
         <Button
-        nature='primary' >
+        nature='primary'
+        onClick={() => setDropdown1IsOpen(!dropdown1IsOpen)} >
           TOP
         </Button>
       </div>
       <DropdownMenu
-      isOpen={true}
+      isOpen={dropdown1IsOpen}
       placement='top'
       controllerRef={controller1Ref}
       >
@@ -106,12 +109,13 @@ return (
     <div style={{ position: 'relative' }}>
       <div ref={controller2Ref}>
         <Button
-        nature='primary' >
+        nature='primary'
+        onClick={() => setDropdown2IsOpen(!dropdown2IsOpen)} >
           RIGHT
         </Button>
       </div>
       <DropdownMenu
-      isOpen={true}
+      isOpen={dropdown2IsOpen}
       dockingSide='right'
       controllerRef={controller2Ref}
       >
