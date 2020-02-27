@@ -61,7 +61,7 @@ const DropdownMenu: React.FC<Props> = props => {
     try {
       const newPlacement = getElementPlacement(
         isDropdownOutOfContainer,
-        placement || props.placement || DEFAULT_PLACEMENT,
+        props.placement || DEFAULT_PLACEMENT,
         POSSIBLE_PLACEMENTS,
         elementDimensions,
         containerDimensions
