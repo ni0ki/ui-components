@@ -1,13 +1,7 @@
 import * as React from 'react';
 import DropdownCard from '@ions/dropdown/card/DropdownCard';
-import DropdownElement from '@ions/dropdown/element/DropdownElement';
 import styled from 'styled-components';
-import {
-  DockingSide,
-  DropdownElementInfo,
-  OnClickFunction,
-  Placement
-} from './types';
+import { DockingSide, Placement } from './types';
 import {
   getControllerAndMenuDimensions,
   getDropdownPosition,

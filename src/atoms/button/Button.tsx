@@ -28,17 +28,9 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    @default false
    */
   size?: 'small' | 'medium' | 'large';
-
-  /**
-   * A ref object
-   @default undefined
-   */
-  ref?: React.RefObject<HTMLButtonElement>;
 }
 
-const Button: React.FunctionComponent<Props> = (
-  props: Props
-): JSX.Element | null => {
+const Button: React.FunctionComponent<Props> = (props): JSX.Element | null => {
   const renderButtonByType = ({
     nature,
     ...props
