@@ -73,20 +73,17 @@ export const getAlternativeStyle = (
   return { height: height.toString(), width: width.toString() };
 };
 
-export const getBoundingRect = (element: Element | null): DOMRect => {
+export const getBoundingRect = (element: Element | null): ClientRect => {
   if (element) {
     return element.getBoundingClientRect();
   } else {
     return {
-      x: 0,
-      y: 0,
       top: 0,
       left: 0,
       right: 0,
       bottom: 0,
       width: 0,
-      height: 0,
-      toJSON: () => {}
+      height: 0
     };
   }
 };
@@ -142,7 +139,7 @@ export const getElementDimensions = (
 };
 
 export interface ElementDimensions {
-  rect: DOMRect;
+  rect: ClientRect;
   totalHeight: number;
   totalWidth: number;
 }
