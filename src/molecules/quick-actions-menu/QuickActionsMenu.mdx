@@ -5,7 +5,8 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import Button from '../../atoms/button/Button';
-import PhoneIcon from '../../atoms/icons/PhoneIcon';
+import MoreIcon from '../../atoms/icons/MoreIcon';
+import DropdownElement from '../../ions/dropdown/element/DropdownElement.tsx';
 import QuickActionsMenu from './QuickActionsMenu';
 
 # Quick Actions Menu
@@ -17,9 +18,10 @@ check out the [Dropdown Menu component](./src-atoms-button-button).
 
 ## Properties
 
-<Props of={QuickActionsMenu}/>
+<Props of={QuickActionsMenu} />
 
 ## Example
+
 <Playground
   style={{
     display: 'flex',
@@ -28,23 +30,8 @@ check out the [Dropdown Menu component](./src-atoms-button-button).
     height: '200px'
   }}
 >
-  <QuickActionsMenu
-    elements={[
-      {
-        title: 'Hello',
-        icon: <PhoneIcon />,
-        onClick: () => {}
-      },
-      {
-        title: 'Holà',
-        icon: <PhoneIcon />,
-        onClick: () => {}
-      },
-      {
-        title: 'Bonjour',
-        icon: <PhoneIcon />,
-        onClick: () => {}
-      }
-    ]}
-  />
+  <QuickActionsMenu icon={<MoreIcon />}>
+    <DropdownElement>Copy Password</DropdownElement>
+    <DropdownElement>Copy Login</DropdownElement>
+  </QuickActionsMenu>
 </Playground>
