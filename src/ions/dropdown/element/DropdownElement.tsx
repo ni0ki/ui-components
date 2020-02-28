@@ -4,8 +4,6 @@ import styled from 'styled-components';
 import { dashGreen00, dashGreen06 } from '@colors';
 
 interface Props {
-  text: string;
-  icon?: JSX.Element;
   onClick: (e: React.MouseEvent) => void;
 }
 
@@ -33,16 +31,10 @@ const Wrapper = styled.button`
   }
 `;
 
-const IconContainer = styled.div`
-  fill: ${dashGreen00};
-  margin-right: 8px;
-`;
-
 const DropdownElement: React.FC<Props> = props => {
   return (
     <Wrapper type='button' onClick={props.onClick}>
-      {props.icon && <IconContainer>{props.icon}</IconContainer>}
-      <Text>{props.text}</Text>
+      <Text>{props.children}</Text>
     </Wrapper>
   );
 };

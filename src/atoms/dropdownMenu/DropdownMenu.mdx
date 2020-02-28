@@ -54,10 +54,10 @@ Click Me
         placement='bottom'
         controllerRef={controllerRef}
       >
-<DropdownElement icon={<PhoneIcon />} text="Hello" />
-<DropdownElement text="Holà" />
-<DropdownElement text="Salut" />
-<DropdownElement text="Hallo" />
+<DropdownElement>Hello</DropdownElement>
+<DropdownElement>Holà</DropdownElement>
+<DropdownElement>Salut</DropdownElement>
+<DropdownElement>Hallo</DropdownElement>
 </DropdownMenu>
 </div>
 );
@@ -101,8 +101,8 @@ return (
       placement='top'
       controllerRef={controller1Ref}
       >
-        <DropdownElement text="Hello" />
-        <DropdownElement text="Holà" />
+        <DropdownElement>Hello</DropdownElement>
+        <DropdownElement>Holà</DropdownElement>
       </DropdownMenu>
     </div>
 
@@ -119,9 +119,9 @@ return (
       dockingSide='right'
       controllerRef={controller2Ref}
       >
-        <DropdownElement text="Good Morning" />
-        <DropdownElement text="Konnichiha" />
-        <DropdownElement text="Guten Tag" />
+        <DropdownElement>Good Morning</DropdownElement>
+        <DropdownElement>Konnichiha</DropdownElement>
+        <DropdownElement>Guten Tag</DropdownElement>
       </DropdownMenu>
     </div>
 
@@ -170,9 +170,9 @@ Click Me
           containerRef={containerRef}
           controllerRef={button1Ref}
         >
-<DropdownElement text="Hello" />
-<DropdownElement text="Holà" />
-<DropdownElement text="Salut" />
+          <DropdownElement>Hello</DropdownElement>
+          <DropdownElement>Holà</DropdownElement>
+          <DropdownElement>Salut</DropdownElement>
 </DropdownMenu>
 </div>
 
@@ -194,34 +194,15 @@ Click Me
           </Button>
         </div>
         <DropdownMenu
-          elements={[
-            {
-              title: 'Hello',
-              icon: <PhoneIcon />,
-              onClick: () => {}
-            },
-            {
-              title: 'Holà',
-              onClick: () => {}
-            },
-            {
-              title: 'Bonjour',
-              onClick: () => {}
-            },
-            {
-              title: 'Gutten Tag',
-              onClick: () => {}
-            }
-          ]}
           isOpen={dropdown2IsOpen}
           dockingSide='left'
           placement='bottom'
           containerRef={containerRef}
           controllerRef={button2Ref}
         >
-          <DropdownElement text="Hello" />
-          <DropdownElement text="Holà" />
-          <DropdownElement text="Salut" />
+          <DropdownElement>Hello</DropdownElement>
+          <DropdownElement>Holà</DropdownElement>
+          <DropdownElement>Salut</DropdownElement>
         </DropdownMenu>
       </div>
     </div>
