@@ -1,0 +1,359 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> Global render should render 1`] = `
+<div>
+  <div>
+    Dropdwon Menu controller
+  </div>
+  <DropdownMenu
+    controllerRef={
+      Object {
+        "current": <div>
+          Dropdwon Menu controller
+        </div>,
+      }
+    }
+    isOpen={true}
+  >
+    <styled.div
+      dockingSide="left"
+      isReadyForDisplay={true}
+      placement="bottom"
+    >
+      <StyledComponent
+        dockingSide="left"
+        forwardedComponent={
+          Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bwzfXH",
+              "isStatic": false,
+              "lastClassName": "izZuan",
+              "rules": Array [
+                "
+  position: absolute;
+  opacity: ",
+                [Function],
+                ";
+  ",
+                [Function],
+                "
+  max-width: 318px;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bwzfXH",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          }
+        }
+        forwardedRef={
+          Object {
+            "current": <div
+              class="sc-bwzfXH izZuan"
+            >
+              <div
+                class="sc-bdVaJa kurQmA"
+              >
+                <button
+                  class="sc-ifAKCX epOyKj"
+                  type="button"
+                >
+                  <span
+                    class="sc-htpNat sc-bxivhb hojljZ"
+                  >
+                    Element 1
+                  </span>
+                </button>
+                <button
+                  class="sc-ifAKCX epOyKj"
+                  type="button"
+                >
+                  <span
+                    class="sc-htpNat sc-bxivhb hojljZ"
+                  >
+                    Element 2
+                  </span>
+                </button>
+              </div>
+            </div>,
+          }
+        }
+        isReadyForDisplay={true}
+        placement="bottom"
+      >
+        <div
+          className="sc-bwzfXH izZuan"
+        >
+          <styled.div>
+            <StyledComponent
+              forwardedComponent={
+                Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-bdVaJa",
+                    "isStatic": false,
+                    "lastClassName": "kurQmA",
+                    "rules": Array [
+                      "
+  display: flex;
+  flex-direction: column;
+  background-color: ",
+                      "#FFFFFF",
+                      ";
+  border: 1px solid ",
+                      "#CFD7D8",
+                      ";
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 8px 0;
+  max-height: ",
+                      [Function],
+                      "px;
+  overflow-y: scroll;
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-bdVaJa",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                }
+              }
+              forwardedRef={null}
+            >
+              <div
+                className="sc-bdVaJa kurQmA"
+              >
+                <DropdownElement
+                  onClick={[Function]}
+                >
+                  <styled.button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-ifAKCX",
+                            "isStatic": true,
+                            "lastClassName": "epOyKj",
+                            "rules": Array [
+                              "
+  cursor: pointer;
+  border: transparent 0px;
+  outline: none;
+  display: flex;
+  box-sizing: border-box;
+  height: 36px;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:hover {
+    background-color: ",
+                              "#F5F7F7",
+                              ";
+  }
+",
+                            ],
+                          },
+                          "displayName": "styled.button",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-ifAKCX",
+                          "target": "button",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <button
+                        className="sc-ifAKCX epOyKj"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <Styled(styled.span)>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "sc-bxivhb",
+                                  "isStatic": true,
+                                  "lastClassName": "hojljZ",
+                                  "rules": Array [
+                                    "
+  font-family: inherit;
+  font-weight: 600;
+",
+                                    "
+  color: ",
+                                    "#0E353D",
+                                    ";
+  line-height: 20px;
+  font-size: 16px;
+",
+                                  ],
+                                },
+                                "displayName": "Styled(styled.span)",
+                                "foldedComponentIds": Array [
+                                  "sc-htpNat",
+                                ],
+                                "render": [Function],
+                                "styledComponentId": "sc-bxivhb",
+                                "target": "span",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <span
+                              className="sc-htpNat sc-bxivhb hojljZ"
+                            >
+                              Element 1
+                            </span>
+                          </StyledComponent>
+                        </Styled(styled.span)>
+                      </button>
+                    </StyledComponent>
+                  </styled.button>
+                </DropdownElement>
+                <DropdownElement
+                  onClick={[Function]}
+                >
+                  <styled.button
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <StyledComponent
+                      forwardedComponent={
+                        Object {
+                          "$$typeof": Symbol(react.forward_ref),
+                          "attrs": Array [],
+                          "componentStyle": ComponentStyle {
+                            "componentId": "sc-ifAKCX",
+                            "isStatic": true,
+                            "lastClassName": "epOyKj",
+                            "rules": Array [
+                              "
+  cursor: pointer;
+  border: transparent 0px;
+  outline: none;
+  display: flex;
+  box-sizing: border-box;
+  height: 36px;
+  flex-shrink: 0;
+  padding: 8px 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  &:hover {
+    background-color: ",
+                              "#F5F7F7",
+                              ";
+  }
+",
+                            ],
+                          },
+                          "displayName": "styled.button",
+                          "foldedComponentIds": Array [],
+                          "render": [Function],
+                          "styledComponentId": "sc-ifAKCX",
+                          "target": "button",
+                          "toString": [Function],
+                          "warnTooManyClasses": [Function],
+                          "withComponent": [Function],
+                        }
+                      }
+                      forwardedRef={null}
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <button
+                        className="sc-ifAKCX epOyKj"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <Styled(styled.span)>
+                          <StyledComponent
+                            forwardedComponent={
+                              Object {
+                                "$$typeof": Symbol(react.forward_ref),
+                                "attrs": Array [],
+                                "componentStyle": ComponentStyle {
+                                  "componentId": "sc-bxivhb",
+                                  "isStatic": true,
+                                  "lastClassName": "hojljZ",
+                                  "rules": Array [
+                                    "
+  font-family: inherit;
+  font-weight: 600;
+",
+                                    "
+  color: ",
+                                    "#0E353D",
+                                    ";
+  line-height: 20px;
+  font-size: 16px;
+",
+                                  ],
+                                },
+                                "displayName": "Styled(styled.span)",
+                                "foldedComponentIds": Array [
+                                  "sc-htpNat",
+                                ],
+                                "render": [Function],
+                                "styledComponentId": "sc-bxivhb",
+                                "target": "span",
+                                "toString": [Function],
+                                "warnTooManyClasses": [Function],
+                                "withComponent": [Function],
+                              }
+                            }
+                            forwardedRef={null}
+                          >
+                            <span
+                              className="sc-htpNat sc-bxivhb hojljZ"
+                            >
+                              Element 2
+                            </span>
+                          </StyledComponent>
+                        </Styled(styled.span)>
+                      </button>
+                    </StyledComponent>
+                  </styled.button>
+                </DropdownElement>
+              </div>
+            </StyledComponent>
+          </styled.div>
+        </div>
+      </StyledComponent>
+    </styled.div>
+  </DropdownMenu>
+</div>
+`;
