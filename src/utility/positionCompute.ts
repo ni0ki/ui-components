@@ -169,7 +169,7 @@ export const getElementPlacement = <T>(
 ): T | null => {
   if (!placement) {
     throw new Error(
-      'Dropdown cannot be displayed in the container Element/Window due to its incompatible size.' +
+      'Element cannot be displayed in the container Element/Window due to its incompatible size.' +
         'Please consider reducing it or better position tooltiped' +
         'element in the screen.'
     );
