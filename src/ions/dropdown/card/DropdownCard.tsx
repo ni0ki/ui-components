@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components';
 import { dashGreen04, white } from '@colors';
 
@@ -6,7 +5,7 @@ interface Props {
   maxHeight?: number;
 }
 
-const Wrapper = styled.div<Props>`
+const DropdownCard = styled.div<Props>`
   display: flex;
   flex-direction: column;
   background-color: ${white};
@@ -17,9 +16,5 @@ const Wrapper = styled.div<Props>`
   max-height: ${props => props.maxHeight || 100}px;
   overflow-y: scroll;
 `;
-
-const DropdownCard: React.FC<Props> = props => {
-  return <Wrapper {...props}>{props.children}</Wrapper>;
-};
 
 export default DropdownCard;
