@@ -12,6 +12,8 @@ import {
 } from '@utility/positionCompute';
 import { MenuWrapperProps } from './DropdownMenu';
 
+const MARGIN = 4;
+
 export const isDropdownOutOfContainer: IsElementOutOfContainerMethod<
   Placement
 > = ({ elementDimensions, containerDimensions, placement }) => {
@@ -60,6 +62,6 @@ export const getDropdownPosition = ({
   placement
 }: MenuWrapperProps) => {
   return `${placement === 'top' ? 'bottom' : 'top'}: 100%;
-  transform: translateY(${placement === 'top' ? -4 : 4}px);
+  transform: translateY(${placement === 'top' ? -1 * MARGIN : MARGIN}px);
   ${dockingSide}: 0;`;
 };
