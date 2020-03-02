@@ -52,7 +52,12 @@ All you need to do is:
    yarn link @dashlane/ui-components
    ```
 
-3. Start devServer on your project
+3. You also need to link React version to your project's as it is a peer-dependency
+   ```
+      yarn link PATH/TO/YOUR/PROJECT/node_modules/react
+   ```
+
+4) Start devServer on your project
 
 ### Contributing
 
