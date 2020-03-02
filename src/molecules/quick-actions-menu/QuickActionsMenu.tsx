@@ -7,6 +7,7 @@ interface Props {
   icon: JSX.Element;
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
+  isDisabled?: boolean;
 }
 
 const SquareButton = styled(Button)`
@@ -32,7 +33,11 @@ const QuickActionsMenu: React.FC<Props> = props => {
   return (
     <Wrapper>
       <div ref={controllerRef}>
-        <SquareButton nature='ghost' onClick={onButtonClick}>
+        <SquareButton
+          nature='ghost'
+          onClick={onButtonClick}
+          disabled={props.isDisabled}
+        >
           {props.icon}
         </SquareButton>
       </div>
