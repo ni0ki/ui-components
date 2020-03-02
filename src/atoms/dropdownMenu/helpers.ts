@@ -20,12 +20,12 @@ export const isDropdownOutOfContainer: IsElementOutOfContainerMethod<
   switch (placement) {
     case 'top':
       return (
-        elementDimensions.rect.y - elementDimensions.totalHeight <
+        elementDimensions.rect.top - elementDimensions.totalHeight <
         containerDimensions.minHeight
       );
     case 'bottom':
       return (
-        elementDimensions.rect.y +
+        elementDimensions.rect.top +
           elementDimensions.rect.height +
           elementDimensions.totalHeight >
         containerDimensions.maxHeight
