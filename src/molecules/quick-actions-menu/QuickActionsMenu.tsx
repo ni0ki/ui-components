@@ -8,6 +8,7 @@ interface Props {
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
   isDisabled?: boolean;
+  className?: string;
 }
 
 const SquareButton = styled(Button)`
@@ -31,7 +32,7 @@ const QuickActionsMenu: React.FC<Props> = props => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className={props.className}>
       <div ref={controllerRef}>
         <SquareButton
           nature='ghost'
