@@ -8,7 +8,7 @@ interface Props {
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
   isDisabled?: boolean;
-  className?: string;
+  menuClassName?: string;
 }
 
 const SquareButton = styled(Button)`
@@ -32,7 +32,7 @@ const QuickActionsMenu: React.FC<Props> = props => {
   };
 
   return (
-    <Wrapper className={props.className}>
+    <Wrapper>
       <div ref={controllerRef}>
         <SquareButton
           nature='ghost'
@@ -48,6 +48,7 @@ const QuickActionsMenu: React.FC<Props> = props => {
         isOpen={isOpen}
         controllerRef={controllerRef}
         containerRef={props.containerRef}
+        menuClassName={props.menuClassName}
       >
         {props.children}
       </DropdownMenu>

@@ -19,6 +19,7 @@ interface Props {
   dockingSide?: DockingSide;
   placement?: Placement;
   containerRef?: React.RefObject<HTMLElement>;
+  menuClassName?: string;
 }
 export interface MenuWrapperProps {
   placement: Placement;
@@ -83,7 +84,10 @@ const DropdownMenu: React.FC<Props> = props => {
           dockingSide={props.dockingSide || 'left'}
           isReadyForDisplay={placement !== null}
         >
-          <DropdownCard maxHeight={props.menuMaxHeight}>
+          <DropdownCard
+            maxHeight={props.menuMaxHeight}
+            className={props.menuClassName}
+          >
             {props.children}
           </DropdownCard>
         </MenuWrapper>

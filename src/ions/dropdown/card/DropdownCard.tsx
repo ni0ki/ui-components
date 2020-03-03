@@ -3,6 +3,7 @@ import { dashGreen04, white } from '@colors';
 
 interface Props {
   maxHeight?: number;
+  className?: string;
 }
 
 const DropdownCard = styled.div<Props>`

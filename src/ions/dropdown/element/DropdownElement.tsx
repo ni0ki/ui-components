@@ -5,15 +5,13 @@ import { dashGreen00, dashGreen06 } from '@colors';
 
 interface Props {
   onClick: (e: React.MouseEvent) => void;
+  elementClassName?: string;
 }
 
-const Text = styled(StyledText)`
+const Wrapper = styled.button`
   color: ${dashGreen00};
   line-height: 20px;
   font-size: 16px;
-`;
-
-const Wrapper = styled.button`
   cursor: pointer;
   border: transparent 0px;
   outline: none;
@@ -33,8 +31,12 @@ const Wrapper = styled.button`
 
 const DropdownElement: React.FC<Props> = props => {
   return (
-    <Wrapper type='button' onClick={props.onClick}>
-      <Text>{props.children}</Text>
+    <Wrapper
+      type='button'
+      onClick={props.onClick}
+      className={props.elementClassName}
+    >
+      <StyledText>{props.children}</StyledText>
     </Wrapper>
   );
 };
