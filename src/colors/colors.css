@@ -1,73 +1,72 @@
 :root {
+  /* -- DASH_GREEN -- */
+  --dash-green-00: #0e353d;
+  --dash-green-01: #3e5d64;
+  --dash-green-02: #6e868b;
+  --dash-green-03: #9faeb1;
+  --dash-green-04: #cfd7d8;
+  --dash-green-05: #d9dfe0;
+  --dash-green-06: #f5f7f7;
 
-/* -- DASH_GREEN -- */
---dash-green-00: #0E353D;
---dash-green-01: #3E5D64;
---dash-green-02: #6E868B;
---dash-green-03: #9FAEB1;
---dash-green-04: #CFD7D8;
---dash-green-05: #D9DFE0;
---dash-green-06: #F5F7F7;
+  /* -- DASH_DARKER_GREEN -- */
+  --dash-darker-green-00: #071a1e;
 
-/* -- DASH_DARKER_GREEN -- */
---dash-darker-green-00: #071A1E;
+  /* -- MID_GREEN -- */
+  --mid-green-00: #0e6476;
+  --mid-green-01: #3e8391;
+  --mid-green-02: #6ea2ad;
+  --mid-green-03: #9fc1c8;
+  --mid-green-04: #cfe0e4;
+  --mid-green-05: #d9e6e9;
 
-/* -- MID_GREEN -- */
---mid-green-00: #0E6476;
---mid-green-01: #3E8391;
---mid-green-02: #6EA2AD;
---mid-green-03: #9FC1C8;
---mid-green-04: #CFE0E4;
---mid-green-05: #D9E6E9;
+  /* -- PINK -- */
+  --pink-00: #fdb5af;
+  --pink-01: #fdc4bf;
+  --pink-02: #fed3cf;
+  --pink-03: #fee1df;
+  --pink-04: #fff0ef;
+  --pink-05: #fff3f2;
 
-/* -- PINK -- */
---pink-00: #FDB5AF;
---pink-01: #FDC4BF;
---pink-02: #FED3CF;
---pink-03: #FEE1DF;
---pink-04: #FFF0EF;
---pink-05: #FFF3F2;
+  /* -- ORANGE -- */
+  --orange-00: #fe5b33;
+  --orange-01: #fe7c5c;
+  --orange-02: #fe9d85;
+  --orange-03: #ffbdad;
+  --orange-04: #ffded6;
+  --orange-05: #ffe5de;
 
-/* -- ORANGE -- */
---orange-00: #FE5B33;
---orange-01: #FE7C5C;
---orange-02: #FE9D85;
---orange-03: #FFBDAD;
---orange-04: #FFDED6;
---orange-05: #FFE5DE;
+  /* -- FUNCTIONAL_RED -- */
+  --functional-red-00: #4e000d;
+  --functional-red-01: #8b0018;
+  --functional-red-02: #ff002d;
+  --functional-red-03: #ffa49f;
 
-/* -- FUNCTIONAL_RED -- */
---functional-red-00: #4E000D;
---functional-red-01: #8B0018;
---functional-red-02: #FF002D;
---functional-red-03: #FFA49F;
+  /* -- RED -- */
+  --red-00: #bf0a33;
+  --red-01: #cc3b5c;
+  --red-02: #d96c85;
+  --red-03: #e59dad;
+  --red-04: #f2ced6;
+  --red-05: #f5d8de;
 
-/* -- RED -- */
---red-00: #BF0A33;
---red-01: #CC3B5C;
---red-02: #D96C85;
---red-03: #E59DAD;
---red-04: #F2CED6;
---red-05: #F5D8DE;
+  /* -- GREY -- */
+  --grey-00: #615b57;
+  --grey-01: #999592;
+  --grey-02: #ccc7c2;
+  --grey-03: #d6d2ce;
+  --grey-04: #e0ddda;
+  --grey-05: #ebe9e7;
+  --grey-06: #f5f4f3;
 
-/* -- GREY -- */
---grey-00: #615B57;
---grey-01: #999592;
---grey-02: #CCC7C2;
---grey-03: #D6D2CE;
---grey-04: #E0DDDA;
---grey-05: #EBE9E7;
---grey-06: #F5F4F3;
+  /* -- BLACK -- */
+  --black: #000000;
 
-/* -- BLACK -- */
---black: #000000;
+  /* -- WHITE -- */
+  --white: #ffffff;
 
-/* -- WHITE -- */
---white: #FFFFFF;
+  /* -- VALIDATOR_GREEN -- */
+  --validator-green: #20b422;
 
-/* -- VALIDATOR_GREEN -- */
---validator-green: #20B422;
-
-/* -- TRANSPARENT -- */
---transparent: transparent;
+  /* -- TRANSPARENT -- */
+  --transparent: transparent;
 }
