@@ -104,6 +104,13 @@ export const handleTooltipArrowPosition = ({ placement }: WrapperProps) => {
   }
 };
 
+export const displayIfInContainer = ({ outOfContainer }: WrapperProps) => {
+  return !outOfContainer
+    ? `visibility: visible;
+       opacity: 1;`
+    : ``;
+};
+
 export const getTooltipBgColorByType = (type: TooltipType) => {
   switch (type) {
     case 'info':
