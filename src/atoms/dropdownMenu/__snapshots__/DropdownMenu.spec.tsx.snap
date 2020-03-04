@@ -62,21 +62,21 @@ exports[`<Button> Global render should render 1`] = `
                 class="sc-bdVaJa kurQmA"
               >
                 <button
-                  class="sc-ifAKCX epOyKj"
+                  class="sc-bxivhb hHBGtV"
                   type="button"
                 >
                   <span
-                    class="sc-htpNat sc-bxivhb hojljZ"
+                    class="sc-htpNat cAleLB"
                   >
                     Element 1
                   </span>
                 </button>
                 <button
-                  class="sc-ifAKCX epOyKj"
+                  class="sc-bxivhb hHBGtV"
                   type="button"
                 >
                   <span
-                    class="sc-htpNat sc-bxivhb hojljZ"
+                    class="sc-htpNat cAleLB"
                   >
                     Element 2
                   </span>
@@ -149,11 +149,16 @@ exports[`<Button> Global render should render 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-ifAKCX",
+                            "componentId": "sc-bxivhb",
                             "isStatic": true,
-                            "lastClassName": "epOyKj",
+                            "lastClassName": "hHBGtV",
                             "rules": Array [
                               "
+  color: ",
+                              "#0E353D",
+                              ";
+  line-height: 20px;
+  font-size: 16px;
   cursor: pointer;
   border: transparent 0px;
   outline: none;
@@ -177,7 +182,7 @@ exports[`<Button> Global render should render 1`] = `
                           "displayName": "styled.button",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-ifAKCX",
+                          "styledComponentId": "sc-bxivhb",
                           "target": "button",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -189,40 +194,31 @@ exports[`<Button> Global render should render 1`] = `
                       type="button"
                     >
                       <button
-                        className="sc-ifAKCX epOyKj"
+                        className="sc-bxivhb hHBGtV"
                         onClick={[Function]}
                         type="button"
                       >
-                        <Styled(styled.span)>
+                        <styled.span>
                           <StyledComponent
                             forwardedComponent={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
                                 "attrs": Array [],
                                 "componentStyle": ComponentStyle {
-                                  "componentId": "sc-bxivhb",
+                                  "componentId": "sc-htpNat",
                                   "isStatic": true,
-                                  "lastClassName": "hojljZ",
+                                  "lastClassName": "cAleLB",
                                   "rules": Array [
                                     "
   font-family: inherit;
   font-weight: 600;
 ",
-                                    "
-  color: ",
-                                    "#0E353D",
-                                    ";
-  line-height: 20px;
-  font-size: 16px;
-",
                                   ],
                                 },
-                                "displayName": "Styled(styled.span)",
-                                "foldedComponentIds": Array [
-                                  "sc-htpNat",
-                                ],
+                                "displayName": "styled.span",
+                                "foldedComponentIds": Array [],
                                 "render": [Function],
-                                "styledComponentId": "sc-bxivhb",
+                                "styledComponentId": "sc-htpNat",
                                 "target": "span",
                                 "toString": [Function],
                                 "warnTooManyClasses": [Function],
@@ -232,12 +228,12 @@ exports[`<Button> Global render should render 1`] = `
                             forwardedRef={null}
                           >
                             <span
-                              className="sc-htpNat sc-bxivhb hojljZ"
+                              className="sc-htpNat cAleLB"
                             >
                               Element 1
                             </span>
                           </StyledComponent>
-                        </Styled(styled.span)>
+                        </styled.span>
                       </button>
                     </StyledComponent>
                   </styled.button>
@@ -255,11 +251,16 @@ exports[`<Button> Global render should render 1`] = `
                           "$$typeof": Symbol(react.forward_ref),
                           "attrs": Array [],
                           "componentStyle": ComponentStyle {
-                            "componentId": "sc-ifAKCX",
+                            "componentId": "sc-bxivhb",
                             "isStatic": true,
-                            "lastClassName": "epOyKj",
+                            "lastClassName": "hHBGtV",
                             "rules": Array [
                               "
+  color: ",
+                              "#0E353D",
+                              ";
+  line-height: 20px;
+  font-size: 16px;
   cursor: pointer;
   border: transparent 0px;
   outline: none;
@@ -283,7 +284,7 @@ exports[`<Button> Global render should render 1`] = `
                           "displayName": "styled.button",
                           "foldedComponentIds": Array [],
                           "render": [Function],
-                          "styledComponentId": "sc-ifAKCX",
+                          "styledComponentId": "sc-bxivhb",
                           "target": "button",
                           "toString": [Function],
                           "warnTooManyClasses": [Function],
@@ -295,40 +296,31 @@ exports[`<Button> Global render should render 1`] = `
                       type="button"
                     >
                       <button
-                        className="sc-ifAKCX epOyKj"
+                        className="sc-bxivhb hHBGtV"
                         onClick={[Function]}
                         type="button"
                       >
-                        <Styled(styled.span)>
+                        <styled.span>
                           <StyledComponent
                             forwardedComponent={
                               Object {
                                 "$$typeof": Symbol(react.forward_ref),
                                 "attrs": Array [],
                                 "componentStyle": ComponentStyle {
-                                  "componentId": "sc-bxivhb",
+                                  "componentId": "sc-htpNat",
                                   "isStatic": true,
-                                  "lastClassName": "hojljZ",
+                                  "lastClassName": "cAleLB",
                                   "rules": Array [
                                     "
   font-family: inherit;
   font-weight: 600;
 ",
-                                    "
-  color: ",
-                                    "#0E353D",
-                                    ";
-  line-height: 20px;
-  font-size: 16px;
-",
                                   ],
                                 },
-                                "displayName": "Styled(styled.span)",
-                                "foldedComponentIds": Array [
-                                  "sc-htpNat",
-                                ],
+                                "displayName": "styled.span",
+                                "foldedComponentIds": Array [],
                                 "render": [Function],
-                                "styledComponentId": "sc-bxivhb",
+                                "styledComponentId": "sc-htpNat",
                                 "target": "span",
                                 "toString": [Function],
                                 "warnTooManyClasses": [Function],
@@ -338,12 +330,12 @@ exports[`<Button> Global render should render 1`] = `
                             forwardedRef={null}
                           >
                             <span
-                              className="sc-htpNat sc-bxivhb hojljZ"
+                              className="sc-htpNat cAleLB"
                             >
                               Element 2
                             </span>
                           </StyledComponent>
-                        </Styled(styled.span)>
+                        </styled.span>
                       </button>
                     </StyledComponent>
                   </styled.button>
