@@ -6,6 +6,7 @@ import {
   checkIsStyleComputed,
   computeTooltipHeight,
   computeTooltipWidth,
+  displayIfInContainer,
   getAlternativeStyle,
   getBoundingRect,
   getCSSComputedStyle,
@@ -46,9 +47,12 @@ export interface Props {
 
 interface State {
   placement: Placement;
+  outOfContainer: boolean;
 }
 
-export type WrapperProps = Omit<Required<Props>, 'title'>;
+export type WrapperProps = Omit<Required<Props>, 'title'> & {
+  outOfContainer: boolean;
+};
 
 const TooltipWrapper = styled.span<WrapperProps>`
   > :first-child:hover {
@@ -85,8 +89,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
   }
 
   > :first-child:hover::before {
-    visibility: visible;
-    opacity: 1;
+    ${displayIfInContainer}
   }
 
   > :first-child::after {
@@ -107,8 +110,7 @@ const TooltipWrapper = styled.span<WrapperProps>`
   }
 
   > :first-child:hover::after {
-    visibility: visible;
-    opacity: 1;
+    ${displayIfInContainer}
   }
 `;
 
@@ -123,7 +125,8 @@ class Tooltip extends React.PureComponent<Props, State> {
     this.defaultPlacement = 'top';
     this.ref = null;
     this.state = {
-      placement: props.placement || this.defaultPlacement
+      placement: props.placement || this.defaultPlacement,
+      outOfContainer: false
     };
     this.tooltipPossiblePlacements = ['top', 'left', 'right', 'bottom'];
     this.coordinates = {
@@ -207,6 +210,7 @@ class Tooltip extends React.PureComponent<Props, State> {
       );
       this.setState({ placement: placement });
     } catch (e) {
+      this.setState({ outOfContainer: true });
       console.error(e);
     }
   }
@@ -228,16 +232,12 @@ class Tooltip extends React.PureComponent<Props, State> {
       options = {}
     } = this.props;
     const childrenWithProps = React.Children.map(
-      children,
+      <div>{children}</div>, // Wrapping the children with a div to make sure that the tooltip will be attached to this div so any state modification of the initial children (disabled, etc..) won't affect the style of the tooltip
       this.cloneChildren(title)
     );
 
     return (
-      <TooltipWrapper
-        type={type}
-        placement={this.state.placement}
-        options={options}
-      >
+      <TooltipWrapper type={type} {...this.state} options={options}>
         {childrenWithProps}
       </TooltipWrapper>
     );
