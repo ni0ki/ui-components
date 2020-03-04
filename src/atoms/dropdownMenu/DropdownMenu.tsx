@@ -72,6 +72,7 @@ const DropdownMenu: React.FC<Props> = props => {
       setPlacement(newPlacement);
     } catch (e) {
       console.error('Error while computing DropdownMenu position', e);
+      setPlacement(DEFAULT_PLACEMENT);
     }
   });
 
