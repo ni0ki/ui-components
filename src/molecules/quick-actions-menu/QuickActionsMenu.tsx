@@ -1,12 +1,14 @@
 import * as React from 'react';
 import DropdownMenu from '@atoms/dropdownMenu/DropdownMenu';
-import { Button } from '@atoms';
+import { Button, Tooltip } from '@atoms';
 import styled from 'styled-components';
+import { dashGreen00 } from '@colors';
 
 interface Props {
   isOpen: boolean;
   icon: JSX.Element;
   setIsOpen: (isOpen: boolean) => void;
+  tooltipTitle: string;
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
   isDisabled?: boolean;
@@ -16,6 +18,7 @@ interface Props {
 const SquareButton = styled(Button)`
   width: 32px;
   height: 32px;
+  fill: ${dashGreen00};
 `;
 
 const Wrapper = styled.div`
@@ -35,13 +38,17 @@ const QuickActionsMenu: React.FC<Props> = props => {
   return (
     <Wrapper>
       <div ref={controllerRef}>
-        <SquareButton
-          nature='ghost'
-          onClick={onButtonClick}
-          disabled={props.isDisabled}
-        >
-          {props.icon}
-        </SquareButton>
+        <Tooltip placement='left' title={props.tooltipTitle}>
+          <div>
+            <SquareButton
+              nature='ghost'
+              onClick={onButtonClick}
+              disabled={props.isDisabled}
+            >
+              {props.icon}
+            </SquareButton>
+          </div>
+        </Tooltip>
       </div>
       <DropdownMenu
         dockingSide='right'
