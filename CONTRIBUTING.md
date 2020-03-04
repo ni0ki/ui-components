@@ -54,8 +54,9 @@ All you need to do is:
 
 3. You also need to link React version to your project's as it is a peer-dependency
    ```
-      yarn link PATH/TO/YOUR/PROJECT/node_modules/react
+      npm link PATH/TO/YOUR/PROJECT/node_modules/react
    ```
+   (You will need to unlink React in order for tests to pass)
 
 4) Start devServer on your project
 
