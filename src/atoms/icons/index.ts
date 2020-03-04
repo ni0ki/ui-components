@@ -1,6 +1,7 @@
 /*-- EXPORT ICON COMPONENTS --*/
-export { default as OpenWebsiteIcon } from './OpenWebsiteIcon';
+export { default as CopyIcon } from './CopyIcon';
 export { default as MoreIcon } from './MoreIcon';
+export { default as OpenWebsiteIcon } from './OpenWebsiteIcon';
 export { default as ShieldFlagIcon } from './ShieldFlagIcon';
 export { default as ShieldCheckIcon } from './ShieldCheckIcon';
 export { default as PhoneIcon } from './PhoneIcon';
