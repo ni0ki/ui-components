@@ -4,7 +4,9 @@ import { Button } from '@atoms';
 import styled from 'styled-components';
 
 interface Props {
+  isOpen: boolean;
   icon: JSX.Element;
+  setIsOpen: (isOpen: boolean) => void;
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
   isDisabled?: boolean;
@@ -23,12 +25,11 @@ const Wrapper = styled.div`
 `;
 
 const QuickActionsMenu: React.FC<Props> = props => {
-  const [isOpen, setIsOpen] = React.useState(false);
   const controllerRef = React.useRef<HTMLDivElement>(null);
 
   const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setIsOpen(!isOpen);
+    props.setIsOpen(!props.isOpen);
   };
 
   return (
@@ -45,7 +46,7 @@ const QuickActionsMenu: React.FC<Props> = props => {
       <DropdownMenu
         dockingSide='right'
         menuMaxHeight={props.maxMenuHeight}
-        isOpen={isOpen}
+        isOpen={props.isOpen}
         controllerRef={controllerRef}
         containerRef={props.containerRef}
         menuClassName={props.menuClassName}
