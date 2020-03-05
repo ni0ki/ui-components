@@ -159,10 +159,10 @@ class Tooltip extends React.PureComponent<Props, State> {
       return;
     }
     const isBeforePseudoElement = true;
-    const elementDimensions = getElementDimensions(
-      this.ref,
-      isBeforePseudoElement
-    );
+    const elementDimensions = getElementDimensions({
+      elementRef: this.ref,
+      elementIsBefore: isBeforePseudoElement
+    });
 
     const containerElement =
       (this.props.options &&
@@ -171,13 +171,13 @@ class Tooltip extends React.PureComponent<Props, State> {
       window;
     const containerDimensions = getContainerBoundaries(containerElement);
     try {
-      const placement = getElementPlacement<Placement>(
-        isTooltipOutOfContainer,
-        this.props.placement || this.defaultPlacement,
-        this.tooltipPossiblePlacements,
+      const placement = getElementPlacement({
+        isElementOutOfContainerMethod: isTooltipOutOfContainer,
+        placement: this.props.placement || this.defaultPlacement,
+        possibilities: this.tooltipPossiblePlacements,
         elementDimensions,
         containerDimensions
-      );
+      });
       this.setState({ placement: placement });
     } catch (e) {
       this.setState({ outOfContainer: true });
@@ -187,13 +187,13 @@ class Tooltip extends React.PureComponent<Props, State> {
 
   private cloneChildren = (title: string) => (
     child: React.ReactNode,
-    key: number
+    childIndex: number
   ) => {
     if (React.isValidElement(child)) {
       return React.cloneElement(child, {
         'data-tooltip': title,
         onMouseEnter: this.onHover,
-        ref: key === 0 && this.ref
+        ref: childIndex === 0 && this.ref
       });
     }
   };

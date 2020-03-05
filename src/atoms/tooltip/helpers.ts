@@ -127,7 +127,7 @@ export const getTooltipBgColorByType = (type: TooltipType) => {
 
 export const isTooltipOutOfContainer: IsElementOutOfContainerMethod<
   Placement
-> = ({ elementDimensions, containerDimensions, placement }): boolean => {
+> = ({ elementDimensions, containerDimensions, placement }) => {
   switch (placement) {
     case 'top':
       return (

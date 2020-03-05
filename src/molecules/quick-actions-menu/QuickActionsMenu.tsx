@@ -30,10 +30,13 @@ const Wrapper = styled.div`
 const QuickActionsMenu: React.FC<Props> = props => {
   const controllerRef = React.useRef<HTMLDivElement>(null);
 
-  const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    props.setIsOpen(!props.isOpen);
-  };
+  const onButtonClick: React.MouseEventHandler = React.useCallback(
+    e => {
+      e.preventDefault();
+      props.setIsOpen(!props.isOpen);
+    },
+    [props.isOpen, props.setIsOpen]
+  );
 
   return (
     <Wrapper>

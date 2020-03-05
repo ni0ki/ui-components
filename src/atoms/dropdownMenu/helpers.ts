@@ -1,14 +1,14 @@
 import { Placement } from './types';
 import { assertUnreachable } from '@utility/helpers';
 import {
-  checkIsStyleComputed,
   computeElementHeight,
   computeElementWidth,
   ElementDimensions,
   getAlternativeStyle,
   getBoundingRect,
   getCSSComputedStyle,
-  IsElementOutOfContainerMethod
+  IsElementOutOfContainerMethod,
+  isHeightAndWidthSet
 } from '@utility/positionCompute';
 import { MenuWrapperProps } from './DropdownMenu';
 
@@ -36,19 +36,41 @@ export const isDropdownOutOfContainer: IsElementOutOfContainerMethod<
   }
 };
 
+interface GetControllerAndMenuDimensionsParams {
+  menuRef: React.RefObject<HTMLElement>;
+  controllerRef: React.RefObject<HTMLElement>;
+  elementIsBefore?: boolean;
+}
+
 export const getControllerAndMenuDimensions = (
-  menuRef: React.RefObject<HTMLElement>,
-  buttonRef: React.RefObject<HTMLElement>,
-  elementIsBefore?: boolean
+  params: GetControllerAndMenuDimensionsParams
 ): ElementDimensions => {
-  const dropdownStyle = getCSSComputedStyle(menuRef.current, elementIsBefore);
-  const isStyleComputed = checkIsStyleComputed(dropdownStyle);
+  if (!params.menuRef.current) {
+    return {
+      rect: {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: 0,
+        height: 0
+      },
+      totalHeight: 0,
+      totalWidth: 0
+    };
+  }
+
+  const dropdownStyle = getCSSComputedStyle({
+    element: params.menuRef.current,
+    getBeforePseudoElement: params.elementIsBefore
+  });
+  const isStyleComputed = isHeightAndWidthSet(dropdownStyle);
   const { height = null, width = null } = isStyleComputed
     ? {}
-    : getAlternativeStyle(dropdownStyle, menuRef.current); // Extra calculations For Edge
+    : getAlternativeStyle(dropdownStyle, params.menuRef.current); // Extra calculations For Edge
   const totalHeight = computeElementHeight(dropdownStyle, height);
   const totalWidth = computeElementWidth(dropdownStyle, width);
-  const rect = getBoundingRect(buttonRef.current);
+  const rect = getBoundingRect(params.controllerRef.current);
 
   return {
     totalHeight,

@@ -4,11 +4,10 @@ menu: Components
 ---
 
 import { Playground, Props } from 'docz';
-import DropdownMenu from './DropdownMenu';
-import DropdownElement from '../../ions/dropdown/element/DropdownElement';
-import Button from '../button/Button';
-import PhoneIcon from '../icons/PhoneIcon';
-import QuickActionsMenu from '../../molecules/quick-actions-menu/QuickActionsMenu';
+import DropdownMenu from '@atoms/dropdownMenu/DropdownMenu';
+import DropdownElement from '@ions/dropdown/element/DropdownElement';
+import Button from '@atoms/button/Button';
+import PhoneIcon from '@atoms/icons/PhoneIcon';
 
 # Dropdown Menu
 
@@ -22,7 +21,7 @@ The Dropdown Menu can be used to display a menu of options that can be hidden.
 
 The dropdown can be defined alongside a controller. To display it correctly:
 
-- **both components must be wrapped in a container with an relative or absolute position**
+- **both components must be wrapped in a container with a relative or absolute position**
 - the controller's ref must be passed to the Dropdown
 
 <Playground

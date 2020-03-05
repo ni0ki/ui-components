@@ -52,23 +52,23 @@ const DropdownMenu: React.FC<Props> = props => {
     if (!menuRef.current || !props.controllerRef.current) {
       return;
     }
-    const elementDimensions = getControllerAndMenuDimensions(
+    const elementDimensions = getControllerAndMenuDimensions({
       menuRef,
-      props.controllerRef
-    );
+      controllerRef: props.controllerRef
+    });
 
     const containerElement =
       (props.containerRef && props.containerRef.current) || window;
     const containerDimensions = getContainerBoundaries(containerElement);
 
     try {
-      const newPlacement = getElementPlacement(
-        isDropdownOutOfContainer,
-        props.placement || DEFAULT_PLACEMENT,
-        POSSIBLE_PLACEMENTS,
+      const newPlacement = getElementPlacement({
+        isElementOutOfContainerMethod: isDropdownOutOfContainer,
+        placement: props.placement || DEFAULT_PLACEMENT,
+        possibilities: POSSIBLE_PLACEMENTS,
         elementDimensions,
         containerDimensions
-      );
+      });
       setPlacement(newPlacement);
     } catch (e) {
       console.error('Error while computing DropdownMenu position', e);
