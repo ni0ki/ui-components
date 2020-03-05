@@ -41,7 +41,11 @@ const QuickActionsMenu: React.FC<Props> = props => {
   return (
     <Wrapper>
       <div ref={controllerRef}>
-        <Tooltip placement='left' title={props.tooltipTitle}>
+        <Tooltip
+          placement='left'
+          title={props.tooltipTitle}
+          options={{ tooltipMaxWidth: 172 }}
+        >
           <div>
             <SquareButton
               nature='ghost'
