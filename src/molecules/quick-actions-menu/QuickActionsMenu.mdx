@@ -1,0 +1,47 @@
+---
+name: Quick Actions Menu
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import Button from '../../atoms/button/Button';
+import MoreIcon from '../../atoms/icons/MoreIcon';
+import DropdownElement from '../../ions/dropdown/element/DropdownElement.tsx';
+import QuickActionsMenu from './QuickActionsMenu';
+
+# Quick Actions Menu
+
+Quick action menu is a specific components meant for users to quickly copy
+a credential's information like login and password.
+It is not meant to be used in an other context. If you're looking for customizable dropdown,
+check out the [Dropdown Menu component](./src-atoms-button-button).
+
+## Properties
+
+<Props of={QuickActionsMenu} />
+
+## Example
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+  {() => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    return (
+      <QuickActionsMenu
+        icon={<MoreIcon />}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        tooltipTitle='Tooltip'
+      >
+        <DropdownElement>Copy Password</DropdownElement>
+        <DropdownElement>Copy Login</DropdownElement>
+      </QuickActionsMenu>
+    );
+  }}
+</Playground>

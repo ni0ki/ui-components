@@ -1,0 +1,212 @@
+---
+name: Dropdown Menu
+menu: Components
+---
+
+import { Playground, Props } from 'docz';
+import DropdownMenu from '@atoms/dropdownMenu/DropdownMenu';
+import DropdownElement from '@ions/dropdown/element/DropdownElement';
+import Button from '@atoms/button/Button';
+import PhoneIcon from '@atoms/icons/PhoneIcon';
+
+# Dropdown Menu
+
+The Dropdown Menu can be used to display a menu of options that can be hidden.
+
+## Properties
+
+<Props of={DropdownMenu} />
+
+## Usage
+
+The dropdown can be defined alongside a controller. To display it correctly:
+
+- **both components must be wrapped in a container with a relative or absolute position**
+- the controller's ref must be passed to the Dropdown
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+  {() => {
+  const [dropdownIsOpen, setDropdownIsOpen] = React.useState(false);
+    const controllerRef = React.useRef(null);
+
+return (
+
+<div style={{ position: 'relative' }}>
+<div ref={controllerRef}>
+<Button
+nature='primary'
+onClick={() => setDropdownIsOpen(!dropdownIsOpen)} >
+Click Me
+</Button>
+</div>
+<DropdownMenu
+        isOpen={dropdownIsOpen}
+        dockingSide='left'
+        placement='bottom'
+        controllerRef={controllerRef}
+      >
+<DropdownElement>Hello</DropdownElement>
+<DropdownElement>Holà</DropdownElement>
+<DropdownElement>Salut</DropdownElement>
+<DropdownElement>Hallo</DropdownElement>
+</DropdownMenu>
+</div>
+);
+}}
+
+</Playground>
+
+Dropdown can be defined as:
+
+- placed below or above their controllerRef,
+- aligned on their controller left or right
+
+<Playground
+  style={{
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    height: '200px'
+  }}
+>
+  {() => {
+    const [dropdown1IsOpen, setDropdown1IsOpen] = React.useState(false);
+    const [dropdown2IsOpen, setDropdown2IsOpen] = React.useState(false);
+    const controller1Ref = React.useRef(null);
+    const controller2Ref = React.useRef(null);
+
+return (
+
+  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "100%", height: "100%"}}>
+    <div style={{ position: 'relative' }}>
+      <div ref={controller1Ref}>
+        <Button
+        nature='primary'
+        onClick={() => setDropdown1IsOpen(!dropdown1IsOpen)} >
+          TOP
+        </Button>
+      </div>
+      <DropdownMenu
+      isOpen={dropdown1IsOpen}
+      placement='top'
+      controllerRef={controller1Ref}
+      >
+        <DropdownElement>Hello</DropdownElement>
+        <DropdownElement>Holà</DropdownElement>
+      </DropdownMenu>
+    </div>
+
+    <div style={{ position: 'relative' }}>
+      <div ref={controller2Ref}>
+        <Button
+        nature='primary'
+        onClick={() => setDropdown2IsOpen(!dropdown2IsOpen)} >
+          RIGHT
+        </Button>
+      </div>
+      <DropdownMenu
+      isOpen={dropdown2IsOpen}
+      dockingSide='right'
+      controllerRef={controller2Ref}
+      >
+        <DropdownElement>Good Morning</DropdownElement>
+        <DropdownElement>Konnichiha</DropdownElement>
+        <DropdownElement>Guten Tag</DropdownElement>
+      </DropdownMenu>
+    </div>
+
+  </div>
+);
+}}
+
+</Playground>
+
+## Position within a container
+
+Dropdown computes its ideal position within a container:
+if you pass `top` as the placement prop but there is not enough space within the container,
+the menu position will be overwritten to `bottom`.
+
+<Playground >
+{() => {
+  const [dropdown1IsOpen, setDropdown1IsOpen] = React.useState(false);
+  const [dropdown2IsOpen, setDropdown2IsOpen] = React.useState(false);
+  const containerRef = React.useRef(null);
+  const button1Ref = React.useRef(null);
+  const button2Ref = React.useRef(null);
+
+return (
+
+<div
+ref={containerRef}
+style={{
+        height: '250px',
+        display: 'flex',
+        background: 'ghostwhite',
+        justifyContent: 'space-between'
+      }} >
+<div style={{ position: 'relative', height: 'fit-content' }}>
+<div ref={button1Ref}>
+<Button
+nature='primary'
+onClick={() => setDropdown1IsOpen(!dropdown1IsOpen)} >
+Click Me
+</Button>
+</div>
+<DropdownMenu
+          isOpen={dropdown1IsOpen}
+          dockingSide='left'
+          placement='top'
+          containerRef={containerRef}
+          controllerRef={button1Ref}
+        >
+          <DropdownElement>Hello</DropdownElement>
+          <DropdownElement>Holà</DropdownElement>
+          <DropdownElement>Salut</DropdownElement>
+</DropdownMenu>
+</div>
+
+      <div
+        style={{
+          position: 'relative',
+          height: 'fit-content',
+          alignSelf: 'flex-end'
+        }}
+      >
+        <div ref={button2Ref}>
+          <Button
+            nature='secondary'
+            onClick={() => {
+              setDropdown2IsOpen(!dropdown2IsOpen);
+            }}
+          >
+            Click Me
+          </Button>
+        </div>
+        <DropdownMenu
+          isOpen={dropdown2IsOpen}
+          dockingSide='left'
+          placement='bottom'
+          containerRef={containerRef}
+          controllerRef={button2Ref}
+        >
+          <DropdownElement>Hello</DropdownElement>
+          <DropdownElement>Holà</DropdownElement>
+          <DropdownElement>Salut</DropdownElement>
+        </DropdownMenu>
+      </div>
+    </div>
+
+)
+}}
+
+</Playground>
