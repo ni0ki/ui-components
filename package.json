@@ -17,6 +17,7 @@
     "clean": "rimraf lib",
     "start": "yarn clean && cross-env NODE_ENV=development rollup -c -w",
     "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
+    "typing:watch": "tsc --noEmit --watch",
     "test": "jest --coverage",
     "test:watch": "yarn test --watch",
     "release": "yarn build && semantic-release",
