@@ -32,11 +32,15 @@ check out the [Dropdown Menu component](./src-atoms-button-button).
 >
   {() => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const onClick = (e) => {
+      e.preventDefault();
+      setIsOpen(!isOpen);
+    }
     return (
       <QuickActionsMenu
         icon={<MoreIcon />}
         isOpen={isOpen}
-        setIsOpen={setIsOpen}
+        onClick={onClick}
         tooltipTitle='Tooltip'
       >
         <DropdownElement>Copy Password</DropdownElement>
