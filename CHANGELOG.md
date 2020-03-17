@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/Dashlane/ui-components/compare/v1.4.0...v1.4.1) (2020-03-17)
+
+
+### Bug Fixes
+
+* add onClick method to QuickAction menu ([9227863](https://github.com/Dashlane/ui-components/commit/92278636fed8f50fc3a4b5d63056697752c24de4))
+
 # [1.4.0](https://github.com/Dashlane/ui-components/compare/v1.3.0...v1.4.0) (2020-03-05)
 
 
