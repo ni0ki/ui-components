@@ -60,6 +60,24 @@ All you need to do is:
 
 4) Start devServer on your project
 
+#### Developing on Docz
+
+You may want to develop a new component while working on Docz to see your work without having to link
+it to a different project. To do so:
+
+1. Launch Docz in dev mode
+
+   ```
+   yarn docz:dev
+   ```
+
+2. Launch typescript to type-check your work in a different terminal:
+   ```
+   yarn typing:watch
+   ```
+
+You will see the doc on http://localhost:3000
+
 ### Contributing
 
 Before contributing on this repo, please keep in mind that:

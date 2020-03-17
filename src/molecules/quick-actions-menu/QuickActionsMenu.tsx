@@ -7,7 +7,7 @@ import { dashGreen00 } from '@colors';
 interface Props {
   isOpen: boolean;
   icon: JSX.Element;
-  setIsOpen: (isOpen: boolean) => void;
+  onClick: React.MouseEventHandler;
   tooltipTitle: string;
   maxMenuHeight?: number;
   containerRef?: React.RefObject<HTMLElement>;
@@ -30,14 +30,6 @@ const Wrapper = styled.div`
 const QuickActionsMenu: React.FC<Props> = props => {
   const controllerRef = React.useRef<HTMLDivElement>(null);
 
-  const onButtonClick: React.MouseEventHandler = React.useCallback(
-    e => {
-      e.preventDefault();
-      props.setIsOpen(!props.isOpen);
-    },
-    [props.isOpen, props.setIsOpen]
-  );
-
   return (
     <Wrapper>
       <div ref={controllerRef}>
@@ -46,15 +38,13 @@ const QuickActionsMenu: React.FC<Props> = props => {
           title={props.tooltipTitle}
           options={{ tooltipMaxWidth: 172 }}
         >
-          <div>
-            <SquareButton
-              nature='ghost'
-              onClick={onButtonClick}
-              disabled={props.isDisabled}
-            >
-              {props.icon}
-            </SquareButton>
-          </div>
+          <SquareButton
+            nature='ghost'
+            onClick={props.onClick}
+            disabled={props.isDisabled}
+          >
+            {props.icon}
+          </SquareButton>
         </Tooltip>
       </div>
       <DropdownMenu
