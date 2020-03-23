@@ -52,7 +52,31 @@ All you need to do is:
    yarn link @dashlane/ui-components
    ```
 
-3. Start devServer on your project
+3. You also need to link React version to your project's as it is a peer-dependency
+   ```
+      npm link PATH/TO/YOUR/PROJECT/node_modules/react
+   ```
+   (You will need to unlink React in order for tests to pass)
+
+4) Start devServer on your project
+
+#### Developing on Docz
+
+You may want to develop a new component while working on Docz to see your work without having to link
+it to a different project. To do so:
+
+1. Launch Docz in dev mode
+
+   ```
+   yarn docz:dev
+   ```
+
+2. Launch typescript to type-check your work in a different terminal:
+   ```
+   yarn typing:watch
+   ```
+
+You will see the doc on http://localhost:3000
 
 ### Contributing
 

@@ -1,4 +1,11 @@
 /*-- EXPORT ICON COMPONENTS --*/
+export { default as TaxIcon } from './TaxIcon';
+export { default as UnlockIcon } from './UnlockIcon';
+export { default as LockIcon } from './LockIcon';
+export { default as RevokeIcon } from './RevokeIcon';
+export { default as CopyIcon } from './CopyIcon';
+export { default as MoreIcon } from './MoreIcon';
+export { default as OpenWebsiteIcon } from './OpenWebsiteIcon';
 export { default as ShieldFlagIcon } from './ShieldFlagIcon';
 export { default as ShieldCheckIcon } from './ShieldCheckIcon';
 export { default as PhoneIcon } from './PhoneIcon';

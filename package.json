@@ -1,6 +1,6 @@
 {
   "name": "@dashlane/ui-components",
-  "version": "1.2.2",
+  "version": "1.4.1",
   "description": "A set of reusable UI React components",
   "main": "lib/index.esm.js",
   "module": "lib/index.esm.js",
@@ -17,6 +17,7 @@
     "clean": "rimraf lib",
     "start": "yarn clean && cross-env NODE_ENV=development rollup -c -w",
     "build": "yarn clean && cross-env NODE_ENV=production rollup -c",
+    "typing:watch": "tsc --noEmit --watch",
     "test": "jest --coverage",
     "test:watch": "yarn test --watch",
     "release": "yarn build && semantic-release",
@@ -68,7 +69,6 @@
     "plop": "^2.5.0",
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
-    "react": "^16.9.0",
     "react-hot-loader": "^4.12.14",
     "rimraf": "^3.0.0",
     "rollup": "^1.24.0",

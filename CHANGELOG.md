@@ -1,3 +1,71 @@
+## [1.4.1](https://github.com/Dashlane/ui-components/compare/v1.4.0...v1.4.1) (2020-03-17)
+
+
+### Bug Fixes
+
+* add onClick method to QuickAction menu ([9227863](https://github.com/Dashlane/ui-components/commit/92278636fed8f50fc3a4b5d63056697752c24de4))
+
+# [1.4.0](https://github.com/Dashlane/ui-components/compare/v1.3.0...v1.4.0) (2020-03-05)
+
+
+### Bug Fixes
+
+* add className props to allow Popup to add custom style ([9a01872](https://github.com/Dashlane/ui-components/commit/9a0187233c7ee7ddd4ba70c702f19d61c7eae436))
+* add disable prop to quick actions menu ([aae0381](https://github.com/Dashlane/ui-components/commit/aae0381714b336da18532dce4637f1effe082afa))
+* add export ([b573d5a](https://github.com/Dashlane/ui-components/commit/b573d5a6aa7dc76b3932203b410ae943efedeb01))
+* add tooltip max-width ([c64a7e8](https://github.com/Dashlane/ui-components/commit/c64a7e81509a7e918fa14b43b57ef4d18af6ea7c))
+* add tooltip over Quick Action ([a35877b](https://github.com/Dashlane/ui-components/commit/a35877b4a4f9150acbd351c1b8df12c65fb32148))
+* allow to open and close quick-actions menu ([4db94e9](https://github.com/Dashlane/ui-components/commit/4db94e926c7314b47458969f23f98d3547fe8213))
+* apply prettier to generated stylesheet ([6720dd1](https://github.com/Dashlane/ui-components/commit/6720dd1e371286d5f0e48ce84097b809ee926ae2))
+* change DropdownElement props to pass text as child ([a2be92f](https://github.com/Dashlane/ui-components/commit/a2be92f94eb141252e73168db556bf64ec4864e7))
+* change error message ([552a51f](https://github.com/Dashlane/ui-components/commit/552a51fa1368bc083c8b93b74a841a3c4764e01f))
+* change yarn.lock urls ([65e8227](https://github.com/Dashlane/ui-components/commit/65e82275d235d3245d5bb0e74c0206278b473935))
+* correct boudingRect typing ([cf72521](https://github.com/Dashlane/ui-components/commit/cf725211d698d38d920d8e1432a70fcc1a7f7a2d))
+* create margin constant ([b3f8af6](https://github.com/Dashlane/ui-components/commit/b3f8af609190fcd3bc09bf2b9b1b777646c3b0dc))
+* display default placement when space is insufficiant ([9429a50](https://github.com/Dashlane/ui-components/commit/9429a50bb0ef866d40a61b296d9f4603930d64f3))
+* fix quick action menu ([1317d83](https://github.com/Dashlane/ui-components/commit/1317d83dc39451b7e50c9f72e5837b493f1eb506))
+* improve position computing method ([fba7586](https://github.com/Dashlane/ui-components/commit/fba7586f32e63dd07f55972c435afef34a98d247))
+* menu position ([a596f26](https://github.com/Dashlane/ui-components/commit/a596f262428cb87cf4b183c84d9db05d9dccd048))
+* pass quick action element as children ([fcc93d1](https://github.com/Dashlane/ui-components/commit/fcc93d17b0007b21c3fd74a8bf43d6793dfefcf9))
+* quick action menu doc ([e99780b](https://github.com/Dashlane/ui-components/commit/e99780b4100f3c7cbee686dbfe74be719ff82e34))
+* remove react from dev-dependency ([db4c9c3](https://github.com/Dashlane/ui-components/commit/db4c9c36f44d8faba915b84775cbb8487d3a6d5e))
+* remove unused hook ([137e7e1](https://github.com/Dashlane/ui-components/commit/137e7e1ce7f3a12e97f8458907e843bb86f62722))
+* reset placement to remove dropdown blinking ([4268232](https://github.com/Dashlane/ui-components/commit/426823254d7ddeeaf83b617c62622014574fe461))
+* simplify dropdown card ([f2335d0](https://github.com/Dashlane/ui-components/commit/f2335d071feeeadfbe5484177d92e392bea5362c))
+* tooltip opacity and out of container display ([c8291a0](https://github.com/Dashlane/ui-components/commit/c8291a02ba3b5484fd15131cad325f62ffdf9e67))
+* update CONTRIBUTING ([ba538cb](https://github.com/Dashlane/ui-components/commit/ba538cbef3da7393669b46d87d6e5da8202ca566))
+* use props placement rather than previous one ([37856be](https://github.com/Dashlane/ui-components/commit/37856beb56fbfe54e331fa8248ea21c01a80287f))
+
+
+### Features
+
+* add copy Icon ([f9d5e04](https://github.com/Dashlane/ui-components/commit/f9d5e049931d6cc7009919807ada504d4c9c94d7))
+* add docking options to menu ([294612f](https://github.com/Dashlane/ui-components/commit/294612f9268ac6820f2817e4e59a19239e8738c0))
+* add maxHeight as menu prop ([6cff630](https://github.com/Dashlane/ui-components/commit/6cff6308a8324434b56d370c38d561cf50533fbd))
+* add prop to display menu on the top ([66b06c7](https://github.com/Dashlane/ui-components/commit/66b06c7d225378c284e5f004db12985f3182588f))
+* add revoke, lock, unlock, tax icons ([f45879e](https://github.com/Dashlane/ui-components/commit/f45879eb14b7f8e28bd378d75f3da097c65355b2))
+* close dropdown on Click outside ([8ebbd0a](https://github.com/Dashlane/ui-components/commit/8ebbd0a174a5a3796b874e3b8f029bf44748a97d))
+* compute ideal dropdown position ([dc9775f](https://github.com/Dashlane/ui-components/commit/dc9775fec47def1e0095a28a5d19099dca5dd475))
+* creat qui actions menu component ([92800f8](https://github.com/Dashlane/ui-components/commit/92800f80faf584caadaf2a89a63a72341da44f47))
+* create dropdown menu ([c2b59d3](https://github.com/Dashlane/ui-components/commit/c2b59d3bc46253dbd13fc3ba80bdc7900bf0a1c1))
+* move dropdown controller outside of dropdown ([1940cf1](https://github.com/Dashlane/ui-components/commit/1940cf1db48ed048929201df607838694af5db09))
+* pass dropdown Element as children ([b940537](https://github.com/Dashlane/ui-components/commit/b94053749798efee697c78cd75a1ceb4d24735ba))
+* wip ([cf6ba70](https://github.com/Dashlane/ui-components/commit/cf6ba704cbbf716578266e1991a2ece7985f1f97))
+* **wip:** changing everything but nothing is working cd ui-componentscd ui-components ([ef349cc](https://github.com/Dashlane/ui-components/commit/ef349ccc3792361f6594dedd2e7ff8481e0c1829))
+* **wip:** put position computing in common ([7196892](https://github.com/Dashlane/ui-components/commit/7196892ca77dbb2579f7754bd5844024f9f256c2))
+
+# [1.3.0](https://github.com/Dashlane/ui-components/compare/v1.2.2...v1.3.0) (2020-02-24)
+
+
+### Bug Fixes
+
+* add icon in doc and fix icon-defs formatting ([f6f8056](https://github.com/Dashlane/ui-components/commit/f6f8056e5babde84fad0585b7ac57cbcc38fddfe))
+
+
+### Features
+
+* add open website icon ([7b10024](https://github.com/Dashlane/ui-components/commit/7b10024d997fab2547708d1d258bca68eef23217))
+
 ## [1.2.2](https://github.com/Dashlane/ui-components/compare/v1.2.1...v1.2.2) (2020-02-03)
 
 

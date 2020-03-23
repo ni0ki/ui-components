@@ -54,7 +54,7 @@ class ItemWithTooltip extends React.Component<
             type={item === 1 && this.state.itemOneClicked ? 'success' : 'info'}
             options={{
               tooltipMaxWidth: 150,
-              container: innerRef ? innerRef.current : null
+              container: innerRef
             }}
             title={this.getTitle()}
           >
@@ -92,7 +92,7 @@ class TooltipDemo extends React.Component<
         ref={this.ref}
         style={{
           height: '200px',
-          width: '40%',
+          width: '300px',
           padding: 0,
           overflow: 'hidden',
           overflowY: 'scroll'

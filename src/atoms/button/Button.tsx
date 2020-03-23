@@ -30,9 +30,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: 'small' | 'medium' | 'large';
 }
 
-const Button: React.FunctionComponent<Props> = (
-  props: Props
-): JSX.Element | null => {
+const Button: React.FunctionComponent<Props> = (props): JSX.Element | null => {
   const renderButtonByType = ({
     nature,
     ...props
